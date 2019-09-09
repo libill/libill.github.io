@@ -57,14 +57,29 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="libill的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程什么是事件？ 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。">
+<meta name="keywords" content="-TouchEvent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程">
+<meta property="og:url" content="http://yoursite.com/2019/09/09/android-touch-event/index.html">
 <meta property="og:site_name" content="libill的博客">
+<meta property="og:description" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程什么是事件？ 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_demo.png">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_false.png">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_false_flowchart.jpg">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_true.png">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_true_flowchart.jpg">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_viewgroup2_intercept_true.png">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_intercept_true.jpg">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_viewgroup2_touch_true.png">
+<meta property="og:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_intercept_touch_true.jpg">
+<meta property="og:updated_time" content="2019-09-09T01:25:30.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="libill的博客">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程">
+<meta name="twitter:description" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程什么是事件？ 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。">
+<meta name="twitter:image" content="http://libill.github.io/2019/09/09/TouchEvent/touch_event_demo.png">
+  <link rel="canonical" href="http://yoursite.com/2019/09/09/android-touch-event/">
 
 
 <script id="page.configurations">
@@ -73,7 +88,7 @@
   };
 </script>
 
-  <title>libill的博客</title>
+  <title>一文读懂 Android TouchEvent 事件分发、拦截、处理过程 | libill的博客</title>
   
 
 
@@ -112,7 +127,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <div class="container sidebar-position-right page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -145,7 +160,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
       
     
 
@@ -212,8 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
+
+  <div id="posts" class="posts-expand">
+    
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
@@ -234,10 +250,8 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/09/android-touch-event/" class="post-title-link" itemprop="url">一文读懂 Android TouchEvent 事件分发、拦截、处理过程</a>
+          <h1 class="post-title" itemprop="name headline">一文读懂 Android TouchEvent 事件分发、拦截、处理过程
+
               
             
           </h1>
@@ -275,8 +289,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="一文读懂-Android-TouchEvent-事件分发、拦截、处理过程"><a href="#一文读懂-Android-TouchEvent-事件分发、拦截、处理过程" class="headerlink" title="一文读懂 Android TouchEvent 事件分发、拦截、处理过程"></a>一文读懂 Android TouchEvent 事件分发、拦截、处理过程</h2><p>什么是事件？</p>
+        <h2 id="一文读懂-Android-TouchEvent-事件分发、拦截、处理过程"><a href="#一文读懂-Android-TouchEvent-事件分发、拦截、处理过程" class="headerlink" title="一文读懂 Android TouchEvent 事件分发、拦截、处理过程"></a>一文读懂 Android TouchEvent 事件分发、拦截、处理过程</h2><p>什么是事件？</p>
 <p>在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。</p>
 <p>先看几个类，主要是画出一个3个ViewGroup叠加的界面，并在事件分发、拦截、处理时打下Log.</p>
 <p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_demo.png" alt></p>
@@ -815,9 +828,6 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 <p>本文参考以下内容：</p>
 <p>1、《Android开发艺术探索》</p>
 
-          
-        
-      
     </div>
 
     
@@ -825,211 +835,25 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/debug-android-framework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="libill">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="libill的博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/06/debug-android-framework/" class="post-title-link" itemprop="url">如何debug android framework 源代码</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-06 16:27:14 / Modified: 17:14:31" itemprop="dateCreated datePublished" datetime="2019-08-06T16:27:14+08:00">2019-08-06</time>
-            </span>
           
-            
-
-            
+        
+        <div class="post-tags">
+            <a href="/tags/TouchEvent/" rel="tag"># -TouchEvent</a>
           
-
-          <br>
-
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。</p>
-<h3 id="一、下载源码"><a href="#一、下载源码" class="headerlink" title="一、下载源码"></a>一、下载源码</h3><p>下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg" alt></p>
-<p>下载完后，在sdk/sources下看到android-28源码</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/source_android_28.jpg" alt></p>
-<h3 id="二、新建一个项目"><a href="#二、新建一个项目" class="headerlink" title="二、新建一个项目"></a>二、新建一个项目</h3><p>包名cn.test.demo，避免com开头是因为源码有com，等下拷贝源码是避免重复</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/create_new_project.jpg" alt></p>
-<h3 id="三、拷贝源码到项目的java目录下"><a href="#三、拷贝源码到项目的java目录下" class="headerlink" title="三、拷贝源码到项目的java目录下"></a>三、拷贝源码到项目的java目录下</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/copy_sources.jpg" alt></p>
-<p>可以看到项目目录结构</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/project.jpg" alt></p>
-<h3 id="四、新建一个与源码对应的模拟器"><a href="#四、新建一个与源码对应的模拟器" class="headerlink" title="四、新建一个与源码对应的模拟器"></a>四、新建一个与源码对应的模拟器</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/avd_28.jpg" alt></p>
-<h3 id="五、启动模拟器，选择debug的进程"><a href="#五、启动模拟器，选择debug的进程" class="headerlink" title="五、启动模拟器，选择debug的进程"></a>五、启动模拟器，选择debug的进程</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/select_process.jpg" alt></p>
-<h3 id="六、选择某一个源码类进行调试"><a href="#六、选择某一个源码类进行调试" class="headerlink" title="六、选择某一个源码类进行调试"></a>六、选择某一个源码类进行调试</h3><p>如选择ActivityManagerService的子类UiHandler，handleMessage方法后，在模拟器随便点击启动应用，如短信，即可调试</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/debug_source.jpg" alt></p>
-<p>更多请参考<a href="https://time.geekbang.org/column/article/85425" target="_blank" rel="noopener">极客时间-Android开发高手课</a></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="libill">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="libill的博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/01/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/08/06/debug-android-framework/" rel="next" title="如何debug android framework 源代码">
+                <i class="fa fa-chevron-left"></i> 如何debug android framework 源代码
+              </a>
             
-          </h1>
-        
+          </div>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
+          <span class="post-nav-divider"></span>
 
-              
-                
-              
-
-              <time title="Created: 2019-08-01 16:58:19" itemprop="dateCreated datePublished" datetime="2019-08-01T16:58:19+08:00">2019-08-01</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-06 17:05:27" itemprop="dateModified" datetime="2019-08-06T17:05:27+08:00">2019-08-06</time>
-              </span>
-            
-          
-
-          <br>
-
+          <div class="post-nav-prev post-nav-item">
+          </div>
         </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
     </footer>
   </div>
   
@@ -1037,14 +861,12 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
   
   </article>
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
 
         </div>
           
@@ -1059,8 +881,17 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1104,6 +935,23 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一文读懂-Android-TouchEvent-事件分发、拦截、处理过程"><span class="nav-number">1.</span> <span class="nav-text">一文读懂 Android TouchEvent 事件分发、拦截、处理过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、通过打log分析事件分发"><span class="nav-number">1.1.</span> <span class="nav-text">一、通过打log分析事件分发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><span class="nav-number">1.1.1.</span> <span class="nav-text">一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、不拦截处理任何事件"><span class="nav-number">1.1.2.</span> <span class="nav-text">二、不拦截处理任何事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、ViewGroup2的dispatchTouchEvent返回true"><span class="nav-number">1.1.3.</span> <span class="nav-text">三、ViewGroup2的dispatchTouchEvent返回true</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、ViewGroup2的onInterceptTouchEvent返回true"><span class="nav-number">1.1.4.</span> <span class="nav-text">四、ViewGroup2的onInterceptTouchEvent返回true</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><span class="nav-number">1.1.5.</span> <span class="nav-text">五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、通过源码分析事件分发"><span class="nav-number">1.2.</span> <span class="nav-text">二、通过源码分析事件分发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、Activity的dispatchTouchEvent"><span class="nav-number">1.2.1.</span> <span class="nav-text">一、Activity的dispatchTouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、window的superDispatchTouchEvent"><span class="nav-number">1.2.2.</span> <span class="nav-text">二、window的superDispatchTouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、ViewGroup的dispatchTouchEvent"><span class="nav-number">1.2.3.</span> <span class="nav-text">三、ViewGroup的dispatchTouchEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-ViewGroup拦截事件的情况"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">3.1 ViewGroup拦截事件的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-ViewGroup不拦截事件的情况"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">3.2 ViewGroup不拦截事件的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-2-1-寻找可接收事件的子View"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">3.2.1 寻找可接收事件的子View</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-View处理点击事件的过程"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">3.3 View处理点击事件的过程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -1159,6 +1007,10 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.3.0"></script>
 
