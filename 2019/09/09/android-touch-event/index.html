@@ -57,13 +57,13 @@
   };
 </script>
 
-  <meta name="description" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程什么是事件？ 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。">
+  <meta name="description" content="什么是事件？事件是用户触摸手机屏幕，引起的一系列TouchEvent，包括ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_CANCEL等，这些action组合后变成点击事件、长按事件等。 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图">
 <meta name="keywords" content="TouchEvent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程">
 <meta property="og:url" content="http://yoursite.com/2019/09/09/android-touch-event/index.html">
 <meta property="og:site_name" content="libill的博客">
-<meta property="og:description" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程什么是事件？ 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。">
+<meta property="og:description" content="什么是事件？事件是用户触摸手机屏幕，引起的一系列TouchEvent，包括ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_CANCEL等，这些action组合后变成点击事件、长按事件等。 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png">
 <meta property="og:image" content="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false.png">
@@ -74,10 +74,10 @@
 <meta property="og:image" content="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_true.jpg">
 <meta property="og:image" content="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_touch_true.png">
 <meta property="og:image" content="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_touch_true.jpg">
-<meta property="og:updated_time" content="2019-09-09T01:35:50.931Z">
+<meta property="og:updated_time" content="2019-09-09T01:58:14.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程">
-<meta name="twitter:description" content="一文读懂 Android TouchEvent 事件分发、拦截、处理过程什么是事件？ 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。">
+<meta name="twitter:description" content="什么是事件？事件是用户触摸手机屏幕，引起的一系列TouchEvent，包括ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_CANCEL等，这些action组合后变成点击事件、长按事件等。 在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图">
 <meta name="twitter:image" content="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png">
   <link rel="canonical" href="http://yoursite.com/2019/09/09/android-touch-event/">
 
@@ -270,7 +270,7 @@
                 
               
 
-              <time title="Created: 2019-09-09 09:21:04 / Modified: 09:35:50" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
+              <time title="Created: 2019-09-09 09:21:04 / Modified: 09:58:14" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
             </span>
           
             
@@ -289,13 +289,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一文读懂-Android-TouchEvent-事件分发、拦截、处理过程"><a href="#一文读懂-Android-TouchEvent-事件分发、拦截、处理过程" class="headerlink" title="一文读懂 Android TouchEvent 事件分发、拦截、处理过程"></a>一文读懂 Android TouchEvent 事件分发、拦截、处理过程</h2><p>什么是事件？</p>
+        <p>什么是事件？事件是用户触摸手机屏幕，引起的一系列TouchEvent，包括ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_CANCEL等，这些action组合后变成点击事件、长按事件等。</p>
 <p>在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。</p>
 <p>先看几个类，主要是画出一个3个ViewGroup叠加的界面，并在事件分发、拦截、处理时打下Log.</p>
 <p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png" alt></p>
 <p>GitHub地址：<a href="https://github.com/libill/TouchEventDemo" target="_blank" rel="noopener">https://github.com/libill/TouchEventDemo</a></p>
-<h3 id="一、通过打log分析事件分发"><a href="#一、通过打log分析事件分发" class="headerlink" title="一、通过打log分析事件分发"></a>一、通过打log分析事件分发</h3><p>这里在一个Activity上添加三个ViewGroup来分析，这里值得注意的是Activity、View是没有onInterceptTouchEvent方法的。</p>
-<h4 id="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><a href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类" class="headerlink" title="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"></a>一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</h4><ol>
+<h2 id="一、通过打log分析事件分发"><a href="#一、通过打log分析事件分发" class="headerlink" title="一、通过打log分析事件分发"></a>一、通过打log分析事件分发</h2><p>这里在一个Activity上添加三个ViewGroup来分析，这里值得注意的是Activity、View是没有onInterceptTouchEvent方法的。</p>
+<h3 id="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><a href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类" class="headerlink" title="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"></a>一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</h3><ol>
 <li><p>activity_main.xml</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
     &lt;android.support.constraint.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
@@ -387,11 +387,11 @@ tools:context=&quot;com.touchevent.demo.MyActivity&quot;&gt;
         Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
         return superReturn;
     }
-}</code></pre><h4 id="二、不拦截处理任何事件"><a href="#二、不拦截处理任何事件" class="headerlink" title="二、不拦截处理任何事件"></a>二、不拦截处理任何事件</h4><p>添加没有拦截处理任何事件的代码，看看事件是怎么传递的，选择Info，查看Log.</p>
+}</code></pre><h3 id="二、不拦截处理任何事件"><a href="#二、不拦截处理任何事件" class="headerlink" title="二、不拦截处理任何事件"></a>二、不拦截处理任何事件</h3><p>添加没有拦截处理任何事件的代码，看看事件是怎么传递的，选择Info，查看Log.</p>
 <p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false.png" alt></p>
 <p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false_flowchart.jpg" alt></p>
 <p>从流程图可以看出，事件分发从Activity开始，然后分发到ViewGroup，在这个过程中，只要ViewGroup没有拦截处理，最后还是会回到Activity的onTouchEvent方法。</p>
-<h4 id="三、ViewGroup2的dispatchTouchEvent返回true"><a href="#三、ViewGroup2的dispatchTouchEvent返回true" class="headerlink" title="三、ViewGroup2的dispatchTouchEvent返回true"></a>三、ViewGroup2的dispatchTouchEvent返回true</h4><p>把ViewGroup2.java的dispatchTouchEvent修改一下，return 返回true使事件不在分发</p>
+<h3 id="三、ViewGroup2的dispatchTouchEvent返回true"><a href="#三、ViewGroup2的dispatchTouchEvent返回true" class="headerlink" title="三、ViewGroup2的dispatchTouchEvent返回true"></a>三、ViewGroup2的dispatchTouchEvent返回true</h3><p>把ViewGroup2.java的dispatchTouchEvent修改一下，return 返回true使事件不在分发</p>
 <pre><code>@Override
 public boolean dispatchTouchEvent(MotionEvent ev) {
  Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
@@ -401,7 +401,7 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
 <p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true.png" alt></p>
 <p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true_flowchart.jpg" alt></p>
 <p> 从图片可以看出，当ViewGroupon2的dispatchTouchEvent返回true后，事件不会再分发传送到ViewGroup3了，也不会分发到Activity的onTouchEvent了。而是事件到了ViewGroupon2的dispatchTouchEvent后，就停止了。dispatchTouchEvent返回true表示着事件不用再分发下去了。</p>
-<h4 id="四、ViewGroup2的onInterceptTouchEvent返回true"><a href="#四、ViewGroup2的onInterceptTouchEvent返回true" class="headerlink" title="四、ViewGroup2的onInterceptTouchEvent返回true"></a>四、ViewGroup2的onInterceptTouchEvent返回true</h4><p>把ViewGroup2.java的onInterceptTouchEvent修改一下，return 返回true把事件拦截了</p>
+<h3 id="四、ViewGroup2的onInterceptTouchEvent返回true"><a href="#四、ViewGroup2的onInterceptTouchEvent返回true" class="headerlink" title="四、ViewGroup2的onInterceptTouchEvent返回true"></a>四、ViewGroup2的onInterceptTouchEvent返回true</h3><p>把ViewGroup2.java的onInterceptTouchEvent修改一下，return 返回true把事件拦截了</p>
 <pre><code>@Override
 public boolean dispatchTouchEvent(MotionEvent ev) {
     Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
@@ -418,7 +418,7 @@ public boolean onInterceptTouchEvent(MotionEvent ev) {
 }</code></pre><p>此时的Log</p>
 <p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_intercept_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_true.jpg" alt></p>
 <p>可以看出ViewGroup2拦截了事件，就不会继续分发到ViewGroup3；而且ViewGroup3拦截了事件又不处理事件，会把事件传递到Activity的onTouchEvent方法。</p>
-<h4 id="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><a href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true" class="headerlink" title="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"></a>五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</h4><p>把ViewGroup2.java的onTouchEvent修改一下，return 返回true把事件处理了</p>
+<h3 id="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><a href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true" class="headerlink" title="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"></a>五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</h3><p>把ViewGroup2.java的onTouchEvent修改一下，return 返回true把事件处理了</p>
 <pre><code>@Override
 public boolean onInterceptTouchEvent(MotionEvent ev) {
     Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
@@ -434,7 +434,7 @@ public boolean onTouchEvent(MotionEvent ev) {
 }</code></pre><p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_touch_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_touch_true.jpg" alt></p>
 <p>从流程可以总结出，当ViewGroup2的onInterceptTouchEvent、onTouchEvent都返回true时，事件最终会走到ViewGroup2的onTouchEvent方法处理事件，后续的事件都会走到这里来。</p>
 <p>上面通过log分析很清楚了，是不是就这样够了？其实还不行，还要从源码的角度去分析下，为什么事件会这样分发。</p>
-<h3 id="二、通过源码分析事件分发"><a href="#二、通过源码分析事件分发" class="headerlink" title="二、通过源码分析事件分发"></a>二、通过源码分析事件分发</h3><h4 id="一、Activity的dispatchTouchEvent"><a href="#一、Activity的dispatchTouchEvent" class="headerlink" title="一、Activity的dispatchTouchEvent"></a>一、Activity的dispatchTouchEvent</h4><p>先看看Activity下的dispatchTouchEvent</p>
+<h2 id="二、通过源码分析事件分发"><a href="#二、通过源码分析事件分发" class="headerlink" title="二、通过源码分析事件分发"></a>二、通过源码分析事件分发</h2><h3 id="一、Activity的dispatchTouchEvent"><a href="#一、Activity的dispatchTouchEvent" class="headerlink" title="一、Activity的dispatchTouchEvent"></a>一、Activity的dispatchTouchEvent</h3><p>先看看Activity下的dispatchTouchEvent</p>
 <pre><code>public boolean dispatchTouchEvent(MotionEvent ev) {
     if (ev.getAction() == MotionEvent.ACTION_DOWN) {
         onUserInteraction();
@@ -454,7 +454,7 @@ public boolean onTouchEvent(MotionEvent ev) {
 <li><p>调用Activity的onTouchEvent方法，进入这个条件的方法是window的superDispatchTouchEvent方法返回false。从上面的分析（二、不拦截处理任何事件）可以知道，所有子View的dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent都返回false时会调动Activity的onTouchEvent方法，这个时候也是使window的superDispatchTouchEvent方法返回false成立。</p>
 </li>
 </ol>
-<h4 id="二、window的superDispatchTouchEvent"><a href="#二、window的superDispatchTouchEvent" class="headerlink" title="二、window的superDispatchTouchEvent"></a>二、window的superDispatchTouchEvent</h4><p>Activity的getWindow方法</p>
+<h3 id="二、window的superDispatchTouchEvent"><a href="#二、window的superDispatchTouchEvent" class="headerlink" title="二、window的superDispatchTouchEvent"></a>二、window的superDispatchTouchEvent</h3><p>Activity的getWindow方法</p>
 <pre><code>public Window getWindow() {
     return mWindow;
 }</code></pre><p>mWindow是如何赋值的？<br>是在Activity的attach方法赋值的，其实mWindow是PhoneWindow。</p>
@@ -486,7 +486,7 @@ public boolean superDispatchTouchEvent(MotionEvent event) {
 <pre><code>public boolean superDispatchTouchEvent(MotionEvent event) {
     return super.dispatchTouchEvent(event);
 }</code></pre><p>而mDecor是一个继承FrameLayout的DecorView，就这样把事件分发到ViewGroup上了。</p>
-<h4 id="三、ViewGroup的dispatchTouchEvent"><a href="#三、ViewGroup的dispatchTouchEvent" class="headerlink" title="三、ViewGroup的dispatchTouchEvent"></a>三、ViewGroup的dispatchTouchEvent</h4><h5 id="3-1-ViewGroup拦截事件的情况"><a href="#3-1-ViewGroup拦截事件的情况" class="headerlink" title="3.1 ViewGroup拦截事件的情况"></a>3.1 ViewGroup拦截事件的情况</h5><pre><code>// Check for interception.
+<h3 id="三、ViewGroup的dispatchTouchEvent"><a href="#三、ViewGroup的dispatchTouchEvent" class="headerlink" title="三、ViewGroup的dispatchTouchEvent"></a>三、ViewGroup的dispatchTouchEvent</h3><h4 id="3-1-ViewGroup拦截事件的情况"><a href="#3-1-ViewGroup拦截事件的情况" class="headerlink" title="3.1 ViewGroup拦截事件的情况"></a>3.1 ViewGroup拦截事件的情况</h4><pre><code>// Check for interception.
 final boolean intercepted;
 if (actionMasked == MotionEvent.ACTION_DOWN
         || mFirstTouchTarget != null) {
@@ -526,7 +526,7 @@ private void resetTouchState() {
     mGroupFlags &amp;= ~FLAG_DISALLOW_INTERCEPT;
     mNestedScrollAxes = SCROLL_AXIS_NONE;
 }</code></pre><p>通过源码可以了解到，ViewGroup拦截事件后，不再调用onInterceptTouchEvent，而是直接交给mFirstTouchTarget的onTouchEvent处理,如果该onTouchEvent不处理最终会交给Activity的onTouchEvent。</p>
-<h5 id="3-2-ViewGroup不拦截事件的情况"><a href="#3-2-ViewGroup不拦截事件的情况" class="headerlink" title="3.2 ViewGroup不拦截事件的情况"></a>3.2 ViewGroup不拦截事件的情况</h5><p>ViewGroup不拦截事件时，会遍历子View，使事件分发到子View进行处理。</p>
+<h4 id="3-2-ViewGroup不拦截事件的情况"><a href="#3-2-ViewGroup不拦截事件的情况" class="headerlink" title="3.2 ViewGroup不拦截事件的情况"></a>3.2 ViewGroup不拦截事件的情况</h4><p>ViewGroup不拦截事件时，会遍历子View，使事件分发到子View进行处理。</p>
 <pre><code>final View[] children = mChildren;
 for (int i = childrenCount - 1; i &gt;= 0; i--) {
     final int childIndex = getAndVerifyPreorderedIndex(
@@ -581,7 +581,7 @@ for (int i = childrenCount - 1; i &gt;= 0; i--) {
         alreadyDispatchedToNewTouchTarget = true;
         break;
     }
-}</code></pre><h6 id="3-2-1-寻找可接收事件的子View"><a href="#3-2-1-寻找可接收事件的子View" class="headerlink" title="3.2.1 寻找可接收事件的子View"></a>3.2.1 寻找可接收事件的子View</h6><p>通过canViewReceivePointerEvents判断子View是否能够接收到点击事件。必须符合2种情况，缺一不可：1、点击事件的坐标落在在子View的区域内；2、子View没有正在播放动画。满足条件后，调用dispatchTransformedTouchEvent，其实也是调用子View的dispatchTouchEvent。</p>
+}</code></pre><h5 id="3-2-1-寻找可接收事件的子View"><a href="#3-2-1-寻找可接收事件的子View" class="headerlink" title="3.2.1 寻找可接收事件的子View"></a>3.2.1 寻找可接收事件的子View</h5><p>通过canViewReceivePointerEvents判断子View是否能够接收到点击事件。必须符合2种情况，缺一不可：1、点击事件的坐标落在在子View的区域内；2、子View没有正在播放动画。满足条件后，调用dispatchTransformedTouchEvent，其实也是调用子View的dispatchTouchEvent。</p>
 <pre><code>private static boolean canViewReceivePointerEvents(@NonNull View child) {
     return (child.mViewFlags &amp; VISIBILITY_MASK) == VISIBLE
             || child.getAnimation() != null;
@@ -643,13 +643,12 @@ break;</code></pre><p>在addTouchTarget方法赋值mFirstTouchTarget。</p>
     target.next = mFirstTouchTarget;
     mFirstTouchTarget = target;
     return target;
-}</code></pre><p>######3.2.2 ViewGroup自己处理事件 </p>
-<p>另一种情况是mFirstTouchTarget为空时，ViewGroup自己处理事件，这里注意第三个参数为null，ViewGroup的super.dispatchTouchEvent将调用View的dispatchTouchEvent。</p>
+}</code></pre><h5 id="3-2-2-ViewGroup自己处理事件"><a href="#3-2-2-ViewGroup自己处理事件" class="headerlink" title="3.2.2 ViewGroup自己处理事件"></a>3.2.2 ViewGroup自己处理事件</h5><p>另一种情况是mFirstTouchTarget为空时，ViewGroup自己处理事件，这里注意第三个参数为null，ViewGroup的super.dispatchTouchEvent将调用View的dispatchTouchEvent。</p>
 <pre><code>if (mFirstTouchTarget == null) {
     // No touch targets so treat this as an ordinary view.
     handled = dispatchTransformedTouchEvent(ev, canceled, null,
             TouchTarget.ALL_POINTER_IDS);
-}</code></pre><h5 id="3-3-View处理点击事件的过程"><a href="#3-3-View处理点击事件的过程" class="headerlink" title="3.3 View处理点击事件的过程"></a>3.3 View处理点击事件的过程</h5><p>View的dispatchTouchEvent是怎么处理事件的呢？</p>
+}</code></pre><h4 id="3-3-View处理点击事件的过程"><a href="#3-3-View处理点击事件的过程" class="headerlink" title="3.3 View处理点击事件的过程"></a>3.3 View处理点击事件的过程</h4><p>View的dispatchTouchEvent是怎么处理事件的呢？</p>
 <pre><code>public boolean dispatchTouchEvent(MotionEvent event) {
     boolean result = false;
     ...
@@ -922,8 +921,6 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
         
           
         
-          
-        
         <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
         </a>
@@ -945,7 +942,7 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一文读懂-Android-TouchEvent-事件分发、拦截、处理过程"><span class="nav-number">1.</span> <span class="nav-text">一文读懂 Android TouchEvent 事件分发、拦截、处理过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、通过打log分析事件分发"><span class="nav-number">1.1.</span> <span class="nav-text">一、通过打log分析事件分发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><span class="nav-number">1.1.1.</span> <span class="nav-text">一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、不拦截处理任何事件"><span class="nav-number">1.1.2.</span> <span class="nav-text">二、不拦截处理任何事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、ViewGroup2的dispatchTouchEvent返回true"><span class="nav-number">1.1.3.</span> <span class="nav-text">三、ViewGroup2的dispatchTouchEvent返回true</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、ViewGroup2的onInterceptTouchEvent返回true"><span class="nav-number">1.1.4.</span> <span class="nav-text">四、ViewGroup2的onInterceptTouchEvent返回true</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><span class="nav-number">1.1.5.</span> <span class="nav-text">五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、通过源码分析事件分发"><span class="nav-number">1.2.</span> <span class="nav-text">二、通过源码分析事件分发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、Activity的dispatchTouchEvent"><span class="nav-number">1.2.1.</span> <span class="nav-text">一、Activity的dispatchTouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、window的superDispatchTouchEvent"><span class="nav-number">1.2.2.</span> <span class="nav-text">二、window的superDispatchTouchEvent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、ViewGroup的dispatchTouchEvent"><span class="nav-number">1.2.3.</span> <span class="nav-text">三、ViewGroup的dispatchTouchEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-ViewGroup拦截事件的情况"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">3.1 ViewGroup拦截事件的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-ViewGroup不拦截事件的情况"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">3.2 ViewGroup不拦截事件的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#3-2-1-寻找可接收事件的子View"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">3.2.1 寻找可接收事件的子View</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-3-View处理点击事件的过程"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">3.3 View处理点击事件的过程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、通过打log分析事件分发"><span class="nav-number">1.</span> <span class="nav-text">一、通过打log分析事件分发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><span class="nav-number">1.1.</span> <span class="nav-text">一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、不拦截处理任何事件"><span class="nav-number">1.2.</span> <span class="nav-text">二、不拦截处理任何事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、ViewGroup2的dispatchTouchEvent返回true"><span class="nav-number">1.3.</span> <span class="nav-text">三、ViewGroup2的dispatchTouchEvent返回true</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、ViewGroup2的onInterceptTouchEvent返回true"><span class="nav-number">1.4.</span> <span class="nav-text">四、ViewGroup2的onInterceptTouchEvent返回true</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><span class="nav-number">1.5.</span> <span class="nav-text">五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、通过源码分析事件分发"><span class="nav-number">2.</span> <span class="nav-text">二、通过源码分析事件分发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Activity的dispatchTouchEvent"><span class="nav-number">2.1.</span> <span class="nav-text">一、Activity的dispatchTouchEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、window的superDispatchTouchEvent"><span class="nav-number">2.2.</span> <span class="nav-text">二、window的superDispatchTouchEvent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、ViewGroup的dispatchTouchEvent"><span class="nav-number">2.3.</span> <span class="nav-text">三、ViewGroup的dispatchTouchEvent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-ViewGroup拦截事件的情况"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 ViewGroup拦截事件的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-ViewGroup不拦截事件的情况"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 ViewGroup不拦截事件的情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-1-寻找可接收事件的子View"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">3.2.1 寻找可接收事件的子View</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-2-ViewGroup自己处理事件"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">3.2.2 ViewGroup自己处理事件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-View处理点击事件的过程"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.3 View处理点击事件的过程</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
