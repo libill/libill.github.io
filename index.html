@@ -256,7 +256,7 @@
                 
               
 
-              <time title="Created: 2019-09-09 09:21:04 / Modified: 09:25:30" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
+              <time title="Created: 2019-09-09 09:21:04 / Modified: 09:35:50" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
             </span>
           
             
@@ -279,7 +279,7 @@
             <h2 id="一文读懂-Android-TouchEvent-事件分发、拦截、处理过程"><a href="#一文读懂-Android-TouchEvent-事件分发、拦截、处理过程" class="headerlink" title="一文读懂 Android TouchEvent 事件分发、拦截、处理过程"></a>一文读懂 Android TouchEvent 事件分发、拦截、处理过程</h2><p>什么是事件？</p>
 <p>在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。</p>
 <p>先看几个类，主要是画出一个3个ViewGroup叠加的界面，并在事件分发、拦截、处理时打下Log.</p>
-<p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_demo.png" alt></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png" alt></p>
 <p>GitHub地址：<a href="https://github.com/libill/TouchEventDemo" target="_blank" rel="noopener">https://github.com/libill/TouchEventDemo</a></p>
 <h3 id="一、通过打log分析事件分发"><a href="#一、通过打log分析事件分发" class="headerlink" title="一、通过打log分析事件分发"></a>一、通过打log分析事件分发</h3><p>这里在一个Activity上添加三个ViewGroup来分析，这里值得注意的是Activity、View是没有onInterceptTouchEvent方法的。</p>
 <h4 id="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><a href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类" class="headerlink" title="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"></a>一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</h4><ol>
@@ -375,8 +375,8 @@ tools:context=&quot;com.touchevent.demo.MyActivity&quot;&gt;
         return superReturn;
     }
 }</code></pre><h4 id="二、不拦截处理任何事件"><a href="#二、不拦截处理任何事件" class="headerlink" title="二、不拦截处理任何事件"></a>二、不拦截处理任何事件</h4><p>添加没有拦截处理任何事件的代码，看看事件是怎么传递的，选择Info，查看Log.</p>
-<p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_false.png" alt></p>
-<p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_false_flowchart.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false.png" alt></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false_flowchart.jpg" alt></p>
 <p>从流程图可以看出，事件分发从Activity开始，然后分发到ViewGroup，在这个过程中，只要ViewGroup没有拦截处理，最后还是会回到Activity的onTouchEvent方法。</p>
 <h4 id="三、ViewGroup2的dispatchTouchEvent返回true"><a href="#三、ViewGroup2的dispatchTouchEvent返回true" class="headerlink" title="三、ViewGroup2的dispatchTouchEvent返回true"></a>三、ViewGroup2的dispatchTouchEvent返回true</h4><p>把ViewGroup2.java的dispatchTouchEvent修改一下，return 返回true使事件不在分发</p>
 <pre><code>@Override
@@ -385,8 +385,8 @@ public boolean dispatchTouchEvent(MotionEvent ev) {
  Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
  return true;
 }</code></pre><p>此时的Log</p>
-<p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_true.png" alt></p>
-<p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_dispatch_true_flowchart.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true.png" alt></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true_flowchart.jpg" alt></p>
 <p> 从图片可以看出，当ViewGroupon2的dispatchTouchEvent返回true后，事件不会再分发传送到ViewGroup3了，也不会分发到Activity的onTouchEvent了。而是事件到了ViewGroupon2的dispatchTouchEvent后，就停止了。dispatchTouchEvent返回true表示着事件不用再分发下去了。</p>
 <h4 id="四、ViewGroup2的onInterceptTouchEvent返回true"><a href="#四、ViewGroup2的onInterceptTouchEvent返回true" class="headerlink" title="四、ViewGroup2的onInterceptTouchEvent返回true"></a>四、ViewGroup2的onInterceptTouchEvent返回true</h4><p>把ViewGroup2.java的onInterceptTouchEvent修改一下，return 返回true把事件拦截了</p>
 <pre><code>@Override
@@ -403,7 +403,7 @@ public boolean onInterceptTouchEvent(MotionEvent ev) {
     Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
     return true;
 }</code></pre><p>此时的Log</p>
-<p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_viewgroup2_intercept_true.png" alt><br><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_intercept_true.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_intercept_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_true.jpg" alt></p>
 <p>可以看出ViewGroup2拦截了事件，就不会继续分发到ViewGroup3；而且ViewGroup3拦截了事件又不处理事件，会把事件传递到Activity的onTouchEvent方法。</p>
 <h4 id="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><a href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true" class="headerlink" title="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"></a>五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</h4><p>把ViewGroup2.java的onTouchEvent修改一下，return 返回true把事件处理了</p>
 <pre><code>@Override
@@ -418,7 +418,7 @@ public boolean onTouchEvent(MotionEvent ev) {
     Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
     Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
     return true;
-}</code></pre><p><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_viewgroup2_touch_true.png" alt><br><img src="http://libill.github.io/2019/09/09/TouchEvent/touch_event_intercept_touch_true.jpg" alt></p>
+}</code></pre><p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_touch_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_touch_true.jpg" alt></p>
 <p>从流程可以总结出，当ViewGroup2的onInterceptTouchEvent、onTouchEvent都返回true时，事件最终会走到ViewGroup2的onTouchEvent方法处理事件，后续的事件都会走到这里来。</p>
 <p>上面通过log分析很清楚了，是不是就这样够了？其实还不行，还要从源码的角度去分析下，为什么事件会这样分发。</p>
 <h3 id="二、通过源码分析事件分发"><a href="#二、通过源码分析事件分发" class="headerlink" title="二、通过源码分析事件分发"></a>二、通过源码分析事件分发</h3><h4 id="一、Activity的dispatchTouchEvent"><a href="#一、Activity的dispatchTouchEvent" class="headerlink" title="一、Activity的dispatchTouchEvent"></a>一、Activity的dispatchTouchEvent</h4><p>先看看Activity下的dispatchTouchEvent</p>
@@ -932,112 +932,6 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="libill">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="libill的博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/01/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-08-01 16:58:19" itemprop="dateCreated datePublished" datetime="2019-08-01T16:58:19+08:00">2019-08-01</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-08-06 17:05:27" itemprop="dateModified" datetime="2019-08-06T17:05:27+08:00">2019-08-06</time>
-              </span>
-            
-          
-
-          <br>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1072,7 +966,7 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1093,7 +987,7 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
         
           
         
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
