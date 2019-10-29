@@ -58,28 +58,37 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="libill的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="什么是插件化？ 插件化包括宿主和插件2部分。把需要实现的模块或功能独立的提取出来，比如相册，每个模块相当于一个独立的apk，这个apk就是一个插件。有一个加载相册插件apk的App叫做宿主，宿主是一个普通的App，但包含了加载插件apk的功能，使得插件apk正常运行。插件化可以减少宿主App的规模，可以把插件apk放到服务器上，当需要使用到相应的功能时再去加载相应的插件apk。宿主和插件都有各自的">
+<meta name="keywords" content="插件化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解VirtualApk插件化">
+<meta property="og:url" content="http://yoursite.com/2019/10/29/learn-virtualapk/index.html">
 <meta property="og:site_name" content="libill的博客">
+<meta property="og:description" content="什么是插件化？ 插件化包括宿主和插件2部分。把需要实现的模块或功能独立的提取出来，比如相册，每个模块相当于一个独立的apk，这个apk就是一个插件。有一个加载相册插件apk的App叫做宿主，宿主是一个普通的App，但包含了加载插件apk的功能，使得插件apk正常运行。插件化可以减少宿主App的规模，可以把插件apk放到服务器上，当需要使用到相应的功能时再去加载相应的插件apk。宿主和插件都有各自的">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://libill.github.io/2019/10/29/learn-virtualapk/handleMessage.png">
+<meta property="og:image" content="http://libill.github.io/2019/10/29/learn-virtualapk/stubActivity_Action.png">
+<meta property="og:image" content="http://libill.github.io/2019/10/29/learn-virtualapk/stubActivity.png">
+<meta property="og:updated_time" content="2019-10-29T06:44:26.763Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="libill的博客">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="深入理解VirtualApk插件化">
+<meta name="twitter:description" content="什么是插件化？ 插件化包括宿主和插件2部分。把需要实现的模块或功能独立的提取出来，比如相册，每个模块相当于一个独立的apk，这个apk就是一个插件。有一个加载相册插件apk的App叫做宿主，宿主是一个普通的App，但包含了加载插件apk的功能，使得插件apk正常运行。插件化可以减少宿主App的规模，可以把插件apk放到服务器上，当需要使用到相应的功能时再去加载相应的插件apk。宿主和插件都有各自的">
+<meta name="twitter:image" content="http://libill.github.io/2019/10/29/learn-virtualapk/handleMessage.png">
+  <link rel="canonical" href="http://yoursite.com/2019/10/29/learn-virtualapk/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>libill的博客</title>
+  <title>深入理解VirtualApk插件化 | libill的博客</title>
   
 
 
@@ -222,12 +231,13 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block home">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/learn-virtualapk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -240,9 +250,8 @@
       <meta itemprop="name" content="libill的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/29/learn-virtualapk/" class="post-title-link" itemprop="url">深入理解VirtualApk插件化</a>
+        <h2 class="post-title" itemprop="name headline">深入理解VirtualApk插件化
+
           
         </h2>
 
@@ -266,6 +275,14 @@
           
 
           
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
         </div>
       </header>
@@ -276,7 +293,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>什么是插件化？</p>
+        <p>什么是插件化？</p>
 <p>插件化包括宿主和插件2部分。把需要实现的模块或功能独立的提取出来，比如相册，每个模块相当于一个独立的apk，这个apk就是一个插件。有一个加载相册插件apk的App叫做宿主，宿主是一个普通的App，但包含了加载插件apk的功能，使得插件apk正常运行。插件化可以减少宿主App的规模，可以把插件apk放到服务器上，当需要使用到相应的功能时再去加载相应的插件apk。宿主和插件都有各自的包名和版本号，包名可以区别宿主和各个插件，版本号可用于宿主和插件的升级。</p>
 <p>简单介绍下VirtualAPK</p>
 <p>VirtualAPK对插件没有额外的约束，原生的apk即可作为插件。插件工程编译生成apk后，即可通过宿主App加载，每个插件apk被加载后，都会在宿主中创建一个单独的LoadedPlugin对象。如下图所示，通过这些LoadedPlugin对象，VirtualAPK就可以管理插件并赋予插件新的意义，使其可以像手机中安装过的App一样运行。</p>
@@ -1015,723 +1032,52 @@ private static Resources createResourcesForN(Context context, String packageName
 
     return newResources;
 }</code></pre>
-        
-      
     </div>
 
     
     
     
+        
+      
+
       <footer class="post-footer">
-          <div class="post-eof"></div>
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/插件化/" rel="tag"># 插件化</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/09/android-touch-event/" rel="next" title="一文读懂 Android TouchEvent 事件分发、拦截、处理过程">
+                  <i class="fa fa-chevron-left"></i> 一文读懂 Android TouchEvent 事件分发、拦截、处理过程
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/android-touch-event/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="libill">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="libill的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/android-touch-event/" class="post-title-link" itemprop="url">一文读懂 Android TouchEvent 事件分发、拦截、处理过程</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-09-09 09:21:04 / Modified: 09:58:14" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>什么是事件？事件是用户触摸手机屏幕，引起的一系列TouchEvent，包括ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_CANCEL等，这些action组合后变成点击事件、长按事件等。</p>
-<p>在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。</p>
-<p>先看几个类，主要是画出一个3个ViewGroup叠加的界面，并在事件分发、拦截、处理时打下Log.</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png" alt></p>
-<p>GitHub地址：<a href="https://github.com/libill/TouchEventDemo" target="_blank" rel="noopener">https://github.com/libill/TouchEventDemo</a></p>
-<h2 id="一、通过打log分析事件分发"><a href="#一、通过打log分析事件分发" class="headerlink" title="一、通过打log分析事件分发"></a>一、通过打log分析事件分发</h2><p>这里在一个Activity上添加三个ViewGroup来分析，这里值得注意的是Activity、View是没有onInterceptTouchEvent方法的。</p>
-<h3 id="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><a href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类" class="headerlink" title="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"></a>一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</h3><ol>
-<li><p>activity_main.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-    &lt;android.support.constraint.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-android:layout_width=&quot;match_parent&quot;
-android:layout_height=&quot;match_parent&quot;
-tools:context=&quot;com.touchevent.demo.MyActivity&quot;&gt;
-    &lt;com.touchevent.demo.ViewGroup1
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:background=&quot;@color/colorAccent&quot;&gt;
-    &lt;com.touchevent.demo.ViewGroup2
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;match_parent&quot;
-        android:layout_margin=&quot;50dp&quot;
-        android:background=&quot;@color/colorPrimary&quot;&gt;
-        &lt;com.touchevent.demo.ViewGroup3
-            android:layout_width=&quot;match_parent&quot;
-            android:layout_height=&quot;match_parent&quot;
-            android:layout_margin=&quot;50dp&quot;
-            android:background=&quot;@color/colorPrimaryDark&quot;&gt;
-        &lt;/com.touchevent.demo.ViewGroup3&gt;
-    &lt;/com.touchevent.demo.ViewGroup2&gt;
-    &lt;/com.touchevent.demo.ViewGroup1&gt;
-&lt;/android.support.constraint.ConstraintLayout&gt;  </code></pre></li>
-</ol>
-<ol>
-<li>主界面：MainActivity.java</li>
-</ol>
-<pre><code>public class MyActivity extends AppCompatActivity {
-    private final static String TAG = MyActivity.class.getName();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.dispatchTouchEvent(ev);
-        Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.onTouchEvent(ev);
-        Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-}</code></pre><ol>
-<li>三个ViewGroup，里面的代码完全一样:ViewGroup1.java，ViewGroup2.java，ViewGroup3.java。由于代码一样所以只贴其中一个类。</li>
-</ol>
-<pre><code>public class ViewGroup1 extends LinearLayout {
-    private final static String TAG = ViewGroup1.class.getName();
-
-    public ViewGroup1(Context context) {
-        super(context);
-    }
-
-    public ViewGroup1(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.dispatchTouchEvent(ev);
-        Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.onInterceptTouchEvent(ev);
-        Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.onTouchEvent(ev);
-        Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-}</code></pre><h3 id="二、不拦截处理任何事件"><a href="#二、不拦截处理任何事件" class="headerlink" title="二、不拦截处理任何事件"></a>二、不拦截处理任何事件</h3><p>添加没有拦截处理任何事件的代码，看看事件是怎么传递的，选择Info，查看Log.</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false.png" alt></p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false_flowchart.jpg" alt></p>
-<p>从流程图可以看出，事件分发从Activity开始，然后分发到ViewGroup，在这个过程中，只要ViewGroup没有拦截处理，最后还是会回到Activity的onTouchEvent方法。</p>
-<h3 id="三、ViewGroup2的dispatchTouchEvent返回true"><a href="#三、ViewGroup2的dispatchTouchEvent返回true" class="headerlink" title="三、ViewGroup2的dispatchTouchEvent返回true"></a>三、ViewGroup2的dispatchTouchEvent返回true</h3><p>把ViewGroup2.java的dispatchTouchEvent修改一下，return 返回true使事件不在分发</p>
-<pre><code>@Override
-public boolean dispatchTouchEvent(MotionEvent ev) {
- Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
- Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
- return true;
-}</code></pre><p>此时的Log</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true.png" alt></p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true_flowchart.jpg" alt></p>
-<p> 从图片可以看出，当ViewGroupon2的dispatchTouchEvent返回true后，事件不会再分发传送到ViewGroup3了，也不会分发到Activity的onTouchEvent了。而是事件到了ViewGroupon2的dispatchTouchEvent后，就停止了。dispatchTouchEvent返回true表示着事件不用再分发下去了。</p>
-<h3 id="四、ViewGroup2的onInterceptTouchEvent返回true"><a href="#四、ViewGroup2的onInterceptTouchEvent返回true" class="headerlink" title="四、ViewGroup2的onInterceptTouchEvent返回true"></a>四、ViewGroup2的onInterceptTouchEvent返回true</h3><p>把ViewGroup2.java的onInterceptTouchEvent修改一下，return 返回true把事件拦截了</p>
-<pre><code>@Override
-public boolean dispatchTouchEvent(MotionEvent ev) {
-    Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
-    boolean superReturn = super.dispatchTouchEvent(ev);
-    Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-    return superReturn;
-}
-
-@Override
-public boolean onInterceptTouchEvent(MotionEvent ev) {
-    Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
-    Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
-    return true;
-}</code></pre><p>此时的Log</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_intercept_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_true.jpg" alt></p>
-<p>可以看出ViewGroup2拦截了事件，就不会继续分发到ViewGroup3；而且ViewGroup3拦截了事件又不处理事件，会把事件传递到Activity的onTouchEvent方法。</p>
-<h3 id="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><a href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true" class="headerlink" title="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"></a>五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</h3><p>把ViewGroup2.java的onTouchEvent修改一下，return 返回true把事件处理了</p>
-<pre><code>@Override
-public boolean onInterceptTouchEvent(MotionEvent ev) {
-    Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
-    Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
-    return true;
-}
-
-@Override
-public boolean onTouchEvent(MotionEvent ev) {
-    Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
-    Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
-    return true;
-}</code></pre><p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_touch_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_touch_true.jpg" alt></p>
-<p>从流程可以总结出，当ViewGroup2的onInterceptTouchEvent、onTouchEvent都返回true时，事件最终会走到ViewGroup2的onTouchEvent方法处理事件，后续的事件都会走到这里来。</p>
-<p>上面通过log分析很清楚了，是不是就这样够了？其实还不行，还要从源码的角度去分析下，为什么事件会这样分发。</p>
-<h2 id="二、通过源码分析事件分发"><a href="#二、通过源码分析事件分发" class="headerlink" title="二、通过源码分析事件分发"></a>二、通过源码分析事件分发</h2><h3 id="一、Activity的dispatchTouchEvent"><a href="#一、Activity的dispatchTouchEvent" class="headerlink" title="一、Activity的dispatchTouchEvent"></a>一、Activity的dispatchTouchEvent</h3><p>先看看Activity下的dispatchTouchEvent</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent ev) {
-    if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-        onUserInteraction();
-    }
-    if (getWindow().superDispatchTouchEvent(ev)) {
-        return true;
-    }
-    return onTouchEvent(ev);
-}</code></pre><p>onUserInteraction方法</p>
-<pre><code>public void onUserInteraction() {
-}</code></pre><p>从代码可以了解</p>
-<ol>
-<li><p>调用Activity的onUserInteraction方法,action为down时会进去onUserInteraction方法，但是这个是空方法不做任何事情，可以忽略。</p>
-</li>
-<li><p>调用window的superDispatchTouchEvent方法，返回true时事件分发处理结束，否则会调用Activity的onTouchEvent方法。</p>
-</li>
-<li><p>调用Activity的onTouchEvent方法，进入这个条件的方法是window的superDispatchTouchEvent方法返回false。从上面的分析（二、不拦截处理任何事件）可以知道，所有子View的dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent都返回false时会调动Activity的onTouchEvent方法，这个时候也是使window的superDispatchTouchEvent方法返回false成立。</p>
-</li>
-</ol>
-<h3 id="二、window的superDispatchTouchEvent"><a href="#二、window的superDispatchTouchEvent" class="headerlink" title="二、window的superDispatchTouchEvent"></a>二、window的superDispatchTouchEvent</h3><p>Activity的getWindow方法</p>
-<pre><code>public Window getWindow() {
-    return mWindow;
-}</code></pre><p>mWindow是如何赋值的？<br>是在Activity的attach方法赋值的，其实mWindow是PhoneWindow。</p>
-<p>Activity的attach方法</p>
-<pre><code>final void attach(Context context, ActivityThread aThread,
-        Instrumentation instr, IBinder token, int ident,
-        Application application, Intent intent, ActivityInfo info,
-        CharSequence title, Activity parent, String id,
-        NonConfigurationInstances lastNonConfigurationInstances,
-        Configuration config, String referrer, IVoiceInteractor voiceInteractor,
-        Window window, ActivityConfigCallback activityConfigCallback) {
-    attachBaseContext(context);
-
-    mFragments.attachHost(null /*parent*/);
-
-    mWindow = new PhoneWindow(this, window, activityConfigCallback);
-    mWindow.setWindowControllerCallback(this);
-    mWindow.setCallback(this);
-    mWindow.setOnWindowDismissedCallback(this);
-    mWindow.getLayoutInflater().setPrivateFactory(this);
-    ...
-}</code></pre><p>PhoneWindow的superDispatchTouchEvent方法</p>
-<pre><code>private DecorView mDecor;
-
-@Override
-public boolean superDispatchTouchEvent(MotionEvent event) {
-    return mDecor.superDispatchTouchEvent(event);
-}</code></pre><p>DevorView的superDispatchTouchEvent</p>
-<pre><code>public boolean superDispatchTouchEvent(MotionEvent event) {
-    return super.dispatchTouchEvent(event);
-}</code></pre><p>而mDecor是一个继承FrameLayout的DecorView，就这样把事件分发到ViewGroup上了。</p>
-<h3 id="三、ViewGroup的dispatchTouchEvent"><a href="#三、ViewGroup的dispatchTouchEvent" class="headerlink" title="三、ViewGroup的dispatchTouchEvent"></a>三、ViewGroup的dispatchTouchEvent</h3><h4 id="3-1-ViewGroup拦截事件的情况"><a href="#3-1-ViewGroup拦截事件的情况" class="headerlink" title="3.1 ViewGroup拦截事件的情况"></a>3.1 ViewGroup拦截事件的情况</h4><pre><code>// Check for interception.
-final boolean intercepted;
-if (actionMasked == MotionEvent.ACTION_DOWN
-        || mFirstTouchTarget != null) {
-    final boolean disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != 0;
-    if (!disallowIntercept) {
-        intercepted = onInterceptTouchEvent(ev);
-        ev.setAction(action); // restore action in case it was changed
-    } else {
-        intercepted = false;
-    }
-} else {
-    // There are no touch targets and this action is not an initial down
-    // so this view group continues to intercept touches.
-    intercepted = true;
-}</code></pre><p>这里分为2种情况会判断是否需要拦截，也就是当某一条件成立时，会执行onInterceptTouchEvent判断是否需要拦截事件。</p>
-<ol>
-<li><p>当actionMasked == MotionEvent.ACTION_DOWN时。</p>
-</li>
-<li><p>当mFirstTouchTarget != null时。mFirstTouchTarget是成功处理事件的ViewGroup的子View，也就是ViewGroup的子View在以下情况返回true时，这个在log分析流程图轻易得到：</p>
-<p> 2.1 dispatchTouchEvent返回true</p>
-<p> 2.2 如果子View是ViewGroup时，onInterceptTouchEvent、onTouchEvent返回true</p>
-</li>
-</ol>
-<p>另外还有一种情况是disallowIntercept为true时，intercepted直接赋值false不进行拦截。FLAG_DISALLOW_INTERCEPT是通过requestDisallowInterceptTouchEvent方法来设置的，用于在子View中设置，设置后ViewGroup只能拦截down事件，无法拦截其他move、up、cancel事件。为什么ViewGroup还能拦截down事件呢？因为ViewGroup在down事件时进行了重置，看看以下代码</p>
-<pre><code>// Handle an initial down.
-if (actionMasked == MotionEvent.ACTION_DOWN) {
-    // Throw away all previous state when starting a new touch gesture.
-    // The framework may have dropped the up or cancel event for the previous gesture
-    // due to an app switch, ANR, or some other state change.
-    cancelAndClearTouchTargets(ev);
-    resetTouchState();
-}
-
-private void resetTouchState() {
-    clearTouchTargets();
-    resetCancelNextUpFlag(this);
-    mGroupFlags &amp;= ~FLAG_DISALLOW_INTERCEPT;
-    mNestedScrollAxes = SCROLL_AXIS_NONE;
-}</code></pre><p>通过源码可以了解到，ViewGroup拦截事件后，不再调用onInterceptTouchEvent，而是直接交给mFirstTouchTarget的onTouchEvent处理,如果该onTouchEvent不处理最终会交给Activity的onTouchEvent。</p>
-<h4 id="3-2-ViewGroup不拦截事件的情况"><a href="#3-2-ViewGroup不拦截事件的情况" class="headerlink" title="3.2 ViewGroup不拦截事件的情况"></a>3.2 ViewGroup不拦截事件的情况</h4><p>ViewGroup不拦截事件时，会遍历子View，使事件分发到子View进行处理。</p>
-<pre><code>final View[] children = mChildren;
-for (int i = childrenCount - 1; i &gt;= 0; i--) {
-    final int childIndex = getAndVerifyPreorderedIndex(
-            childrenCount, i, customOrder);
-    final View child = getAndVerifyPreorderedView(
-            preorderedList, children, childIndex);
-
-    // If there is a view that has accessibility focus we want it
-    // to get the event first and if not handled we will perform a
-    // normal dispatch. We may do a double iteration but this is
-    // safer given the timeframe.
-    if (childWithAccessibilityFocus != null) {
-        if (childWithAccessibilityFocus != child) {
-            continue;
-        }
-        childWithAccessibilityFocus = null;
-        i = childrenCount - 1;
-    }
-
-    if (!canViewReceivePointerEvents(child)
-            || !isTransformedTouchPointInView(x, y, child, null)) {
-        ev.setTargetAccessibilityFocus(false);
-        continue;
-    }
-
-    newTouchTarget = getTouchTarget(child);
-    if (newTouchTarget != null) {
-        // Child is already receiving touch within its bounds.
-        // Give it the new pointer in addition to the ones it is handling.
-        newTouchTarget.pointerIdBits |= idBitsToAssign;
-        break;
-    }
-
-    resetCancelNextUpFlag(child);
-    if (dispatchTransformedTouchEvent(ev, false, child, idBitsToAssign)) {
-        // Child wants to receive touch within its bounds.
-        mLastTouchDownTime = ev.getDownTime();
-        if (preorderedList != null) {
-            // childIndex points into presorted list, find original index
-            for (int j = 0; j &lt; childrenCount; j++) {
-                if (children[childIndex] == mChildren[j]) {
-                    mLastTouchDownIndex = j;
-                    break;
-                }
-            }
-        } else {
-            mLastTouchDownIndex = childIndex;
-        }
-        mLastTouchDownX = ev.getX();
-        mLastTouchDownY = ev.getY();
-        newTouchTarget = addTouchTarget(child, idBitsToAssign);
-        alreadyDispatchedToNewTouchTarget = true;
-        break;
-    }
-}</code></pre><h5 id="3-2-1-寻找可接收事件的子View"><a href="#3-2-1-寻找可接收事件的子View" class="headerlink" title="3.2.1 寻找可接收事件的子View"></a>3.2.1 寻找可接收事件的子View</h5><p>通过canViewReceivePointerEvents判断子View是否能够接收到点击事件。必须符合2种情况，缺一不可：1、点击事件的坐标落在在子View的区域内；2、子View没有正在播放动画。满足条件后，调用dispatchTransformedTouchEvent，其实也是调用子View的dispatchTouchEvent。</p>
-<pre><code>private static boolean canViewReceivePointerEvents(@NonNull View child) {
-    return (child.mViewFlags &amp; VISIBILITY_MASK) == VISIBLE
-            || child.getAnimation() != null;
-}
-
-protected boolean isTransformedTouchPointInView(float x, float y, View child,
-        PointF outLocalPoint) {
-    final float[] point = getTempPoint();
-    point[0] = x;
-    point[1] = y;
-    transformPointToViewLocal(point, child);
-    final boolean isInView = child.pointInView(point[0], point[1]);
-    if (isInView &amp;&amp; outLocalPoint != null) {
-        outLocalPoint.set(point[0], point[1]);
-    }
-    return isInView;
-}
-
-private boolean dispatchTransformedTouchEvent(MotionEvent event, boolean cancel,
-        View child, int desiredPointerIdBits) {
-    final boolean handled;
-    final int oldAction = event.getAction();
-    if (cancel || oldAction == MotionEvent.ACTION_CANCEL) {
-        event.setAction(MotionEvent.ACTION_CANCEL);
-        if (child == null) {
-            handled = super.dispatchTouchEvent(event);
-        } else {
-            handled = child.dispatchTouchEvent(event);
-        }
-        event.setAction(oldAction);
-        return handled;
-    }
-
-    ...
-
-    // Perform any necessary transformations and dispatch.
-    if (child == null) {
-        handled = super.dispatchTouchEvent(transformedEvent);
-    } else {
-        final float offsetX = mScrollX - child.mLeft;
-        final float offsetY = mScrollY - child.mTop;
-        transformedEvent.offsetLocation(offsetX, offsetY);
-        if (! child.hasIdentityMatrix()) {
-            transformedEvent.transform(child.getInverseMatrix());
-        }
-
-        handled = child.dispatchTouchEvent(transformedEvent);
-    }
-
-    // Done.
-    transformedEvent.recycle();
-    return handled;
-}</code></pre><p>当dispatchTransformedTouchEvent返回true时，结束for循环遍历，赋值newTouchTarget，相当于发现了可以接收事件的View，不用再继续找了。</p>
-<pre><code>newTouchTarget = addTouchTarget(child, idBitsToAssign);
-alreadyDispatchedToNewTouchTarget = true;
-break;</code></pre><p>在addTouchTarget方法赋值mFirstTouchTarget。</p>
-<pre><code>private TouchTarget addTouchTarget(@NonNull View child, int pointerIdBits) {
-    final TouchTarget target = TouchTarget.obtain(child, pointerIdBits);
-    target.next = mFirstTouchTarget;
-    mFirstTouchTarget = target;
-    return target;
-}</code></pre><h5 id="3-2-2-ViewGroup自己处理事件"><a href="#3-2-2-ViewGroup自己处理事件" class="headerlink" title="3.2.2 ViewGroup自己处理事件"></a>3.2.2 ViewGroup自己处理事件</h5><p>另一种情况是mFirstTouchTarget为空时，ViewGroup自己处理事件，这里注意第三个参数为null，ViewGroup的super.dispatchTouchEvent将调用View的dispatchTouchEvent。</p>
-<pre><code>if (mFirstTouchTarget == null) {
-    // No touch targets so treat this as an ordinary view.
-    handled = dispatchTransformedTouchEvent(ev, canceled, null,
-            TouchTarget.ALL_POINTER_IDS);
-}</code></pre><h4 id="3-3-View处理点击事件的过程"><a href="#3-3-View处理点击事件的过程" class="headerlink" title="3.3 View处理点击事件的过程"></a>3.3 View处理点击事件的过程</h4><p>View的dispatchTouchEvent是怎么处理事件的呢？</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent event) {
-    boolean result = false;
-    ...
-    if (onFilterTouchEventForSecurity(event)) {
-        if ((mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; handleScrollBarDragging(event)) {
-            result = true;
-        }
-        //noinspection SimplifiableIfStatement
-        ListenerInfo li = mListenerInfo;
-        if (li != null &amp;&amp; li.mOnTouchListener != null
-                &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED
-                &amp;&amp; li.mOnTouchListener.onTouch(this, event)) {
-            result = true;
-        }
-
-        if (!result &amp;&amp; onTouchEvent(event)) {
-            result = true;
-        }
-    }
-    ...
-    return result;
-}</code></pre><ol>
-<li><p>首先使用onFilterTouchEventForSecurity方法过滤不符合应用安全策略的触摸事件。</p>
-<pre><code>public boolean onFilterTouchEventForSecurity(MotionEvent event) {
-    //noinspection RedundantIfStatement
-    if ((mViewFlags &amp; FILTER_TOUCHES_WHEN_OBSCURED) != 0
-            &amp;&amp; (event.getFlags() &amp; MotionEvent.FLAG_WINDOW_IS_OBSCURED) != 0) {
-        // Window is obscured, drop this touch.
-        return false;
-    }
-    return true;
-}</code></pre></li>
-<li><p>mOnTouchListener != null判断是否设置了OnTouchEvent，设置了就执行mOnTouchListener.onTouch并返回true,不再执行onTouchEvent。这里得出OnTouchEvent的优先级高于OnTouchEvent，便于使用setOnTouchListener设置处理点击事件。</p>
-</li>
-<li><p>另一种情况是进入onTouchEvent进行处理。</p>
-<pre><code>public boolean onTouchEvent(MotionEvent event) {
-    final float x = event.getX();
-    final float y = event.getY();
-    final int viewFlags = mViewFlags;
-    final int action = event.getAction();
-
-    final boolean clickable = ((viewFlags &amp; CLICKABLE) == CLICKABLE
-            || (viewFlags &amp; LONG_CLICKABLE) == LONG_CLICKABLE)
-            || (viewFlags &amp; CONTEXT_CLICKABLE) == CONTEXT_CLICKABLE;
-
-    if ((viewFlags &amp; ENABLED_MASK) == DISABLED) {
-        if (action == MotionEvent.ACTION_UP &amp;&amp; (mPrivateFlags &amp; PFLAG_PRESSED) != 0) {
-            setPressed(false);
-        }
-        mPrivateFlags3 &amp;= ~PFLAG3_FINGER_DOWN;
-        // A disabled view that is clickable still consumes the touch
-        // events, it just doesn&apos;t respond to them.
-        return clickable;
-    }
-    ...
-}</code></pre></li>
-</ol>
-<p>当View不可用时，依然会处理事件，只是看起来不可用。</p>
-<p>接着执行mTouchDelegate.onTouchEvent</p>
-<pre><code>if (mTouchDelegate != null) {
-    if (mTouchDelegate.onTouchEvent(event)) {
-        return true;
-    }
-}</code></pre><p>下面看看up事件是怎么处理的</p>
-<pre><code>/**
- * &lt;p&gt;Indicates this view can display a tooltip on hover or long press.&lt;/p&gt;
- * {@hide}
- */
-static final int TOOLTIP = 0x40000000;
-
-if (clickable || (viewFlags &amp; TOOLTIP) == TOOLTIP) {
-    switch (action) {
-        case MotionEvent.ACTION_UP:
-            mPrivateFlags3 &amp;= ~PFLAG3_FINGER_DOWN;
-            if ((viewFlags &amp; TOOLTIP) == TOOLTIP) {
-                handleTooltipUp();
-            }
-            if (!clickable) {
-                removeTapCallback();
-                removeLongPressCallback();
-                mInContextButtonPress = false;
-                mHasPerformedLongPress = false;
-                mIgnoreNextUpEvent = false;
-                break;
-            }
-            boolean prepressed = (mPrivateFlags &amp; PFLAG_PREPRESSED) != 0;
-            if ((mPrivateFlags &amp; PFLAG_PRESSED) != 0 || prepressed) {
-                // take focus if we don&apos;t have it already and we should in
-                // touch mode.
-                boolean focusTaken = false;
-                if (isFocusable() &amp;&amp; isFocusableInTouchMode() &amp;&amp; !isFocused()) {
-                    focusTaken = requestFocus();
-                }
-
-                if (prepressed) {
-                    // The button is being released before we actually
-                    // showed it as pressed.  Make it show the pressed
-                    // state now (before scheduling the click) to ensure
-                    // the user sees it.
-                    setPressed(true, x, y);
-                }
-
-                if (!mHasPerformedLongPress &amp;&amp; !mIgnoreNextUpEvent) {
-                    // This is a tap, so remove the longpress check
-                    removeLongPressCallback();
-
-                    // Only perform take click actions if we were in the pressed state
-                    if (!focusTaken) {
-                        // Use a Runnable and post this rather than calling
-                        // performClick directly. This lets other visual state
-                        // of the view update before click actions start.
-                        if (mPerformClick == null) {
-                            mPerformClick = new PerformClick();
-                        }
-                        if (!post(mPerformClick)) {
-                            performClickInternal();
-                        }
-                    }
-                }
-
-                if (mUnsetPressedState == null) {
-                    mUnsetPressedState = new UnsetPressedState();
-                }
-
-                if (prepressed) {
-                    postDelayed(mUnsetPressedState,
-                            ViewConfiguration.getPressedStateDuration());
-                } else if (!post(mUnsetPressedState)) {
-                    // If the post failed, unpress right now
-                    mUnsetPressedState.run();
-                }
-
-                removeTapCallback();
-            }
-            mIgnoreNextUpEvent = false;
-            break;
-            ...
-    }
-
-    return true;
-}</code></pre><p>从上面代码可以了解，clickable、TOOLTIP（长按）有一个为true时，就会消耗事件，使onTouchEvent返回true。其中PerformClick内部调用了performClick方法。</p>
-<pre><code>public boolean performClick() {
-    // We still need to call this method to handle the cases where performClick() was called
-    // externally, instead of through performClickInternal()
-    notifyAutofillManagerOnClick();
-
-    final boolean result;
-    final ListenerInfo li = mListenerInfo;
-    if (li != null &amp;&amp; li.mOnClickListener != null) {
-        playSoundEffect(SoundEffectConstants.CLICK);
-        li.mOnClickListener.onClick(this);
-        result = true;
-    } else {
-        result = false;
-    }
-
-    sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);
-
-    notifyEnterOrExitForAutoFillIfNeeded(true);
-
-    return result;
-}</code></pre><p>如果View设置了OnClickListener，那performClick会调用内部的onClick方法。</p>
-<pre><code>public void setOnClickListener(@Nullable OnClickListener l) {
-    if (!isClickable()) {
-        setClickable(true);
-    }
-    getListenerInfo().mOnClickListener = l;
-}
-
-public void setOnLongClickListener(@Nullable OnLongClickListener l) {
-    if (!isLongClickable()) {
-        setLongClickable(true);
-    }
-    getListenerInfo().mOnLongClickListener = l;
-}</code></pre><p>通过setOnClickListener设置clickable，通过setOnLongClickListener设置LONG_CLICKABLE长按事件。设置后使得onTouchEvent返回true。到这里我们已经分析完成点击事件的分发过程了。</p>
-<p>本文参考以下内容：</p>
-<p>1、《Android开发艺术探索》</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/debug-android-framework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="libill">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="libill的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/06/debug-android-framework/" class="post-title-link" itemprop="url">如何debug android framework 源代码</a>
-          
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-06 16:27:14 / Modified: 17:14:31" itemprop="dateCreated datePublished" datetime="2019-08-06T16:27:14+08:00">2019-08-06</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。</p>
-<h3 id="一、下载源码"><a href="#一、下载源码" class="headerlink" title="一、下载源码"></a>一、下载源码</h3><p>下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg" alt></p>
-<p>下载完后，在sdk/sources下看到android-28源码</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/source_android_28.jpg" alt></p>
-<h3 id="二、新建一个项目"><a href="#二、新建一个项目" class="headerlink" title="二、新建一个项目"></a>二、新建一个项目</h3><p>包名cn.test.demo，避免com开头是因为源码有com，等下拷贝源码是避免重复</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/create_new_project.jpg" alt></p>
-<h3 id="三、拷贝源码到项目的java目录下"><a href="#三、拷贝源码到项目的java目录下" class="headerlink" title="三、拷贝源码到项目的java目录下"></a>三、拷贝源码到项目的java目录下</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/copy_sources.jpg" alt></p>
-<p>可以看到项目目录结构</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/project.jpg" alt></p>
-<h3 id="四、新建一个与源码对应的模拟器"><a href="#四、新建一个与源码对应的模拟器" class="headerlink" title="四、新建一个与源码对应的模拟器"></a>四、新建一个与源码对应的模拟器</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/avd_28.jpg" alt></p>
-<h3 id="五、启动模拟器，选择debug的进程"><a href="#五、启动模拟器，选择debug的进程" class="headerlink" title="五、启动模拟器，选择debug的进程"></a>五、启动模拟器，选择debug的进程</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/select_process.jpg" alt></p>
-<h3 id="六、选择某一个源码类进行调试"><a href="#六、选择某一个源码类进行调试" class="headerlink" title="六、选择某一个源码类进行调试"></a>六、选择某一个源码类进行调试</h3><p>如选择ActivityManagerService的子类UiHandler，handleMessage方法后，在模拟器随便点击启动应用，如短信，即可调试</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/debug_source.jpg" alt></p>
-<p>更多请参考<a href="https://time.geekbang.org/column/article/85425" target="_blank" rel="noopener">极客时间-Android开发高手课</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
 
 
           </div>
@@ -1750,6 +1096,11 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -1762,6 +1113,8 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、从代码入口分析"><span class="nav-number">1.</span> <span class="nav-text">一、从代码入口分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、hookInstrumentationAndHandler"><span class="nav-number">2.</span> <span class="nav-text">二、hookInstrumentationAndHandler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、hookSystemServices"><span class="nav-number">3.</span> <span class="nav-text">三、hookSystemServices</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、hook-DataBindingUtil"><span class="nav-number">4.</span> <span class="nav-text">三、hook DataBindingUtil</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、支持插件中的Activity"><span class="nav-number">5.</span> <span class="nav-text">四、支持插件中的Activity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、支持插件中的Service"><span class="nav-number">6.</span> <span class="nav-text">五、支持插件中的Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、支持插件中的BroadcastReceiver"><span class="nav-number">7.</span> <span class="nav-text">六、支持插件中的BroadcastReceiver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七、支持插件中的ContentProvider"><span class="nav-number">8.</span> <span class="nav-text">七、支持插件中的ContentProvider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八、支持插件中的Resources"><span class="nav-number">9.</span> <span class="nav-text">八、支持插件中的Resources</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

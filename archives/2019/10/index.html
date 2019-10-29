@@ -58,28 +58,14 @@
   };
 </script>
 
-  <meta name="description" content="说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。 一、下载源码下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例  下载完后，在sdk/sources下看到android-28源码  二、新建一个">
-<meta name="keywords" content="debug">
-<meta property="og:type" content="article">
-<meta property="og:title" content="如何debug android framework 源代码">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/debug-android-framework/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="libill的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2019/10/index.html">
 <meta property="og:site_name" content="libill的博客">
-<meta property="og:description" content="说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。 一、下载源码下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例  下载完后，在sdk/sources下看到android-28源码  二、新建一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/source_android_28.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/create_new_project.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/copy_sources.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/project.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/avd_28.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/select_process.jpg">
-<meta property="og:image" content="http://libill.github.io/2019/08/06/debug-android-framework/debug_source.jpg">
-<meta property="og:updated_time" content="2019-08-06T09:14:31.487Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何debug android framework 源代码">
-<meta name="twitter:description" content="说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。 一、下载源码下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例  下载完后，在sdk/sources下看到android-28源码  二、新建一个">
-<meta name="twitter:image" content="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg">
-  <link rel="canonical" href="http://yoursite.com/2019/08/06/debug-android-framework/">
+<meta name="twitter:title" content="libill的博客">
+  <link rel="canonical" href="http://yoursite.com/archives/2019/10/">
 
 
 <script id="page-configurations">
@@ -87,13 +73,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
+    isPost: false,
     isPage: false,
-    isArchive: false
+    isArchive: true
   };
 </script>
 
-  <title>如何debug android framework 源代码 | libill的博客</title>
+  <title>Archive | libill的博客</title>
   
 
 
@@ -218,6 +204,27 @@
 
     
 
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
 </nav>
 </div>
     </header>
@@ -237,129 +244,66 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/debug-android-framework/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="libill">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="libill的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">如何debug android framework 源代码
-
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        
+        
+        
           
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-06 16:27:14 / Modified: 17:14:31" itemprop="dateCreated datePublished" datetime="2019-08-06T16:27:14+08:00">2019-08-06</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+        
+        <span class="collection-header">Um..! 3 posts in total. Keep on posting.</span>
+      </div>
+      
 
       
-        <p>说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。</p>
-<h3 id="一、下载源码"><a href="#一、下载源码" class="headerlink" title="一、下载源码"></a>一、下载源码</h3><p>下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg" alt></p>
-<p>下载完后，在sdk/sources下看到android-28源码</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/source_android_28.jpg" alt></p>
-<h3 id="二、新建一个项目"><a href="#二、新建一个项目" class="headerlink" title="二、新建一个项目"></a>二、新建一个项目</h3><p>包名cn.test.demo，避免com开头是因为源码有com，等下拷贝源码是避免重复</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/create_new_project.jpg" alt></p>
-<h3 id="三、拷贝源码到项目的java目录下"><a href="#三、拷贝源码到项目的java目录下" class="headerlink" title="三、拷贝源码到项目的java目录下"></a>三、拷贝源码到项目的java目录下</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/copy_sources.jpg" alt></p>
-<p>可以看到项目目录结构</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/project.jpg" alt></p>
-<h3 id="四、新建一个与源码对应的模拟器"><a href="#四、新建一个与源码对应的模拟器" class="headerlink" title="四、新建一个与源码对应的模拟器"></a>四、新建一个与源码对应的模拟器</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/avd_28.jpg" alt></p>
-<h3 id="五、启动模拟器，选择debug的进程"><a href="#五、启动模拟器，选择debug的进程" class="headerlink" title="五、启动模拟器，选择debug的进程"></a>五、启动模拟器，选择debug的进程</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/select_process.jpg" alt></p>
-<h3 id="六、选择某一个源码类进行调试"><a href="#六、选择某一个源码类进行调试" class="headerlink" title="六、选择某一个源码类进行调试"></a>六、选择某一个源码类进行调试</h3><p>如选择ActivityManagerService的子类UiHandler，handleMessage方法后，在模拟器随便点击启动应用，如短信，即可调试</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/debug_source.jpg" alt></p>
-<p>更多请参考<a href="https://time.geekbang.org/column/article/85425" target="_blank" rel="noopener">极客时间-Android开发高手课</a></p>
 
+  
+  
+
+  
+    
+    <div class="collection-year">
+      <h2 class="collection-header">2019</h2>
     </div>
-
-    
-    
-    
-        
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/debug/" rel="tag"># debug</a>
-            
-          </div>
-        
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/09/android-touch-event/" rel="prev" title="一文读懂 Android TouchEvent 事件分发、拦截、处理过程">
-                  一文读懂 Android TouchEvent 事件分发、拦截、处理过程 <i class="fa fa-chevron-right"></i>
-                </a>
-              
-            </div>
-          </div>
-        
-      </footer>
-    
-  </div>
   
-  
-  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+          <a class="post-title-link" href="/2019/10/29/learn-virtualapk/" itemprop="url">
+            <span itemprop="name">深入理解VirtualApk插件化</span>
+          </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-10-29T14:37:00+08:00"
+              content="2019-10-29">
+          10-29
+        </time>
+      </div>
+
+    </header>
   </article>
 
+
+
+
+    </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -378,11 +322,6 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
-        
-        
-        
-        
-      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -395,8 +334,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、下载源码"><span class="nav-number">1.</span> <span class="nav-text">一、下载源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、新建一个项目"><span class="nav-number">2.</span> <span class="nav-text">二、新建一个项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、拷贝源码到项目的java目录下"><span class="nav-number">3.</span> <span class="nav-text">三、拷贝源码到项目的java目录下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、新建一个与源码对应的模拟器"><span class="nav-number">4.</span> <span class="nav-text">四、新建一个与源码对应的模拟器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、启动模拟器，选择debug的进程"><span class="nav-number">5.</span> <span class="nav-text">五、启动模拟器，选择debug的进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、选择某一个源码类进行调试"><span class="nav-number">6.</span> <span class="nav-text">六、选择某一个源码类进行调试</span></a></li></ol></div>
-        
       </div>
       <!--/noindex-->
 
