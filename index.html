@@ -257,7 +257,7 @@
                 
               
 
-              <time title="Created: 2019-10-29 14:37:00 / Modified: 14:48:33" itemprop="dateCreated datePublished" datetime="2019-10-29T14:37:00+08:00">2019-10-29</time>
+              <time title="Created: 2019-10-29 14:37:00 / Modified: 14:53:24" itemprop="dateCreated datePublished" datetime="2019-10-29T14:37:00+08:00">2019-10-29</time>
             </span>
           
             
@@ -360,8 +360,15 @@ protected void injectIntent(Intent intent) {
 ...
 }</code></pre><p>现在来看看hook Handler,</p>
 <pre><code>Handler mainHandler = Reflector.with(activityThread).method(&quot;getHandler&quot;).call();
-Reflector.with(mainHandler).field(&quot;mCallback&quot;).set(instrumentation);</code></pre><p>看看ActivityThread源码下getHandler()是什么?原来是H类。<br>    public final class ActivityThread extends ClientTransactionHandler {<br>        …<br>        final H mH = new H();<br>        final Handler getHandler() {<br>            return mH;<br>        }<br>        …<br>    }</p>
-<p>那为什么可以直接把H类的mCallback直接替换成功VAInstrumentation实现的Handler.Callback不会引起其他问题，导致无法执行H类的handleMessage呢？看看Handler源码就知道了。new H()的时候mCallback为null，使用代理VAInstrumentation后mCallback.handleMessage(msg)会一直返回false，会继续执行handleMessage方法。起到了代理H类的效果，先执行VAInstrumentation的handleMessage,再执行H类的handleMessage。</p>
+Reflector.with(mainHandler).field(&quot;mCallback&quot;).set(instrumentation);</code></pre><p>看看ActivityThread源码下getHandler()是什么?原来是H类。</p>
+<pre><code>public final class ActivityThread extends ClientTransactionHandler {
+    ...
+    final H mH = new H();
+    final Handler getHandler() {
+        return mH;
+    }
+    ...
+}</code></pre><p>那为什么可以直接把H类的mCallback直接替换成功VAInstrumentation实现的Handler.Callback不会引起其他问题，导致无法执行H类的handleMessage呢？看看Handler源码就知道了。new H()的时候mCallback为null，使用代理VAInstrumentation后mCallback.handleMessage(msg)会一直返回false，会继续执行handleMessage方法。起到了代理H类的效果，先执行VAInstrumentation的handleMessage,再执行H类的handleMessage。</p>
 <pre><code>public class Handler {
     ...
     public Handler() {
