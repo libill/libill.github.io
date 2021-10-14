@@ -28,10 +28,10 @@
 <meta property="og:description" content="Kotlin&#x2F;Native KMM项目架构一、什么是KMM？Kotlin Multiplatform Mobile ( KMM ) 是一个 SDK，旨在简化跨平台移动应用程序的创建。在 KMM 的帮助下，您可以在 iOS 和 Android 应用程序之间共享通用代码，并仅在必要时编写特定于平台的代码。 KMM用纯Kotlin编写一次代码，即可在iOS和Android上运行，开发应用的公共业务逻辑只">
 <meta property="og:locale">
 <meta property="og:image" content="http://libill.github.io/2021/10/14/Kotlin-Native-KMM-app-architecture/KMM%E6%9E%84%E5%BB%BA.png">
-<meta property="og:image" content="http://libill.github.io/2021/10/14Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png">
-<meta property="og:image" content="http://libill.github.io/2021/10/14Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="http://libill.github.io/2021/10/14/Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png">
+<meta property="og:image" content="http://libill.github.io/2021/10/14/Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png">
 <meta property="article:published_time" content="2021-10-14T12:08:00.000Z">
-<meta property="article:modified_time" content="2021-10-14T12:07:15.869Z">
+<meta property="article:modified_time" content="2021-10-14T12:10:07.399Z">
 <meta property="article:author" content="libill">
 <meta property="article:tag" content="Kotlin&#x2F;Native">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-14 20:08:00 / Modified: 20:07:15" itemprop="dateCreated datePublished" datetime="2021-10-14T20:08:00+08:00">2021-10-14</time>
+              <time title="Created: 2021-10-14 20:08:00 / Modified: 20:10:07" itemprop="dateCreated datePublished" datetime="2021-10-14T20:08:00+08:00">2021-10-14</time>
             </span>
 
           
@@ -209,14 +209,14 @@
 <p>KMM用纯Kotlin编写一次代码，即可在iOS和Android上运行，开发应用的公共业务逻辑只需要编写一次。KMM减少了为不同平台编写和维护相同代码所花费的时间。在Jenkins上一次构建可以产出aar、framework、klib，Android依赖aar，iOS依赖framework，性能与原生一致。当然可以使用KMM依赖klib开发Android、iOS应用。</p>
 <p><img src="http://libill.github.io/2021/10/14/Kotlin-Native-KMM-app-architecture/KMM%E6%9E%84%E5%BB%BA.png"></p>
 <h3 id="二、KMM项目架构"><a href="#二、KMM项目架构" class="headerlink" title="二、KMM项目架构"></a>二、KMM项目架构</h3><p>项目架构主要分为原生系统层、Android/iOS业务SDK层、KMM SDK层、KMM业务逻辑SDK层、iOS sdkframework层、Android/iOS App层。</p>
-<p><img src="http://libill.github.io/2021/10/14Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png"></p>
+<p><img src="http://libill.github.io/2021/10/14/Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png"></p>
 <p>原生系统层：这里提下原生系统层的目的是，有些平台特性需要分开实现，比如读取文件、打印日志、摄像头等。</p>
 <p>Android/iOS业务SDK层：主要是包括一些现有的Android/iOS SDK，需要直接依赖现有SDK来开发KMM时，在commonMain expect声明接口，在androidMain、iosMain actual分别依赖现有SDK实现。这样就可以使用已有的SDK，后续也可以保持接口不变，直接使用KMM实现SDK，如alog、PlatformMMKV。</p>
 <p>KMM SDK层：如alog、PlatformMMKV写成一个SDK可以供其他KMM模块(business)使用。</p>
 <p>KMM业务逻辑SDK层：具体业务的逻辑模块，比如登录逻辑、获取首页列表逻辑、查看首页列表数据详情等。</p>
 <p>iOS sdkframework层：Kotlin/Native构建一个framework时，产物是二进制，也包含了Kotlin/Native的基础库、Runtime，会使包大小增加1M+左右，而且多个Kotlin/Native构建的framework不会共享基础库导致每一个framework都会增加1M+，为了避免包过大，统一构建一个framework。</p>
 <p>App层：Android的依赖无变化，依赖aar或者jar；iOS依赖sdkframework，这样iOS包大小只增加1M+。当然如果依赖了一些库如ktor网络库，包也会变大，避免这个问题也可以不用依赖ktor，直接依赖现有的网络库来实现一个KMM SDK。</p>
-<p><img src="http://libill.github.io/2021/10/14Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png"></p>
+<p><img src="http://libill.github.io/2021/10/14/Kotlin-Native-KMM-app-architecture/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84.png"></p>
 <h3 id="三、使用expect-actual编写平台特定的代码"><a href="#三、使用expect-actual编写平台特定的代码" class="headerlink" title="三、使用expect/actual编写平台特定的代码"></a>三、使用expect/actual编写平台特定的代码</h3><p>以打印日志为例，打造一个alog日志SDK</p>
 <p>在commonMain定义IALog接口，声明fun v函数，其他函数忽略。并定义expect ALogImpl类来实现平台特性打印日志</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">interface IALog &#123;</span><br><span class="line">    fun v(tag: String, message: String)</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">expect class ALogImpl(): IALog</span><br></pre></td></tr></table></figure>
