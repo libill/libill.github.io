@@ -143,8 +143,6 @@
     <span>0%</span>
   </div>
 
-  <a href="https://github.com/libill" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
-
 
     <main class="main">
       <div class="main-inner">
@@ -182,7 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-14 20:08:00 / Modified: 20:10:07" itemprop="dateCreated datePublished" datetime="2021-10-14T20:08:00+08:00">2021-10-14</time>
+              <time title="Created: 2021-10-14 20:08:00 / Modified: 20:26:13" itemprop="dateCreated datePublished" datetime="2021-10-14T20:08:00+08:00">2021-10-14</time>
             </span>
 
           
@@ -255,10 +253,10 @@
 
 <h4 id="6-4-sdkframework本地依赖的模块使用了pod-sdkframework也要pod，以klib依赖可避免该问题"><a href="#6-4-sdkframework本地依赖的模块使用了pod-sdkframework也要pod，以klib依赖可避免该问题" class="headerlink" title="6.4 sdkframework本地依赖的模块使用了pod,sdkframework也要pod，以klib依赖可避免该问题"></a>6.4 sdkframework本地依赖的模块使用了pod,sdkframework也要pod，以klib依赖可避免该问题</h4><p>sdkframework依赖utils、alog、PlatformMMKV、business模块源码构建framework时，模块使用了pod的，那sdkframework也要pod。如PlatformMMKV pod(“MMKV”, “1.2.8”),那sdkframework也要pod(“MMKV”, “1.2.8”)。那如何避免这个问题，可以先把utils、alog、PlatformMMKV、business模块在构建系统上构建成klib，sdkframework依赖各个模块的klib即可。</p>
 <h4 id="6-5-use-frameworks-和-use-modular-headers"><a href="#6-5-use-frameworks-和-use-modular-headers" class="headerlink" title="6.5 use_frameworks! 和 use_modular_headers!"></a>6.5 use_frameworks! 和 use_modular_headers!</h4><p>上面说到的第1点本地构建，在iosApp本地依赖构建sdkframework时，要将依赖项正确导入 Kotlin/Native 模块，Podfile必须包含use_modular_headers! 或 use_frameworks! 指令，查看文档<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/native-cocoapods.html#use-a-kotlin-gradle-project-as-a-cocoapods-dependency">链接</a>。当然，如果是第2点构建系统上构建则不需要使用这2个指令。</p>
-<h3 id="七、参考链接："><a href="#七、参考链接：" class="headerlink" title="七、参考链接："></a>七、参考链接：</h3><p>1、<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/kmm-getting-started.html">kmm-getting-started</a></p>
-<p>2、<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/multiplatform.html">Multiplatform programming</a></p>
-<p>3、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/e3k5JcxG1FvGlNkOyjNIFw">KMM 求生日记二：Kotlin/Native 被踩中的坑</a></p>
-<p>4、<a target="_blank" rel="noopener" href="https://github.com/River418/KNDemo">KNDemo</a></p>
+<h3 id="七、参考链接："><a href="#七、参考链接：" class="headerlink" title="七、参考链接："></a>七、参考链接：</h3><p>1、<a target="_blank" rel="noopener" href="https://github.com/libill/kmmApp">源码地址</a>:<a target="_blank" rel="noopener" href="https://github.com/libill/kmmApp">https://github.com/libill/kmmApp</a></p>
+<p>2、<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/kmm-getting-started.html">kmm-getting-started</a></p>
+<p>3、<a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/multiplatform.html">Multiplatform programming</a></p>
+<p>4、<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/e3k5JcxG1FvGlNkOyjNIFw">KMM 求生日记二：Kotlin/Native 被踩中的坑</a></p>
 
       
     </div>
