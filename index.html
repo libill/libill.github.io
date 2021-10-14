@@ -1,88 +1,48 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-  <meta name="baidu-site-verification" content="SZP9Q6cuq1" />
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '7.4.0',
-    exturl: false,
-    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    },
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="libill的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="libill的博客">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale">
+<meta property="article:author" content="libill">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="libill的博客">
-  <link rel="canonical" href="http://yoursite.com/">
+
+<link rel="canonical" href="http://yoursite.com/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-Hans'
   };
 </script>
 
   <title>libill的博客</title>
   
-
-
 
 
 
@@ -101,7 +61,6 @@
   .use-motion .post-body,
   .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -115,96 +74,66 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">libill的博客</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">libill的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
   </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
 
   </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -217,23 +146,23 @@
   <a href="https://github.com/libill" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content index posts-expand">
             
-  <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/29/learn-virtualapk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="libill">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -241,29 +170,26 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/29/learn-virtualapk/" class="post-title-link" itemprop="url">深入理解VirtualApk插件化</a>
           
+            <a href="/2019/10/29/learn-virtualapk/" class="post-title-link" itemprop="url">深入理解VirtualApk插件化</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
-              <time title="Created: 2019-10-29 14:37:00 / Modified: 14:53:24" itemprop="dateCreated datePublished" datetime="2019-10-29T14:37:00+08:00">2019-10-29</time>
+              <time title="Created: 2019-10-29 14:37:00" itemprop="dateCreated datePublished" datetime="2019-10-29T14:37:00+08:00">2019-10-29</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-08 15:45:02" itemprop="dateModified" datetime="2021-10-08T15:45:02+08:00">2021-10-08</time>
+              </span>
 
           
 
@@ -281,220 +207,256 @@
 <p>简单介绍下VirtualAPK</p>
 <p>VirtualAPK对插件没有额外的约束，原生的apk即可作为插件。插件工程编译生成apk后，即可通过宿主App加载，每个插件apk被加载后，都会在宿主中创建一个单独的LoadedPlugin对象。如下图所示，通过这些LoadedPlugin对象，VirtualAPK就可以管理插件并赋予插件新的意义，使其可以像手机中安装过的App一样运行。</p>
 <h3 id="一、从代码入口分析"><a href="#一、从代码入口分析" class="headerlink" title="一、从代码入口分析"></a>一、从代码入口分析</h3><p>代码分析基于0.9.8版本</p>
-<pre><code>compile &apos;com.didi.virtualapk:core:0.9.8&apos;</code></pre><p>VirtualApk初始化插件引擎需要在Application的attachBaseContext进行</p>
-<pre><code>public class VAApplication extends Application {
+<pre><code>compile &#39;com.didi.virtualapk:core:0.9.8&#39;
+</code></pre>
+<p>VirtualApk初始化插件引擎需要在Application的attachBaseContext进行</p>
+<pre><code>public class VAApplication extends Application &#123;
 
     @Override
-    protected void attachBaseContext(Context base) {
+    protected void attachBaseContext(Context base) &#123;
         super.attachBaseContext(base);
         PluginManager.getInstance(base).init();
-    }
+    &#125;
 
-}</code></pre><p>getInstalce方法用单例设计模式创建PluginManager对象，使用了synchronized关键字同步锁</p>
-<pre><code>public static PluginManager getInstance(Context base) {
-    if (sInstance == null) {
-        synchronized (PluginManager.class) {
-            if (sInstance == null) {
+&#125;
+</code></pre>
+<p>getInstalce方法用单例设计模式创建PluginManager对象，使用了synchronized关键字同步锁</p>
+<pre><code>public static PluginManager getInstance(Context base) &#123;
+    if (sInstance == null) &#123;
+        synchronized (PluginManager.class) &#123;
+            if (sInstance == null) &#123;
                 sInstance = createInstance(base);
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     return sInstance;
-}</code></pre><p>创建PluginManager对象后，接着会调用hookCurrentProcess方法</p>
-<pre><code>protected void hookCurrentProcess() {
+&#125;
+</code></pre>
+<p>创建PluginManager对象后，接着会调用hookCurrentProcess方法</p>
+<pre><code>protected void hookCurrentProcess() &#123;
     hookInstrumentationAndHandler();
     hookSystemServices();
     hookDataBindingUtil();
-}</code></pre><p>到这里可以知道，hook了Instrumentation、Handler、SystemServices、DataBindingUtil。下面逐个分析下这四个hook流程，这里分析流程的目的是要了解hook是怎么回事，hook了是要干嘛呢。</p>
+&#125;
+</code></pre>
+<p>到这里可以知道，hook了Instrumentation、Handler、SystemServices、DataBindingUtil。下面逐个分析下这四个hook流程，这里分析流程的目的是要了解hook是怎么回事，hook了是要干嘛呢。</p>
 <h3 id="二、hookInstrumentationAndHandler"><a href="#二、hookInstrumentationAndHandler" class="headerlink" title="二、hookInstrumentationAndHandler"></a>二、hookInstrumentationAndHandler</h3><p>先看看hookInstrumentationAndHandler的代码</p>
-<pre><code>protected void hookInstrumentationAndHandler() {
-    try {
+<pre><code>protected void hookInstrumentationAndHandler() &#123;
+    try &#123;
         ActivityThread activityThread = ActivityThread.currentActivityThread();
         Instrumentation baseInstrumentation = activityThread.getInstrumentation();
 
         final VAInstrumentation instrumentation = createInstrumentation(baseInstrumentation);
-
+        
         Reflector.with(activityThread).field(&quot;mInstrumentation&quot;).set(instrumentation);
         Handler mainHandler = Reflector.with(activityThread).method(&quot;getHandler&quot;).call();
         Reflector.with(mainHandler).field(&quot;mCallback&quot;).set(instrumentation);
         this.mInstrumentation = instrumentation;
         Log.d(TAG, &quot;hookInstrumentationAndHandler succeed : &quot; + mInstrumentation);
-    } catch (Exception e) {
+    &#125; catch (Exception e) &#123;
         Log.w(TAG, e);
-    }
-}</code></pre><p>第一行ActivityThread activityThread = ActivityThread.currentActivityThread();这里会不会让你想起什么来，ActivityThread是一个@hide类，为什么可以直接使用@hide类呢？可以按点击去试试看，会跳到AndroidStub模块下的ActivityThread。AndroidStub定义了许多路径一样的类但是里面都是实现抛出RuntimeException.为了尽量避免使用反射浪费性能，使用了AndroidStub模块来欺骗编译器。欺骗编译器需要查看Android framework层源码，定义和原码中一摸一样的方法，实现抛出RuntimeException。CoreLibrary使用provided依赖AndroidStub，provided依赖是不打包依赖包，而是运行时提供，所以成功欺骗了编辑器，用来提高了性能。</p>
-<pre><code>public final class ActivityThread {
+    &#125;
+&#125;
+</code></pre>
+<p>第一行ActivityThread activityThread = ActivityThread.currentActivityThread();这里会不会让你想起什么来，ActivityThread是一个@hide类，为什么可以直接使用@hide类呢？可以按点击去试试看，会跳到AndroidStub模块下的ActivityThread。AndroidStub定义了许多路径一样的类但是里面都是实现抛出RuntimeException.为了尽量避免使用反射浪费性能，使用了AndroidStub模块来欺骗编译器。欺骗编译器需要查看Android framework层源码，定义和原码中一摸一样的方法，实现抛出RuntimeException。CoreLibrary使用provided依赖AndroidStub，provided依赖是不打包依赖包，而是运行时提供，所以成功欺骗了编辑器，用来提高了性能。</p>
+<pre><code>public final class ActivityThread &#123;
 
-    public static ActivityThread currentActivityThread() {
+    public static ActivityThread currentActivityThread() &#123;
         throw new RuntimeException(&quot;Stub!&quot;);
-    }
+    &#125;
     ...
-}</code></pre><p>CoreLibrary使用provided依赖AndroidStub</p>
-<pre><code>final String projectAndroidStub = &apos;:AndroidStub&apos;
-dependencies {
-    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
+&#125;
+</code></pre>
+<p>CoreLibrary使用provided依赖AndroidStub</p>
+<pre><code>final String projectAndroidStub = &#39;:AndroidStub&#39;
+dependencies &#123;
+    compile fileTree(dir: &#39;libs&#39;, include: [&#39;*.jar&#39;])
     provided project(projectAndroidStub)
-}</code></pre><p>现在回到hook instrumentation上，使用了Reflector反射器直接把framework层的ActivityThread类下mInstrumentation变量变成了VAInstrumentation，使得VAInstrumentation起到了代理作用。</p>
+&#125;
+</code></pre>
+<p>现在回到hook instrumentation上，使用了Reflector反射器直接把framework层的ActivityThread类下mInstrumentation变量变成了VAInstrumentation，使得VAInstrumentation起到了代理作用。</p>
 <pre><code>final VAInstrumentation instrumentation = createInstrumentation(baseInstrumentation);
-Reflector.with(activityThread).field(&quot;mInstrumentation&quot;).set(instrumentation);</code></pre><p>代理的目的就是先让VAInstrumentation处理自己的逻辑，处理完后再给framework层的Instrumentation处理，以实现达到欺骗系统的作用，校验的是宿主占坑Activity，启动插件中的Activity。</p>
-<pre><code>public class VAInstrumentation extends Instrumentation implements Handler.Callback {
+Reflector.with(activityThread).field(&quot;mInstrumentation&quot;).set(instrumentation);
+</code></pre>
+<p>代理的目的就是先让VAInstrumentation处理自己的逻辑，处理完后再给framework层的Instrumentation处理，以实现达到欺骗系统的作用，校验的是宿主占坑Activity，启动插件中的Activity。</p>
+<pre><code>public class VAInstrumentation extends Instrumentation implements Handler.Callback &#123;
 ...
 protected Instrumentation mBase;
 
 @Override
-public ActivityResult execStartActivity(Context who, IBinder contextThread, IBinder token, String target, Intent intent, int requestCode, Bundle options) {
+public ActivityResult execStartActivity(Context who, IBinder contextThread, IBinder token, String target, Intent intent, int requestCode, Bundle options) &#123;
     injectIntent(intent);
     return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode, options);
-}
+&#125;
 
-protected void injectIntent(Intent intent) {
+protected void injectIntent(Intent intent) &#123;
     mPluginManager.getComponentsHandler().transformIntentToExplicitAsNeeded(intent);
     // null component is an implicitly intent
-    if (intent.getComponent() != null) {
+    if (intent.getComponent() != null) &#123;
         Log.i(TAG, String.format(&quot;execStartActivity[%s : %s]&quot;, intent.getComponent().getPackageName(), intent.getComponent().getClassName()));
         // resolve intent with Stub Activity if needed
         this.mPluginManager.getComponentsHandler().markIntentIfNeeded(intent);
-    }
-}
+    &#125;
+&#125;
 ...
-}</code></pre><p>现在来看看hook Handler,</p>
+&#125;
+</code></pre>
+<p>现在来看看hook Handler,</p>
 <pre><code>Handler mainHandler = Reflector.with(activityThread).method(&quot;getHandler&quot;).call();
-Reflector.with(mainHandler).field(&quot;mCallback&quot;).set(instrumentation);</code></pre><p>看看ActivityThread源码下getHandler()是什么?原来是H类。</p>
-<pre><code>public final class ActivityThread extends ClientTransactionHandler {
+Reflector.with(mainHandler).field(&quot;mCallback&quot;).set(instrumentation);
+</code></pre>
+<p>看看ActivityThread源码下getHandler()是什么?原来是H类。</p>
+<pre><code>public final class ActivityThread extends ClientTransactionHandler &#123;
     ...
     final H mH = new H();
-    final Handler getHandler() {
+    final Handler getHandler() &#123;
         return mH;
-    }
+    &#125;
     ...
-}</code></pre><p>那为什么可以直接把H类的mCallback直接替换成功VAInstrumentation实现的Handler.Callback不会引起其他问题，导致无法执行H类的handleMessage呢？看看Handler源码就知道了。new H()的时候mCallback为null，使用代理VAInstrumentation后mCallback.handleMessage(msg)会一直返回false，会继续执行handleMessage方法。起到了代理H类的效果，先执行VAInstrumentation的handleMessage,再执行H类的handleMessage。</p>
-<pre><code>public class Handler {
+&#125;
+</code></pre>
+<p>那为什么可以直接把H类的mCallback直接替换成功VAInstrumentation实现的Handler.Callback不会引起其他问题，导致无法执行H类的handleMessage呢？看看Handler源码就知道了。new H()的时候mCallback为null，使用代理VAInstrumentation后mCallback.handleMessage(msg)会一直返回false，会继续执行handleMessage方法。起到了代理H类的效果，先执行VAInstrumentation的handleMessage,再执行H类的handleMessage。</p>
+<pre><code>public class Handler &#123;
     ...
-    public Handler() {
+    public Handler() &#123;
         this(null, false);
-    }
+    &#125;
 
-    public Handler(Callback callback, boolean async) {
+    public Handler(Callback callback, boolean async) &#123;
         ...
         mCallback = callback;
         mAsynchronous = async;
-    }
+    &#125;
 
-    public void dispatchMessage(Message msg) {
-        if (msg.callback != null) {
+    public void dispatchMessage(Message msg) &#123;
+        if (msg.callback != null) &#123;
             handleCallback(msg);
-        } else {
-            if (mCallback != null) {
-                if (mCallback.handleMessage(msg)) {
+        &#125; else &#123;
+            if (mCallback != null) &#123;
+                if (mCallback.handleMessage(msg)) &#123;
                     return;
-                }
-            }
+                &#125;
+            &#125;
             handleMessage(msg);
-        }
-    }
+        &#125;
+    &#125;
     ...
-}</code></pre><p><img src="http://libill.github.io/2019/10/29/learn-virtualapk/handleMessage.png" alt></p>
-<h3 id="三、hookSystemServices"><a href="#三、hookSystemServices" class="headerlink" title="三、hookSystemServices"></a>三、hookSystemServices</h3><p>hook SystemServices的时候，先从ActivityManager.class或ActivityManagerNative.class中反射获取Singleton<iactivitymanager>对象，再使用ActivityManagerProxy动态代理动态代理获取一个 IActivityManager.</iactivitymanager></p>
-<pre><code>protected void hookSystemServices() {
-    try {
+&#125;
+</code></pre>
+<p><img src="http://libill.github.io/2019/10/29/learn-virtualapk/handleMessage.png"></p>
+<h3 id="三、hookSystemServices"><a href="#三、hookSystemServices" class="headerlink" title="三、hookSystemServices"></a>三、hookSystemServices</h3><p>hook SystemServices的时候，先从ActivityManager.class或ActivityManagerNative.class中反射获取Singleton<IActivityManager>对象，再使用ActivityManagerProxy动态代理动态代理获取一个 IActivityManager.</p>
+<pre><code>protected void hookSystemServices() &#123;
+    try &#123;
         Singleton&lt;IActivityManager&gt; defaultSingleton;
 
-        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;
             defaultSingleton = Reflector.on(ActivityManager.class).field(&quot;IActivityManagerSingleton&quot;).get();
-        } else {
+        &#125; else &#123;
             defaultSingleton = Reflector.on(ActivityManagerNative.class).field(&quot;gDefault&quot;).get();
-        }
+        &#125;
         IActivityManager origin = defaultSingleton.get();
-        IActivityManager activityManagerProxy = (IActivityManager) Proxy.newProxyInstance(mContext.getClassLoader(), new Class[] { IActivityManager.class },
+        IActivityManager activityManagerProxy = (IActivityManager) Proxy.newProxyInstance(mContext.getClassLoader(), new Class[] &#123; IActivityManager.class &#125;,
             createActivityManagerProxy(origin));
 
         // Hook IActivityManager from ActivityManagerNative
         Reflector.with(defaultSingleton).field(&quot;mInstance&quot;).set(activityManagerProxy);
 
-        if (defaultSingleton.get() == activityManagerProxy) {
+        if (defaultSingleton.get() == activityManagerProxy) &#123;
             this.mActivityManager = activityManagerProxy;
             Log.d(TAG, &quot;hookSystemServices succeed : &quot; + mActivityManager);
-        }
-    } catch (Exception e) {
+        &#125;
+    &#125; catch (Exception e) &#123;
         Log.w(TAG, e);
-    }
-}</code></pre><p>ActivityManager.class下的IActivityManagerSingleton</p>
-<pre><code>public class ActivityManager {
+    &#125;
+&#125;
+</code></pre>
+<p>ActivityManager.class下的IActivityManagerSingleton</p>
+<pre><code>public class ActivityManager &#123;
     ...
     private static final Singleton&lt;IActivityManager&gt; IActivityManagerSingleton =
-            new Singleton&lt;IActivityManager&gt;() {
+            new Singleton&lt;IActivityManager&gt;() &#123;
                 @Override
-                protected IActivityManager create() {
+                protected IActivityManager create() &#123;
                     final IBinder b = ServiceManager.getService(Context.ACTIVITY_SERVICE);
                     final IActivityManager am = IActivityManager.Stub.asInterface(b);
                     return am;
-                }
-            };
-    }
+                &#125;
+            &#125;;
+    &#125;
     ...
-}</code></pre><p>Reflector.with(defaultSingleton).field(“mInstance”).set(activityManagerProxy);这里的mInstance其实是Singleton<t>类的mInstance变量。</t></p>
-<pre><code>public abstract class Singleton&lt;T&gt; {
+&#125;
+</code></pre>
+<p>Reflector.with(defaultSingleton).field(“mInstance”).set(activityManagerProxy);这里的mInstance其实是Singleton<T>类的mInstance变量。</p>
+<pre><code>public abstract class Singleton&lt;T&gt; &#123;
     private T mInstance;
 
     protected abstract T create();
 
-    public final T get() {
-        synchronized (this) {
-            if (mInstance == null) {
+    public final T get() &#123;
+        synchronized (this) &#123;
+            if (mInstance == null) &#123;
                 mInstance = create();
-            }
+            &#125;
             return mInstance;
-        }
-    }
-}</code></pre><h3 id="三、hook-DataBindingUtil"><a href="#三、hook-DataBindingUtil" class="headerlink" title="三、hook DataBindingUtil"></a>三、hook DataBindingUtil</h3><p>分析完上面2个原理，到这里应该比较清晰hook是什么回事了，就是在执行framework层代码之前，先执行Proxy代理的代码，来实现一些意想不到的效果。hook DataBindingUtil可以自己看看代码分析下。</p>
-<pre><code>protected void hookDataBindingUtil() {
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="三、hook-DataBindingUtil"><a href="#三、hook-DataBindingUtil" class="headerlink" title="三、hook DataBindingUtil"></a>三、hook DataBindingUtil</h3><p>分析完上面2个原理，到这里应该比较清晰hook是什么回事了，就是在执行framework层代码之前，先执行Proxy代理的代码，来实现一些意想不到的效果。hook DataBindingUtil可以自己看看代码分析下。</p>
+<pre><code>protected void hookDataBindingUtil() &#123;
     Reflector.QuietReflector reflector = Reflector.QuietReflector.on(&quot;android.databinding.DataBindingUtil&quot;).field(&quot;sMapper&quot;);
     Object old = reflector.get();
-    if (old != null) {
-        try {
+    if (old != null) &#123;
+        try &#123;
             Callback callback = Reflector.on(&quot;android.databinding.DataBinderMapperProxy&quot;).constructor().newInstance();
             reflector.set(callback);
             addCallback(callback);
             Log.d(TAG, &quot;hookDataBindingUtil succeed : &quot; + callback);
-        } catch (Reflector.ReflectedException e) {
+        &#125; catch (Reflector.ReflectedException e) &#123;
             Log.w(TAG, e);
-        }
-    }
-}</code></pre><h3 id="四、支持插件中的Activity"><a href="#四、支持插件中的Activity" class="headerlink" title="四、支持插件中的Activity"></a>四、支持插件中的Activity</h3><p>这里需要了解Activity的启动流程，如果你还没有了解可以点击这里。前面我们了解了hook Instrumentation,看看VAInstrumentation到底做了什么。启动Activity时会执行execStartActivity，而在执行execStartActivity之前做了injectIntent，是为了绕过系统校验是否在宿主的AndroidManifest.xml中注册过插件中的Activity。也就是要达到插件中的Activity不用在宿主中注册就可以启动。</p>
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="四、支持插件中的Activity"><a href="#四、支持插件中的Activity" class="headerlink" title="四、支持插件中的Activity"></a>四、支持插件中的Activity</h3><p>这里需要了解Activity的启动流程，如果你还没有了解可以点击这里。前面我们了解了hook Instrumentation,看看VAInstrumentation到底做了什么。启动Activity时会执行execStartActivity，而在执行execStartActivity之前做了injectIntent，是为了绕过系统校验是否在宿主的AndroidManifest.xml中注册过插件中的Activity。也就是要达到插件中的Activity不用在宿主中注册就可以启动。</p>
 <pre><code>@Override
-public ActivityResult execStartActivity(Context who, IBinder contextThread, IBinder token, String target, Intent intent, int requestCode, Bundle options) {
+public ActivityResult execStartActivity(Context who, IBinder contextThread, IBinder token, String target, Intent intent, int requestCode, Bundle options) &#123;
     injectIntent(intent);
     return mBase.execStartActivity(who, contextThread, token, target, intent, requestCode, options);
-}
+&#125;
 
-protected void injectIntent(Intent intent) {
+protected void injectIntent(Intent intent) &#123;
     mPluginManager.getComponentsHandler().transformIntentToExplicitAsNeeded(intent);
     // null component is an implicitly intent
-    if (intent.getComponent() != null) {
+    if (intent.getComponent() != null) &#123;
         Log.i(TAG, String.format(&quot;execStartActivity[%s : %s]&quot;, intent.getComponent().getPackageName(), intent.getComponent().getClassName()));
         // resolve intent with Stub Activity if needed
         this.mPluginManager.getComponentsHandler().markIntentIfNeeded(intent);
-    }
-}</code></pre><p>transformIntentToExplicitAsNeeded作用是把隐式启动的Activity转化为显式启动。下图可以知道把Intent { act=com.didi.virtualapk.plugin.BookManagerActivity }转化为显式Intent { act=com.didi.virtualapk.plugin.BookManagerActivity cmp=com.didi.virtualapk.demo/.aidl.BookManagerActivity }，ComponentName由null变成包含BookManagerActivity数据的ComponentName。</p>
-<p><img src="http://libill.github.io/2019/10/29/learn-virtualapk/stubActivity_Action.png" alt></p>
+    &#125;
+&#125;
+</code></pre>
+<p>transformIntentToExplicitAsNeeded作用是把隐式启动的Activity转化为显式启动。下图可以知道把Intent { act=com.didi.virtualapk.plugin.BookManagerActivity }转化为显式Intent { act=com.didi.virtualapk.plugin.BookManagerActivity cmp=com.didi.virtualapk.demo/.aidl.BookManagerActivity }，ComponentName由null变成包含BookManagerActivity数据的ComponentName。</p>
+<p><img src="http://libill.github.io/2019/10/29/learn-virtualapk/stubActivity_Action.png"></p>
 <p>markIntentIfNeeded其实就是记录了下插件的信息包括isPlugin、插件package、要启动的插件Activity类，记录的目的是绕过系统校验后，再把这些信息取出来，启动真正要启动的插件Activity。</p>
-<pre><code>public void markIntentIfNeeded(Intent intent) {
-    if (intent.getComponent() == null) {
+<pre><code>public void markIntentIfNeeded(Intent intent) &#123;
+    if (intent.getComponent() == null) &#123;
         return;
-    }
+    &#125;
 
     String targetPackageName = intent.getComponent().getPackageName();
     String targetClassName = intent.getComponent().getClassName();
     // search map and return specific launchmode stub activity
-    if (!targetPackageName.equals(mContext.getPackageName()) &amp;&amp; mPluginManager.getLoadedPlugin(targetPackageName) != null) {
+    if (!targetPackageName.equals(mContext.getPackageName()) &amp;&amp; mPluginManager.getLoadedPlugin(targetPackageName) != null) &#123;
         intent.putExtra(Constants.KEY_IS_PLUGIN, true);
         intent.putExtra(Constants.KEY_TARGET_PACKAGE, targetPackageName);
         intent.putExtra(Constants.KEY_TARGET_ACTIVITY, targetClassName);
         dispatchStubActivity(intent);
-    }
-}</code></pre><p>这里要看看dispatchStubActivity把targetActivity替换成stubActivity的过程。</p>
-<p><img src="http://libill.github.io/2019/10/29/learn-virtualapk/stubActivity.png" alt></p>
+    &#125;
+&#125;
+</code></pre>
+<p>这里要看看dispatchStubActivity把targetActivity替换成stubActivity的过程。</p>
+<p><img src="http://libill.github.io/2019/10/29/learn-virtualapk/stubActivity.png"></p>
 <p>图中可以看到stubActivity是com.didi.virtualapk.core.A$1，这是CoreLibrary/src/main/AndroidManifest.xml下提前注册占坑Activity。包含了四种启动模式，不同的启动模式取不同的占坑Activity，达到支持插件Activity的四种启动模式。</p>
 <pre><code>&lt;!-- Stub Activities --&gt;
 &lt;activity android:exported=&quot;false&quot; android:name=&quot;.A$1&quot; android:launchMode=&quot;standard&quot;/&gt;
@@ -529,45 +491,49 @@ protected void injectIntent(Intent intent) {
 &lt;activity android:exported=&quot;false&quot; android:name=&quot;.D$5&quot; android:launchMode=&quot;singleInstance&quot;/&gt;
 &lt;activity android:exported=&quot;false&quot; android:name=&quot;.D$6&quot; android:launchMode=&quot;singleInstance&quot;/&gt;
 &lt;activity android:exported=&quot;false&quot; android:name=&quot;.D$7&quot; android:launchMode=&quot;singleInstance&quot;/&gt;
-&lt;activity android:exported=&quot;false&quot; android:name=&quot;.D$8&quot; android:launchMode=&quot;singleInstance&quot;/&gt;</code></pre><p>如果想了解如何取对应设计模式的占坑，可以查看StubActivityInfo类，如取值stubActivity为com.didi.virtualapk.core.A$1</p>
+&lt;activity android:exported=&quot;false&quot; android:name=&quot;.D$8&quot; android:launchMode=&quot;singleInstance&quot;/&gt;
+</code></pre>
+<p>如果想了解如何取对应设计模式的占坑，可以查看StubActivityInfo类，如取值stubActivity为com.didi.virtualapk.core.A$1</p>
 <pre><code>public static final String STUB_ACTIVITY_STANDARD = &quot;%s.A$%d&quot;;
-stubActivity = String.format(STUB_ACTIVITY_STANDARD, corePackage, usedStandardStubActivity);</code></pre><p>injectIntent绕过校验后，会执行newActivity,在classloader加载占坑类com.didi.virtualapk.core.A$1时，由于只是占坑，不存在这个类，会走ClassNotFoundException异常逻辑。</p>
+stubActivity = String.format(STUB_ACTIVITY_STANDARD, corePackage, usedStandardStubActivity);
+</code></pre>
+<p>injectIntent绕过校验后，会执行newActivity,在classloader加载占坑类com.didi.virtualapk.core.A$1时，由于只是占坑，不存在这个类，会走ClassNotFoundException异常逻辑。</p>
 <pre><code>@Override
-public Activity newActivity(ClassLoader cl, String className, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-    try {
+public Activity newActivity(ClassLoader cl, String className, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException &#123;
+    try &#123;
         cl.loadClass(className);
         Log.i(TAG, String.format(&quot;newActivity[%s]&quot;, className));
-
-    } catch (ClassNotFoundException e) {
+        
+    &#125; catch (ClassNotFoundException e) &#123;
         ComponentName component = PluginUtil.getComponent(intent);
-
-        if (component == null) {
+        
+        if (component == null) &#123;
             return newActivity(mBase.newActivity(cl, className, intent));
-        }
+        &#125;
 
         String targetClassName = component.getClassName();
         Log.i(TAG, String.format(&quot;newActivity[%s : %s/%s]&quot;, className, component.getPackageName(), targetClassName));
 
         LoadedPlugin plugin = this.mPluginManager.getLoadedPlugin(component);
 
-        if (plugin == null) {
+        if (plugin == null) &#123;
             // Not found then goto stub activity.
             boolean debuggable = false;
-            try {
+            try &#123;
                 Context context = this.mPluginManager.getHostContext();
                 debuggable = (context.getApplicationInfo().flags &amp; ApplicationInfo.FLAG_DEBUGGABLE) != 0;
-            } catch (Throwable ex) {
+            &#125; catch (Throwable ex) &#123;
+    
+            &#125;
 
-            }
-
-            if (debuggable) {
+            if (debuggable) &#123;
                 throw new ActivityNotFoundException(&quot;error intent: &quot; + intent.toURI());
-            }
-
+            &#125;
+            
             Log.i(TAG, &quot;Not found. starting the stub activity: &quot; + StubActivity.class);
             return newActivity(mBase.newActivity(cl, StubActivity.class.getName(), intent));
-        }
-
+        &#125;
+        
         Activity activity = mBase.newActivity(plugin.getClassLoader(), targetClassName, intent);
         activity.setIntent(intent);
 
@@ -575,63 +541,79 @@ public Activity newActivity(ClassLoader cl, String className, Intent intent) thr
         Reflector.QuietReflector.with(activity).field(&quot;mResources&quot;).set(plugin.getResources());
 
         return newActivity(activity);
-    }
+    &#125;
 
     return newActivity(mBase.newActivity(cl, className, intent));
-}</code></pre><p>通过this.mPluginManager.getLoadedPlugin(component)获取已经加载的插件，并重新设置了恢复了要启动的插件Activity。就这样callActivityOnCreate的时候也是调用要启动的插件Activity。</p>
+&#125;
+</code></pre>
+<p>通过this.mPluginManager.getLoadedPlugin(component)获取已经加载的插件，并重新设置了恢复了要启动的插件Activity。就这样callActivityOnCreate的时候也是调用要启动的插件Activity。</p>
 <pre><code>@Override
-public void callActivityOnCreate(Activity activity, Bundle icicle) {
+public void callActivityOnCreate(Activity activity, Bundle icicle) &#123;
     injectActivity(activity);
     mBase.callActivityOnCreate(activity, icicle);
-}</code></pre><h3 id="五、支持插件中的Service"><a href="#五、支持插件中的Service" class="headerlink" title="五、支持插件中的Service"></a>五、支持插件中的Service</h3><p>前面已经了解了hookSystemServices的过程，是使用了动态代理生成代理类。</p>
-<pre><code>IActivityManager activityManagerProxy = (IActivityManager) Proxy.newProxyInstance(mContext.getClassLoader(), new Class[] { IActivityManager.class },
-    createActivityManagerProxy(origin));</code></pre><p>再看看createActivityManagerProxy做了什么</p>
-<pre><code>protected ActivityManagerProxy createActivityManagerProxy(IActivityManager origin) throws Exception {
+&#125;
+</code></pre>
+<h3 id="五、支持插件中的Service"><a href="#五、支持插件中的Service" class="headerlink" title="五、支持插件中的Service"></a>五、支持插件中的Service</h3><p>前面已经了解了hookSystemServices的过程，是使用了动态代理生成代理类。</p>
+<pre><code>IActivityManager activityManagerProxy = (IActivityManager) Proxy.newProxyInstance(mContext.getClassLoader(), new Class[] &#123; IActivityManager.class &#125;,
+    createActivityManagerProxy(origin));
+</code></pre>
+<p>再看看createActivityManagerProxy做了什么</p>
+<pre><code>protected ActivityManagerProxy createActivityManagerProxy(IActivityManager origin) throws Exception &#123;
     return new ActivityManagerProxy(this, origin);
-}</code></pre><p>既然用了动态代理，那就看看ActivityManagerProxy的invoke方法</p>
+&#125;
+</code></pre>
+<p>既然用了动态代理，那就看看ActivityManagerProxy的invoke方法</p>
 <pre><code>@Override
-public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-    if (&quot;startService&quot;.equals(method.getName())) {
-        try {
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+    if (&quot;startService&quot;.equals(method.getName())) &#123;
+        try &#123;
             return startService(proxy, method, args);
-        } catch (Throwable e) {
+        &#125; catch (Throwable e) &#123;
             Log.e(TAG, &quot;Start service error&quot;, e);
-        }
-    } else if (&quot;stopService&quot;.equals(method.getName())) {
-        try {
+        &#125;
+    &#125; else if (&quot;stopService&quot;.equals(method.getName())) &#123;
+        try &#123;
             return stopService(proxy, method, args);
-        } catch (Throwable e) {
+        &#125; catch (Throwable e) &#123;
             Log.e(TAG, &quot;Stop Service error&quot;, e);
-        }
-    }
+        &#125;
+    &#125;
     ...
-}</code></pre><p>在执行Service生命周期等关键方法时都做了相应的代理处理，看看startService</p>
-<pre><code>protected Object startService(Object proxy, Method method, Object[] args) throws Throwable {
+&#125;
+</code></pre>
+<p>在执行Service生命周期等关键方法时都做了相应的代理处理，看看startService</p>
+<pre><code>protected Object startService(Object proxy, Method method, Object[] args) throws Throwable &#123;
     IApplicationThread appThread = (IApplicationThread) args[0];
     Intent target = (Intent) args[1];
     ResolveInfo resolveInfo = this.mPluginManager.resolveService(target, 0);
-    if (null == resolveInfo || null == resolveInfo.serviceInfo) {
+    if (null == resolveInfo || null == resolveInfo.serviceInfo) &#123;
         // is host service
         return method.invoke(this.mActivityManager, args);
-    }
+    &#125;
 
     return startDelegateServiceForTarget(target, resolveInfo.serviceInfo, null, RemoteService.EXTRA_COMMAND_START_SERVICE);
-}</code></pre><p>resolveService判断是不是宿主工程的Service，宿主Service走原来的逻辑，插件Service就走startDelegateServiceForTarget</p>
-<pre><code>public ResolveInfo resolveService(Intent intent, int flags) {
-    for (LoadedPlugin plugin : this.mPlugins.values()) {
+&#125;
+</code></pre>
+<p>resolveService判断是不是宿主工程的Service，宿主Service走原来的逻辑，插件Service就走startDelegateServiceForTarget</p>
+<pre><code>public ResolveInfo resolveService(Intent intent, int flags) &#123;
+    for (LoadedPlugin plugin : this.mPlugins.values()) &#123;
         ResolveInfo resolveInfo = plugin.resolveService(intent, flags);
-        if (null != resolveInfo) {
+        if (null != resolveInfo) &#123;
             return resolveInfo;
-        }
-    }
+        &#125;
+    &#125;
 
     return null;
-}</code></pre><p>startDelegateServiceForTarget里面执行wrapperTargetIntent，</p>
-<pre><code>protected ComponentName startDelegateServiceForTarget(Intent target, ServiceInfo serviceInfo, Bundle extras, int command) {
+&#125;
+</code></pre>
+<p>startDelegateServiceForTarget里面执行wrapperTargetIntent，</p>
+<pre><code>protected ComponentName startDelegateServiceForTarget(Intent target, ServiceInfo serviceInfo, Bundle extras, int command) &#123;
     Intent wrapperIntent = wrapperTargetIntent(target, serviceInfo, extras, command);
     return mPluginManager.getHostContext().startService(wrapperIntent);
-}</code></pre><p>关键点local ? LocalService.class : RemoteService.class，明确了需要哪个Service做代理类。</p>
-<pre><code>protected Intent wrapperTargetIntent(Intent target, ServiceInfo serviceInfo, Bundle extras, int command) {
+&#125;
+</code></pre>
+<p>关键点local ? LocalService.class : RemoteService.class，明确了需要哪个Service做代理类。</p>
+<pre><code>protected Intent wrapperTargetIntent(Intent target, ServiceInfo serviceInfo, Bundle extras, int command) &#123;
     // fill in service with ComponentName
     target.setComponent(new ComponentName(serviceInfo.packageName, serviceInfo.name));
     String pluginLocation = mPluginManager.getLoadedPlugin(target.getComponent()).getLocation();
@@ -644,64 +626,68 @@ public Object invoke(Object proxy, Method method, Object[] args) throws Throwabl
     intent.putExtra(RemoteService.EXTRA_TARGET, target);
     intent.putExtra(RemoteService.EXTRA_COMMAND, command);
     intent.putExtra(RemoteService.EXTRA_PLUGIN_LOCATION, pluginLocation);
-    if (extras != null) {
+    if (extras != null) &#123;
         intent.putExtras(extras);
-    }
+    &#125;
 
     return intent;
-}</code></pre><p>RemoteService继承了LocalService，RemoteService作用是loadPlugin，其他工作交给LocalService。这样做也合理，如果是插件的交给RemoteService来loadPlugin，省下的逻辑都是相同的交给LocalService处理就可以了。</p>
-<pre><code>public int onStartCommand(Intent intent, int flags, int startId) {
-    if (intent == null) {
+&#125;
+</code></pre>
+<p>RemoteService继承了LocalService，RemoteService作用是loadPlugin，其他工作交给LocalService。这样做也合理，如果是插件的交给RemoteService来loadPlugin，省下的逻辑都是相同的交给LocalService处理就可以了。</p>
+<pre><code>public int onStartCommand(Intent intent, int flags, int startId) &#123;
+    if (intent == null) &#123;
         return super.onStartCommand(intent, flags, startId);
-    }
+    &#125;
 
     Intent target = intent.getParcelableExtra(EXTRA_TARGET);
-    if (target != null) {
+    if (target != null) &#123;
         String pluginLocation = intent.getStringExtra(EXTRA_PLUGIN_LOCATION);
         ComponentName component = target.getComponent();
         LoadedPlugin plugin = PluginManager.getInstance(this).getLoadedPlugin(component);
-        if (plugin == null &amp;&amp; pluginLocation != null) {
-            try {
+        if (plugin == null &amp;&amp; pluginLocation != null) &#123;
+            try &#123;
                 PluginManager.getInstance(this).loadPlugin(new File(pluginLocation));
-            } catch (Exception e) {
+            &#125; catch (Exception e) &#123;
                 Log.w(TAG, e);
-            }
-        }
-    }
+            &#125;
+        &#125;
+    &#125;
 
     return super.onStartCommand(intent, flags, startId);
-}</code></pre><p>LocalService按照service的启动流程，loadClass先加载service，反射调用attach，在调用onCreate方法，rememberService记录attach后的service,再调用service.onStartCommand执行命令。如果是启动了的直接调用onStartCommand。</p>
+&#125;
+</code></pre>
+<p>LocalService按照service的启动流程，loadClass先加载service，反射调用attach，在调用onCreate方法，rememberService记录attach后的service,再调用service.onStartCommand执行命令。如果是启动了的直接调用onStartCommand。</p>
 <pre><code>@Override
-public int onStartCommand(Intent intent, int flags, int startId) {
-    if (null == intent || !intent.hasExtra(EXTRA_TARGET) || !intent.hasExtra(EXTRA_COMMAND)) {
+public int onStartCommand(Intent intent, int flags, int startId) &#123;
+    if (null == intent || !intent.hasExtra(EXTRA_TARGET) || !intent.hasExtra(EXTRA_COMMAND)) &#123;
         return START_STICKY;
-    }
+    &#125;
 
     Intent target = intent.getParcelableExtra(EXTRA_TARGET);
     int command = intent.getIntExtra(EXTRA_COMMAND, 0);
-    if (null == target || command &lt;= 0) {
+    if (null == target || command &lt;= 0) &#123;
         return START_STICKY;
-    }
+    &#125;
 
     ComponentName component = target.getComponent();
     LoadedPlugin plugin = mPluginManager.getLoadedPlugin(component);
-
-    if (plugin == null) {
+    
+    if (plugin == null) &#123;
         Log.w(TAG, &quot;Error target: &quot; + target.toURI());
         return START_STICKY;
-    }
+    &#125;
     // ClassNotFoundException when unmarshalling in Android 5.1
     target.setExtrasClassLoader(plugin.getClassLoader());
-    switch (command) {
-        case EXTRA_COMMAND_START_SERVICE: {
+    switch (command) &#123;
+        case EXTRA_COMMAND_START_SERVICE: &#123;
             ActivityThread mainThread = ActivityThread.currentActivityThread();
             IApplicationThread appThread = mainThread.getApplicationThread();
             Service service;
 
-            if (this.mPluginManager.getComponentsHandler().isServiceAvailable(component)) {
+            if (this.mPluginManager.getComponentsHandler().isServiceAvailable(component)) &#123;
                 service = this.mPluginManager.getComponentsHandler().getService(component);
-            } else {
-                try {
+            &#125; else &#123;
+                try &#123;
                     service = (Service) plugin.getClassLoader().loadClass(component.getClassName()).newInstance();
 
                     Application app = plugin.getApplication();
@@ -712,79 +698,87 @@ public int onStartCommand(Intent intent, int flags, int startId) {
                     attach.invoke(service, plugin.getPluginContext(), mainThread, component.getClassName(), token, app, am);
                     service.onCreate();
                     this.mPluginManager.getComponentsHandler().rememberService(component, service);
-                } catch (Throwable t) {
+                &#125; catch (Throwable t) &#123;
                     return START_STICKY;
-                }
-            }
+                &#125;
+            &#125;
 
             service.onStartCommand(target, 0, this.mPluginManager.getComponentsHandler().getServiceCounter(service).getAndIncrement());
             break;
-        }
+        &#125;
         ...
-    }
+    &#125;
 
     return START_STICKY;
-}</code></pre><p>TODO：分析动态代理思想</p>
+&#125;
+</code></pre>
+<p>TODO：分析动态代理思想</p>
 <h3 id="六、支持插件中的BroadcastReceiver"><a href="#六、支持插件中的BroadcastReceiver" class="headerlink" title="六、支持插件中的BroadcastReceiver"></a>六、支持插件中的BroadcastReceiver</h3><p>思路是动态注册广播，将静态注册的广播转变为动态注册，将插件中静态注册的receiver使用mHostContext重新注册一遍。具体代码可以在LoadedPlugin构造方法查看。</p>
-<pre><code>public LoadedPlugin(PluginManager pluginManager, Context context, File apk) throws Exception {
+<pre><code>public LoadedPlugin(PluginManager pluginManager, Context context, File apk) throws Exception &#123;
     ...
 
     // Register broadcast receivers dynamically
     Map&lt;ComponentName, ActivityInfo&gt; receivers = new HashMap&lt;ComponentName, ActivityInfo&gt;();
-    for (PackageParser.Activity receiver : this.mPackage.receivers) {
+    for (PackageParser.Activity receiver : this.mPackage.receivers) &#123;
         receivers.put(receiver.getComponentName(), receiver.info);
 
         BroadcastReceiver br = BroadcastReceiver.class.cast(getClassLoader().loadClass(receiver.getComponentName().getClassName()).newInstance());
-        for (PackageParser.ActivityIntentInfo aii : receiver.intents) {
+        for (PackageParser.ActivityIntentInfo aii : receiver.intents) &#123;
             this.mHostContext.registerReceiver(br, aii);
-        }
-    }
+        &#125;
+    &#125;
     this.mReceiverInfos = Collections.unmodifiableMap(receivers);
     this.mPackageInfo.receivers = receivers.values().toArray(new ActivityInfo[receivers.size()]);
 
-    // try to invoke plugin&apos;s application
+    // try to invoke plugin&#39;s application
     invokeApplication();
-}</code></pre><p>再看看查询所有的receivers，先对比ComponentName是否相同，component为空时再用intent等去匹配。</p>
-<pre><code>public List&lt;ResolveInfo&gt; queryBroadcastReceivers(Intent intent, int flags) {
+&#125;
+</code></pre>
+<p>再看看查询所有的receivers，先对比ComponentName是否相同，component为空时再用intent等去匹配。</p>
+<pre><code>public List&lt;ResolveInfo&gt; queryBroadcastReceivers(Intent intent, int flags) &#123;
     ComponentName component = intent.getComponent();
     List&lt;ResolveInfo&gt; resolveInfos = new ArrayList&lt;ResolveInfo&gt;();
     ContentResolver resolver = this.mPluginContext.getContentResolver();
 
-    for (PackageParser.Activity receiver : this.mPackage.receivers) {
-        if (receiver.getComponentName().equals(component)) {
+    for (PackageParser.Activity receiver : this.mPackage.receivers) &#123;
+        if (receiver.getComponentName().equals(component)) &#123;
             ResolveInfo resolveInfo = new ResolveInfo();
             resolveInfo.activityInfo = receiver.info;
             resolveInfos.add(resolveInfo);
-        } else if (component == null) {
+        &#125; else if (component == null) &#123;
             // only match implicit intent
-            for (PackageParser.ActivityIntentInfo intentInfo : receiver.intents) {
-                if (intentInfo.match(resolver, intent, true, TAG) &gt;= 0) {
+            for (PackageParser.ActivityIntentInfo intentInfo : receiver.intents) &#123;
+                if (intentInfo.match(resolver, intent, true, TAG) &gt;= 0) &#123;
                     ResolveInfo resolveInfo = new ResolveInfo();
                     resolveInfo.activityInfo = receiver.info;
                     resolveInfos.add(resolveInfo);
                     break;
-                }
-            }
-        }
-    }
+                &#125;
+            &#125;
+        &#125;
+    &#125;
 
     return resolveInfos;
-}</code></pre><h3 id="七、支持插件中的ContentProvider"><a href="#七、支持插件中的ContentProvider" class="headerlink" title="七、支持插件中的ContentProvider"></a>七、支持插件中的ContentProvider</h3><p>先看一下插件化是如何使用ContentProvider的，获取插件LoadedPlugin后，通过PluginContentResolver的wrapperUri转化Uri为后续支持读取的Uri。</p>
+&#125;
+</code></pre>
+<h3 id="七、支持插件中的ContentProvider"><a href="#七、支持插件中的ContentProvider" class="headerlink" title="七、支持插件中的ContentProvider"></a>七、支持插件中的ContentProvider</h3><p>先看一下插件化是如何使用ContentProvider的，获取插件LoadedPlugin后，通过PluginContentResolver的wrapperUri转化Uri为后续支持读取的Uri。</p>
 <pre><code>// test ContentProvider
 Uri bookUri = Uri.parse(&quot;content://com.didi.virtualapk.demo.book.provider/book&quot;);
 LoadedPlugin plugin = PluginManager.getInstance(this).getLoadedPlugin(pkg);
 bookUri = PluginContentResolver.wrapperUri(plugin, bookUri);
 
-Cursor bookCursor = getContentResolver().query(bookUri, new String[]{&quot;_id&quot;, &quot;name&quot;}, null, null, null);
-if (bookCursor != null) {
-    while (bookCursor.moveToNext()) {
+Cursor bookCursor = getContentResolver().query(bookUri, new String[]&#123;&quot;_id&quot;, &quot;name&quot;&#125;, null, null, null);
+if (bookCursor != null) &#123;
+    while (bookCursor.moveToNext()) &#123;
         int bookId = bookCursor.getInt(0);
         String bookName = bookCursor.getString(1);
         Log.d(&quot;ryg&quot;, &quot;query book:&quot; + bookId + &quot;, &quot; + bookName);
-    }
+    &#125;
     bookCursor.close();
-}</code></pre><p>是用wrapperUri转化下Uri后就可以正常读取ContentProvider的数据了。这里使用到了RemoteContentProvider，这个转化其实就是后面会使用到RemoteContentProvider。</p>
-<pre><code>public static Uri wrapperUri(LoadedPlugin loadedPlugin, Uri pluginUri) {
+&#125;
+</code></pre>
+<p>是用wrapperUri转化下Uri后就可以正常读取ContentProvider的数据了。这里使用到了RemoteContentProvider，这个转化其实就是后面会使用到RemoteContentProvider。</p>
+<pre><code>public static Uri wrapperUri(LoadedPlugin loadedPlugin, Uri pluginUri) &#123;
     String pkg = loadedPlugin.getPackageName();
     String pluginUriString = Uri.encode(pluginUri.toString());
     StringBuilder builder = new StringBuilder(RemoteContentProvider.getUri(loadedPlugin.getHostContext()));
@@ -793,152 +787,176 @@ if (bookCursor != null) {
     builder.append(&quot;&amp;uri=&quot; + pluginUriString);
     Uri wrapperUri = Uri.parse(builder.toString());
     return wrapperUri;
-}</code></pre><p>wrapperUri会拼接成</p>
-<pre><code>content://com.libill.virtualapk.VirtualAPK.Provider/?plugin=/storage/emulated/0/Test.apk&amp;pkg=com.didi.virtualapk.demo&amp;uri=content%3A%2F%2Fcom.didi.virtualapk.demo.book.provider%2Fbook</code></pre><p>我们先看看pluginManager.loadPlugin(apk)时做了一些解释数据，并缓存起来。</p>
+&#125;
+</code></pre>
+<p>wrapperUri会拼接成</p>
+<pre><code>content://com.libill.virtualapk.VirtualAPK.Provider/?plugin=/storage/emulated/0/Test.apk&amp;pkg=com.didi.virtualapk.demo&amp;uri=content%3A%2F%2Fcom.didi.virtualapk.demo.book.provider%2Fbook
+</code></pre>
+<p>我们先看看pluginManager.loadPlugin(apk)时做了一些解释数据，并缓存起来。</p>
 <pre><code>// Cache providers
 Map&lt;String, ProviderInfo&gt; providers = new HashMap&lt;String, ProviderInfo&gt;();
 Map&lt;ComponentName, ProviderInfo&gt; providerInfos = new HashMap&lt;ComponentName, ProviderInfo&gt;();
-for (PackageParser.Provider provider : this.mPackage.providers) {
+for (PackageParser.Provider provider : this.mPackage.providers) &#123;
     providers.put(provider.info.authority, provider.info);
     providerInfos.put(provider.getComponentName(), provider.info);
-}
+&#125;
 this.mProviders = Collections.unmodifiableMap(providers);
 this.mProviderInfos = Collections.unmodifiableMap(providerInfos);
-this.mPackageInfo.providers = providerInfos.values().toArray(new ProviderInfo[providerInfos.size()]);</code></pre><p>当使用getContentResolver的query时，会通过IPC通信，调用acquireProvider获取IContentProvider的binder对象。而PluginContentResolver对acquireProvider等多个方法做了代理。</p>
+this.mPackageInfo.providers = providerInfos.values().toArray(new ProviderInfo[providerInfos.size()]);
+</code></pre>
+<p>当使用getContentResolver的query时，会通过IPC通信，调用acquireProvider获取IContentProvider的binder对象。而PluginContentResolver对acquireProvider等多个方法做了代理。</p>
 <pre><code>@Override
-protected IContentProvider acquireProvider(Context context, String auth) {
-    if (mPluginManager.resolveContentProvider(auth, 0) != null) {
+protected IContentProvider acquireProvider(Context context, String auth) &#123;
+    if (mPluginManager.resolveContentProvider(auth, 0) != null) &#123;
         return mPluginManager.getIContentProvider();
-    }
+    &#125;
     return super.acquireProvider(context, auth);
-}</code></pre><p>在getIContentProvider方法，做了hook IContentProvider动作。</p>
-<pre><code>public synchronized IContentProvider getIContentProvider() {
-    if (mIContentProvider == null) {
+&#125;
+</code></pre>
+<p>在getIContentProvider方法，做了hook IContentProvider动作。</p>
+<pre><code>public synchronized IContentProvider getIContentProvider() &#123;
+    if (mIContentProvider == null) &#123;
         hookIContentProviderAsNeeded();
-    }
+    &#125;
 
     return mIContentProvider;
-}</code></pre><p>使用了反射器对mProviderMap反射操作，获取mProviderMap来能获取到占坑的 Provider。对authority、mProvider做了setAccessible(true)，最终IContentProviderProxy.newInstance生成IContentProviderProxy对象。这里还使用了RemoteContentProvider包装Uri。</p>
-<pre><code>protected void hookIContentProviderAsNeeded() {
+&#125;
+</code></pre>
+<p>使用了反射器对mProviderMap反射操作，获取mProviderMap来能获取到占坑的 Provider。对authority、mProvider做了setAccessible(true)，最终IContentProviderProxy.newInstance生成IContentProviderProxy对象。这里还使用了RemoteContentProvider包装Uri。</p>
+<pre><code>protected void hookIContentProviderAsNeeded() &#123;
     Uri uri = Uri.parse(RemoteContentProvider.getUri(mContext));
     mContext.getContentResolver().call(uri, &quot;wakeup&quot;, null, null);
-    try {
+    try &#123;
         Field authority = null;
         Field provider = null;
         ActivityThread activityThread = ActivityThread.currentActivityThread();
         Map providerMap = Reflector.with(activityThread).field(&quot;mProviderMap&quot;).get();
         Iterator iter = providerMap.entrySet().iterator();
-        while (iter.hasNext()) {
+        while (iter.hasNext()) &#123;
             Map.Entry entry = (Map.Entry) iter.next();
             Object key = entry.getKey();
             Object val = entry.getValue();
             String auth;
-            if (key instanceof String) {
+            if (key instanceof String) &#123;
                 auth = (String) key;
-            } else {
-                if (authority == null) {
+            &#125; else &#123;
+                if (authority == null) &#123;
                     authority = key.getClass().getDeclaredField(&quot;authority&quot;);
                     authority.setAccessible(true);
-                }
+                &#125;
                 auth = (String) authority.get(key);
-            }
-            if (auth.equals(RemoteContentProvider.getAuthority(mContext))) {
-                if (provider == null) {
+            &#125;
+            if (auth.equals(RemoteContentProvider.getAuthority(mContext))) &#123;
+                if (provider == null) &#123;
                     provider = val.getClass().getDeclaredField(&quot;mProvider&quot;);
                     provider.setAccessible(true);
-                }
+                &#125;
                 IContentProvider rawProvider = (IContentProvider) provider.get(val);
                 IContentProvider proxy = IContentProviderProxy.newInstance(mContext, rawProvider);
                 mIContentProvider = proxy;
                 Log.d(TAG, &quot;hookIContentProvider succeed : &quot; + mIContentProvider);
                 break;
-            }
-        }
-    } catch (Exception e) {
+            &#125;
+        &#125;
+    &#125; catch (Exception e) &#123;
         Log.w(TAG, e);
-    }
-}</code></pre><p>IContentProvider使用了动态代理方式</p>
-<pre><code>public static IContentProvider newInstance(Context context, IContentProvider iContentProvider) {
+    &#125;
+&#125;
+</code></pre>
+<p>IContentProvider使用了动态代理方式</p>
+<pre><code>public static IContentProvider newInstance(Context context, IContentProvider iContentProvider) &#123;
     return (IContentProvider) Proxy.newProxyInstance(iContentProvider.getClass().getClassLoader(),
-            new Class[] { IContentProvider.class }, new IContentProviderProxy(context, iContentProvider));
-}</code></pre><p>看看invoke方法，使用wrapperUri后直接调用method.invoke</p>
+            new Class[] &#123; IContentProvider.class &#125;, new IContentProviderProxy(context, iContentProvider));
+&#125;
+</code></pre>
+<p>看看invoke方法，使用wrapperUri后直接调用method.invoke</p>
 <pre><code>@Override
-public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
     Log.v(TAG, method.toGenericString() + &quot; : &quot; + Arrays.toString(args));
     wrapperUri(method, args);
 
-    try {
+    try &#123;
         return method.invoke(mBase, args);
-    } catch (InvocationTargetException e) {
+    &#125; catch (InvocationTargetException e) &#123;
         throw e.getTargetException();
-    }
-}</code></pre><p>在RemoteContentProvider的getContentProvider可以看到加载和使用插件的ContentProvider。</p>
-<pre><code>private ContentProvider getContentProvider(final Uri uri) {
+    &#125;
+&#125;
+</code></pre>
+<p>在RemoteContentProvider的getContentProvider可以看到加载和使用插件的ContentProvider。</p>
+<pre><code>private ContentProvider getContentProvider(final Uri uri) &#123;
     final PluginManager pluginManager = PluginManager.getInstance(getContext());
     Uri pluginUri = Uri.parse(uri.getQueryParameter(KEY_URI));
     final String auth = pluginUri.getAuthority();
     ContentProvider cachedProvider = sCachedProviders.get(auth);
-    if (cachedProvider != null) {
+    if (cachedProvider != null) &#123;
         return cachedProvider;
-    }
+    &#125;
 
-    synchronized (sCachedProviders) {
+    synchronized (sCachedProviders) &#123;
         LoadedPlugin plugin = pluginManager.getLoadedPlugin(uri.getQueryParameter(KEY_PKG));
-        if (plugin == null) {
-            try {
+        if (plugin == null) &#123;
+            try &#123;
                 pluginManager.loadPlugin(new File(uri.getQueryParameter(KEY_PLUGIN)));
-            } catch (Exception e) {
+            &#125; catch (Exception e) &#123;
                 Log.w(TAG, e);
-            }
-        }
+            &#125;
+        &#125;
 
         final ProviderInfo providerInfo = pluginManager.resolveContentProvider(auth, 0);
-        if (providerInfo != null) {
-            RunUtil.runOnUiThread(new Runnable() {
+        if (providerInfo != null) &#123;
+            RunUtil.runOnUiThread(new Runnable() &#123;
                 @Override
-                public void run() {
-                    try {
+                public void run() &#123;
+                    try &#123;
                         LoadedPlugin loadedPlugin = pluginManager.getLoadedPlugin(uri.getQueryParameter(KEY_PKG));
                         ContentProvider contentProvider = (ContentProvider) Class.forName(providerInfo.name).newInstance();
                         contentProvider.attachInfo(loadedPlugin.getPluginContext(), providerInfo);
                         sCachedProviders.put(auth, contentProvider);
-                    } catch (Exception e) {
+                    &#125; catch (Exception e) &#123;
                         Log.w(TAG, e);
-                    }
-                }
-            }, true);
+                    &#125;
+                &#125;
+            &#125;, true);
             return sCachedProviders.get(auth);
-        }
-    }
+        &#125;
+    &#125;
 
     return null;
-}</code></pre><h3 id="八、支持插件中的Resources"><a href="#八、支持插件中的Resources" class="headerlink" title="八、支持插件中的Resources"></a>八、支持插件中的Resources</h3><p>资源的加载入口时加载插件时生成LoadedPlugin对象，这时开始加载资源。</p>
-<pre><code>this.mResources = createResources(context, getPackageName(), apk);</code></pre><p>Constants.COMBINE_RESOURCES一直为true，直接进入ResourcesManager.createResources</p>
-<pre><code>protected Resources createResources(Context context, String packageName, File apk) throws Exception {
-    if (Constants.COMBINE_RESOURCES) {
+&#125;
+</code></pre>
+<h3 id="八、支持插件中的Resources"><a href="#八、支持插件中的Resources" class="headerlink" title="八、支持插件中的Resources"></a>八、支持插件中的Resources</h3><p>资源的加载入口时加载插件时生成LoadedPlugin对象，这时开始加载资源。</p>
+<pre><code>this.mResources = createResources(context, getPackageName(), apk);
+</code></pre>
+<p>Constants.COMBINE_RESOURCES一直为true，直接进入ResourcesManager.createResources</p>
+<pre><code>protected Resources createResources(Context context, String packageName, File apk) throws Exception &#123;
+    if (Constants.COMBINE_RESOURCES) &#123;
         return ResourcesManager.createResources(context, packageName, apk);
-    } else {
+    &#125; else &#123;
         Resources hostResources = context.getResources();
         AssetManager assetManager = createAssetManager(context, apk);
         return new Resources(assetManager, hostResources.getDisplayMetrics(), hostResources.getConfiguration());
-    }
-}</code></pre><p>createResources加载资源后，用hook Resources一遍</p>
-<pre><code>public static synchronized Resources createResources(Context hostContext, String packageName, File apk) throws Exception {
-    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) {
+    &#125;
+&#125;
+</code></pre>
+<p>createResources加载资源后，用hook Resources一遍</p>
+<pre><code>public static synchronized Resources createResources(Context hostContext, String packageName, File apk) throws Exception &#123;
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) &#123;
         return createResourcesForN(hostContext, packageName, apk);
-    }
-
+    &#125;
+    
     Resources resources = ResourcesManager.createResourcesSimple(hostContext, apk.getAbsolutePath());
     ResourcesManager.hookResources(hostContext, resources);
     return resources;
-}</code></pre><p>createResourcesForN是兼容N</p>
+&#125;
+</code></pre>
+<p>createResourcesForN是兼容N</p>
 <pre><code>@TargetApi(Build.VERSION_CODES.N)
-private static Resources createResourcesForN(Context context, String packageName, File apk) throws Exception {
+private static Resources createResourcesForN(Context context, String packageName, File apk) throws Exception &#123;
     long startTime = System.currentTimeMillis();
     String newAssetPath = apk.getAbsolutePath();
     ApplicationInfo info = context.getApplicationInfo();
     String baseResDir = info.publicSourceDir;
-
+    
     info.splitSourceDirs = append(info.splitSourceDirs, newAssetPath);
     LoadedApk loadedApk = Reflector.with(context).field(&quot;mPackageInfo&quot;).get();
 
@@ -949,90 +967,93 @@ private static Resources createResourcesForN(Context context, String packageName
     final android.app.ResourcesManager resourcesManager = android.app.ResourcesManager.getInstance();
     ArrayMap&lt;ResourcesKey, WeakReference&lt;ResourcesImpl&gt;&gt; originalMap = Reflector.with(resourcesManager).field(&quot;mResourceImpls&quot;).get();
 
-    synchronized (resourcesManager) {
+    synchronized (resourcesManager) &#123;
         HashMap&lt;ResourcesKey, WeakReference&lt;ResourcesImpl&gt;&gt; resolvedMap = new HashMap&lt;&gt;();
 
         if (Build.VERSION.SDK_INT &gt;= 28
-            || (Build.VERSION.SDK_INT == 27 &amp;&amp; Build.VERSION.PREVIEW_SDK_INT != 0)) { // P Preview
+            || (Build.VERSION.SDK_INT == 27 &amp;&amp; Build.VERSION.PREVIEW_SDK_INT != 0)) &#123; // P Preview
             ResourcesManagerCompatForP.resolveResourcesImplMap(originalMap, resolvedMap, context, loadedApk);
 
-        } else {
+        &#125; else &#123;
             ResourcesManagerCompatForN.resolveResourcesImplMap(originalMap, resolvedMap, baseResDir, newAssetPath);
-        }
+        &#125;
 
         originalMap.clear();
         originalMap.putAll(resolvedMap);
-    }
+    &#125;
 
     android.app.ResourcesManager.getInstance().appendLibAssetForMainAssetPath(baseResDir, packageName + &quot;.vastub&quot;);
 
     Resources newResources = context.getResources();
 
     // lastly, sync all LoadedPlugin to newResources
-    for (LoadedPlugin plugin : PluginManager.getInstance(context).getAllLoadedPlugins()) {
+    for (LoadedPlugin plugin : PluginManager.getInstance(context).getAllLoadedPlugins()) &#123;
         plugin.updateResources(newResources);
-    }
+    &#125;
 
     Log.d(TAG, &quot;createResourcesForN cost time: +&quot; + (System.currentTimeMillis() - startTime) + &quot;ms&quot;);
     return newResources;
-}</code></pre><p>按照系统版本、厂家来兼容</p>
-<pre><code>private static Resources createResourcesSimple(Context hostContext, String apk) throws Exception {
+&#125;
+</code></pre>
+<p>按照系统版本、厂家来兼容</p>
+<pre><code>private static Resources createResourcesSimple(Context hostContext, String apk) throws Exception &#123;
     Resources hostResources = hostContext.getResources();
     Resources newResources = null;
     AssetManager assetManager;
     Reflector reflector = Reflector.on(AssetManager.class).method(&quot;addAssetPath&quot;, String.class);
-    if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) {
+    if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.LOLLIPOP) &#123;
         assetManager = AssetManager.class.newInstance();
         reflector.bind(assetManager);
         final int cookie1 = reflector.call(hostContext.getApplicationInfo().sourceDir);;
-        if (cookie1 == 0) {
-            throw new RuntimeException(&quot;createResources failed, can&apos;t addAssetPath for &quot; + hostContext.getApplicationInfo().sourceDir);
-        }
-    } else {
+        if (cookie1 == 0) &#123;
+            throw new RuntimeException(&quot;createResources failed, can&#39;t addAssetPath for &quot; + hostContext.getApplicationInfo().sourceDir);
+        &#125;
+    &#125; else &#123;
         assetManager = hostResources.getAssets();
         reflector.bind(assetManager);
-    }
+    &#125;
     final int cookie2 = reflector.call(apk);
-    if (cookie2 == 0) {
-        throw new RuntimeException(&quot;createResources failed, can&apos;t addAssetPath for &quot; + apk);
-    }
+    if (cookie2 == 0) &#123;
+        throw new RuntimeException(&quot;createResources failed, can&#39;t addAssetPath for &quot; + apk);
+    &#125;
     List&lt;LoadedPlugin&gt; pluginList = PluginManager.getInstance(hostContext).getAllLoadedPlugins();
-    for (LoadedPlugin plugin : pluginList) {
+    for (LoadedPlugin plugin : pluginList) &#123;
         final int cookie3 = reflector.call(plugin.getLocation());
-        if (cookie3 == 0) {
-            throw new RuntimeException(&quot;createResources failed, can&apos;t addAssetPath for &quot; + plugin.getLocation());
-        }
-    }
-    if (isMiUi(hostResources)) {
+        if (cookie3 == 0) &#123;
+            throw new RuntimeException(&quot;createResources failed, can&#39;t addAssetPath for &quot; + plugin.getLocation());
+        &#125;
+    &#125;
+    if (isMiUi(hostResources)) &#123;
         newResources = MiUiResourcesCompat.createResources(hostResources, assetManager);
-    } else if (isVivo(hostResources)) {
+    &#125; else if (isVivo(hostResources)) &#123;
         newResources = VivoResourcesCompat.createResources(hostContext, hostResources, assetManager);
-    } else if (isNubia(hostResources)) {
+    &#125; else if (isNubia(hostResources)) &#123;
         newResources = NubiaResourcesCompat.createResources(hostResources, assetManager);
-    } else if (isNotRawResources(hostResources)) {
+    &#125; else if (isNotRawResources(hostResources)) &#123;
         newResources = AdaptationResourcesCompat.createResources(hostResources, assetManager);
-    } else {
+    &#125; else &#123;
         // is raw android resources
         newResources = new Resources(assetManager, hostResources.getDisplayMetrics(), hostResources.getConfiguration());
-    }
+    &#125;
     // lastly, sync all LoadedPlugin to newResources
-    for (LoadedPlugin plugin : pluginList) {
+    for (LoadedPlugin plugin : pluginList) &#123;
         plugin.updateResources(newResources);
-    }
-
+    &#125;
+    
     return newResources;
-}</code></pre><h3 id="九、参考内容"><a href="#九、参考内容" class="headerlink" title="九、参考内容"></a>九、参考内容</h3><ol>
-<li><a href="https://mp.weixin.qq.com/s/OSMI3bGQ5XyEBtsuzliJkw" target="_blank" rel="noopener">聊聊 VirtualAPK 插件化框架的开源</a>  </li>
-<li><a href="https://mp.weixin.qq.com/s/O1W7OGkhFbJ4-NorBcOivQ" target="_blank" rel="noopener">VirtualAPK：滴滴 Android 插件化的实践之路</a>  </li>
-<li><a href="https://github.com/didi/VirtualAPK/wiki" target="_blank" rel="noopener">VirtualApk GitHub Wiki官方入门文档</a>   </li>
-<li><a href="https://mp.weixin.qq.com/s/CEXTMeQaOlubIwo1Lne8Ww" target="_blank" rel="noopener">VirtualAPK 资源加载分析</a>   </li>
-<li><a href="https://mp.weixin.qq.com/s/eRQwaJUr9y93ANEIfjktnQ" target="_blank" rel="noopener">Android插件化快速入门与实例解析（VirtualApk）</a>  </li>
-<li><a href="https://mp.weixin.qq.com/s/Z-Tt6IjgQWpsqmlcDmlWmQ" target="_blank" rel="noopener">深度 | 滴滴插件化方案 VirtualApk 源码解析</a>  </li>
-<li><a href="https://mp.weixin.qq.com/s/TGFsjZvU_qRZbWeNbqW1kQ" target="_blank" rel="noopener">插件化探索，滴滴开源框架VirtualAPK的深入分析</a>  </li>
+&#125;
+</code></pre>
+<h3 id="九、参考内容"><a href="#九、参考内容" class="headerlink" title="九、参考内容"></a>九、参考内容</h3><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/OSMI3bGQ5XyEBtsuzliJkw">聊聊 VirtualAPK 插件化框架的开源</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/O1W7OGkhFbJ4-NorBcOivQ">VirtualAPK：滴滴 Android 插件化的实践之路</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/didi/VirtualAPK/wiki">VirtualApk GitHub Wiki官方入门文档</a>   </li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/CEXTMeQaOlubIwo1Lne8Ww">VirtualAPK 资源加载分析</a>   </li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/eRQwaJUr9y93ANEIfjktnQ">Android插件化快速入门与实例解析（VirtualApk）</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Z-Tt6IjgQWpsqmlcDmlWmQ">深度 | 滴滴插件化方案 VirtualApk 源码解析</a>  </li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/TGFsjZvU_qRZbWeNbqW1kQ">插件化探索，滴滴开源框架VirtualAPK的深入分析</a>  </li>
 <li>图书推荐《Android插件化开发指南》</li>
 </ol>
 
-        
       
     </div>
 
@@ -1040,27 +1061,23 @@ private static Resources createResourcesForN(Context context, String packageName
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+      
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/android-touch-event/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="libill">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1068,29 +1085,26 @@ private static Resources createResourcesForN(Context context, String packageName
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/09/09/android-touch-event/" class="post-title-link" itemprop="url">一文读懂 Android TouchEvent 事件分发、拦截、处理过程</a>
           
+            <a href="/2019/09/09/android-touch-event/" class="post-title-link" itemprop="url">一文读懂 Android TouchEvent 事件分发、拦截、处理过程</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
-              <time title="Created: 2019-09-09 09:21:04 / Modified: 09:58:14" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
+              <time title="Created: 2019-09-09 09:21:04" itemprop="dateCreated datePublished" datetime="2019-09-09T09:21:04+08:00">2019-09-09</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-08 15:45:02" itemprop="dateModified" datetime="2021-10-08T15:45:02+08:00">2021-10-08</time>
+              </span>
 
           
 
@@ -1106,160 +1120,176 @@ private static Resources createResourcesForN(Context context, String packageName
           <p>什么是事件？事件是用户触摸手机屏幕，引起的一系列TouchEvent，包括ACTION_DOWN、ACTION_MOVE、ACTION_UP、ACTION_CANCEL等，这些action组合后变成点击事件、长按事件等。</p>
 <p>在这篇文章中，用打Log测试的方法来了解Android TouchEvent 事件分发，拦截，处理过程。虽然看了一些其他的文章和源码及相关的资料，但是还是觉得需要打下Log和画图来了解一下，不然很容易忘记了事件传递的整个过程。所以写下这篇文章，达到看完这篇文章基本可以了解整个过程，并且可以自己画图画出来给别人看。</p>
 <p>先看几个类，主要是画出一个3个ViewGroup叠加的界面，并在事件分发、拦截、处理时打下Log.</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png" alt></p>
-<p>GitHub地址：<a href="https://github.com/libill/TouchEventDemo" target="_blank" rel="noopener">https://github.com/libill/TouchEventDemo</a></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_demo.png"></p>
+<p>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/libill/TouchEventDemo">https://github.com/libill/TouchEventDemo</a></p>
 <h2 id="一、通过打log分析事件分发"><a href="#一、通过打log分析事件分发" class="headerlink" title="一、通过打log分析事件分发"></a>一、通过打log分析事件分发</h2><p>这里在一个Activity上添加三个ViewGroup来分析，这里值得注意的是Activity、View是没有onInterceptTouchEvent方法的。</p>
 <h3 id="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"><a href="#一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类" class="headerlink" title="一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类"></a>一、了解Activity、ViewGroup1、ViewGroup2、ViewGroup3四个类</h3><ol>
 <li><p>activity_main.xml</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-    &lt;android.support.constraint.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-xmlns:tools=&quot;http://schemas.android.com/tools&quot;
-android:layout_width=&quot;match_parent&quot;
-android:layout_height=&quot;match_parent&quot;
-tools:context=&quot;com.touchevent.demo.MyActivity&quot;&gt;
-    &lt;com.touchevent.demo.ViewGroup1
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:background=&quot;@color/colorAccent&quot;&gt;
-    &lt;com.touchevent.demo.ViewGroup2
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;match_parent&quot;
-        android:layout_margin=&quot;50dp&quot;
-        android:background=&quot;@color/colorPrimary&quot;&gt;
-        &lt;com.touchevent.demo.ViewGroup3
-            android:layout_width=&quot;match_parent&quot;
-            android:layout_height=&quot;match_parent&quot;
-            android:layout_margin=&quot;50dp&quot;
-            android:background=&quot;@color/colorPrimaryDark&quot;&gt;
-        &lt;/com.touchevent.demo.ViewGroup3&gt;
-    &lt;/com.touchevent.demo.ViewGroup2&gt;
-    &lt;/com.touchevent.demo.ViewGroup1&gt;
-&lt;/android.support.constraint.ConstraintLayout&gt;  </code></pre></li>
+<pre><code> &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+     &lt;android.support.constraint.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+ xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+ xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+ android:layout_width=&quot;match_parent&quot;
+ android:layout_height=&quot;match_parent&quot;
+ tools:context=&quot;com.touchevent.demo.MyActivity&quot;&gt;
+     &lt;com.touchevent.demo.ViewGroup1
+     android:layout_width=&quot;match_parent&quot;
+     android:layout_height=&quot;match_parent&quot;
+     android:background=&quot;@color/colorAccent&quot;&gt;
+     &lt;com.touchevent.demo.ViewGroup2
+         android:layout_width=&quot;match_parent&quot;
+         android:layout_height=&quot;match_parent&quot;
+         android:layout_margin=&quot;50dp&quot;
+         android:background=&quot;@color/colorPrimary&quot;&gt;
+         &lt;com.touchevent.demo.ViewGroup3
+             android:layout_width=&quot;match_parent&quot;
+             android:layout_height=&quot;match_parent&quot;
+             android:layout_margin=&quot;50dp&quot;
+             android:background=&quot;@color/colorPrimaryDark&quot;&gt;
+         &lt;/com.touchevent.demo.ViewGroup3&gt;
+     &lt;/com.touchevent.demo.ViewGroup2&gt;
+     &lt;/com.touchevent.demo.ViewGroup1&gt;
+ &lt;/android.support.constraint.ConstraintLayout&gt;  
+</code></pre>
+</li>
 </ol>
 <ol>
 <li>主界面：MainActivity.java</li>
 </ol>
-<pre><code>public class MyActivity extends AppCompatActivity {
-    private final static String TAG = MyActivity.class.getName();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.dispatchTouchEvent(ev);
-        Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.onTouchEvent(ev);
-        Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-}</code></pre><ol>
+<pre><code>    public class MyActivity extends AppCompatActivity &#123;
+        private final static String TAG = MyActivity.class.getName();
+    
+        @Override
+        protected void onCreate(Bundle savedInstanceState) &#123;
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+        &#125;
+    
+        @Override
+        public boolean dispatchTouchEvent(MotionEvent ev) &#123;
+            Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
+            boolean superReturn = super.dispatchTouchEvent(ev);
+            Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
+            return superReturn;
+        &#125;
+    
+        @Override
+        public boolean onTouchEvent(MotionEvent ev) &#123;
+            Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
+            boolean superReturn = super.onTouchEvent(ev);
+            Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
+            return superReturn;
+        &#125;
+    &#125;
+</code></pre>
+<ol>
 <li>三个ViewGroup，里面的代码完全一样:ViewGroup1.java，ViewGroup2.java，ViewGroup3.java。由于代码一样所以只贴其中一个类。</li>
 </ol>
-<pre><code>public class ViewGroup1 extends LinearLayout {
-    private final static String TAG = ViewGroup1.class.getName();
-
-    public ViewGroup1(Context context) {
-        super(context);
-    }
-
-    public ViewGroup1(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.dispatchTouchEvent(ev);
-        Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.onInterceptTouchEvent(ev);
-        Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
-        boolean superReturn = super.onTouchEvent(ev);
-        Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
-        return superReturn;
-    }
-}</code></pre><h3 id="二、不拦截处理任何事件"><a href="#二、不拦截处理任何事件" class="headerlink" title="二、不拦截处理任何事件"></a>二、不拦截处理任何事件</h3><p>添加没有拦截处理任何事件的代码，看看事件是怎么传递的，选择Info，查看Log.</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false.png" alt></p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false_flowchart.jpg" alt></p>
+<pre><code>    public class ViewGroup1 extends LinearLayout &#123;
+        private final static String TAG = ViewGroup1.class.getName();
+    
+        public ViewGroup1(Context context) &#123;
+            super(context);
+        &#125;
+    
+        public ViewGroup1(Context context, AttributeSet attrs) &#123;
+            super(context, attrs);
+        &#125;
+    
+        @Override
+        public boolean dispatchTouchEvent(MotionEvent ev) &#123;
+            Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
+            boolean superReturn = super.dispatchTouchEvent(ev);
+            Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
+            return superReturn;
+        &#125;
+    
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent ev) &#123;
+            Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
+            boolean superReturn = super.onInterceptTouchEvent(ev);
+            Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
+            return superReturn;
+        &#125;
+    
+        @Override
+        public boolean onTouchEvent(MotionEvent ev) &#123;
+            Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
+            boolean superReturn = super.onTouchEvent(ev);
+            Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
+            return superReturn;
+        &#125;
+    &#125;
+</code></pre>
+<h3 id="二、不拦截处理任何事件"><a href="#二、不拦截处理任何事件" class="headerlink" title="二、不拦截处理任何事件"></a>二、不拦截处理任何事件</h3><p>添加没有拦截处理任何事件的代码，看看事件是怎么传递的，选择Info，查看Log.</p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false.png"></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_false_flowchart.jpg"></p>
 <p>从流程图可以看出，事件分发从Activity开始，然后分发到ViewGroup，在这个过程中，只要ViewGroup没有拦截处理，最后还是会回到Activity的onTouchEvent方法。</p>
 <h3 id="三、ViewGroup2的dispatchTouchEvent返回true"><a href="#三、ViewGroup2的dispatchTouchEvent返回true" class="headerlink" title="三、ViewGroup2的dispatchTouchEvent返回true"></a>三、ViewGroup2的dispatchTouchEvent返回true</h3><p>把ViewGroup2.java的dispatchTouchEvent修改一下，return 返回true使事件不在分发</p>
 <pre><code>@Override
-public boolean dispatchTouchEvent(MotionEvent ev) {
+public boolean dispatchTouchEvent(MotionEvent ev) &#123;
  Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
  Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
  return true;
-}</code></pre><p>此时的Log</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true.png" alt></p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true_flowchart.jpg" alt></p>
+&#125;
+</code></pre>
+<p>此时的Log</p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true.png"></p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_dispatch_true_flowchart.jpg"></p>
 <p> 从图片可以看出，当ViewGroupon2的dispatchTouchEvent返回true后，事件不会再分发传送到ViewGroup3了，也不会分发到Activity的onTouchEvent了。而是事件到了ViewGroupon2的dispatchTouchEvent后，就停止了。dispatchTouchEvent返回true表示着事件不用再分发下去了。</p>
 <h3 id="四、ViewGroup2的onInterceptTouchEvent返回true"><a href="#四、ViewGroup2的onInterceptTouchEvent返回true" class="headerlink" title="四、ViewGroup2的onInterceptTouchEvent返回true"></a>四、ViewGroup2的onInterceptTouchEvent返回true</h3><p>把ViewGroup2.java的onInterceptTouchEvent修改一下，return 返回true把事件拦截了</p>
 <pre><code>@Override
-public boolean dispatchTouchEvent(MotionEvent ev) {
+public boolean dispatchTouchEvent(MotionEvent ev) &#123;
     Log.i(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev));
     boolean superReturn = super.dispatchTouchEvent(ev);
     Log.d(TAG, &quot;dispatchTouchEvent    action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + superReturn);
     return superReturn;
-}
+&#125;
 
 @Override
-public boolean onInterceptTouchEvent(MotionEvent ev) {
+public boolean onInterceptTouchEvent(MotionEvent ev) &#123;
     Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
     Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
     return true;
-}</code></pre><p>此时的Log</p>
-<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_intercept_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_true.jpg" alt></p>
+&#125;
+</code></pre>
+<p>此时的Log</p>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_intercept_true.png"><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_true.jpg"></p>
 <p>可以看出ViewGroup2拦截了事件，就不会继续分发到ViewGroup3；而且ViewGroup3拦截了事件又不处理事件，会把事件传递到Activity的onTouchEvent方法。</p>
 <h3 id="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"><a href="#五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true" class="headerlink" title="五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true"></a>五、ViewGroup2的onInterceptTouchEvent、onTouchEvent返回true</h3><p>把ViewGroup2.java的onTouchEvent修改一下，return 返回true把事件处理了</p>
 <pre><code>@Override
-public boolean onInterceptTouchEvent(MotionEvent ev) {
+public boolean onInterceptTouchEvent(MotionEvent ev) &#123;
     Log.i(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev));
     Log.d(TAG, &quot;onInterceptTouchEvent action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
     return true;
-}
+&#125;
 
 @Override
-public boolean onTouchEvent(MotionEvent ev) {
+public boolean onTouchEvent(MotionEvent ev) &#123;
     Log.i(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev));
     Log.d(TAG, &quot;onTouchEvent          action:&quot; + StringUtils.getMotionEventName(ev) + &quot; &quot; + true);
     return true;
-}</code></pre><p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_touch_true.png" alt><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_touch_true.jpg" alt></p>
+&#125;
+</code></pre>
+<p><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_viewgroup2_touch_true.png"><br><img src="http://libill.github.io/2019/09/09/android-touch-event/touch_event_intercept_touch_true.jpg"></p>
 <p>从流程可以总结出，当ViewGroup2的onInterceptTouchEvent、onTouchEvent都返回true时，事件最终会走到ViewGroup2的onTouchEvent方法处理事件，后续的事件都会走到这里来。</p>
 <p>上面通过log分析很清楚了，是不是就这样够了？其实还不行，还要从源码的角度去分析下，为什么事件会这样分发。</p>
 <h2 id="二、通过源码分析事件分发"><a href="#二、通过源码分析事件分发" class="headerlink" title="二、通过源码分析事件分发"></a>二、通过源码分析事件分发</h2><h3 id="一、Activity的dispatchTouchEvent"><a href="#一、Activity的dispatchTouchEvent" class="headerlink" title="一、Activity的dispatchTouchEvent"></a>一、Activity的dispatchTouchEvent</h3><p>先看看Activity下的dispatchTouchEvent</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent ev) {
-    if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+<pre><code>public boolean dispatchTouchEvent(MotionEvent ev) &#123;
+    if (ev.getAction() == MotionEvent.ACTION_DOWN) &#123;
         onUserInteraction();
-    }
-    if (getWindow().superDispatchTouchEvent(ev)) {
+    &#125;
+    if (getWindow().superDispatchTouchEvent(ev)) &#123;
         return true;
-    }
+    &#125;
     return onTouchEvent(ev);
-}</code></pre><p>onUserInteraction方法</p>
-<pre><code>public void onUserInteraction() {
-}</code></pre><p>从代码可以了解</p>
+&#125;
+</code></pre>
+<p>onUserInteraction方法</p>
+<pre><code>public void onUserInteraction() &#123;
+&#125;
+</code></pre>
+<p>从代码可以了解</p>
 <ol>
 <li><p>调用Activity的onUserInteraction方法,action为down时会进去onUserInteraction方法，但是这个是空方法不做任何事情，可以忽略。</p>
 </li>
@@ -1269,9 +1299,11 @@ public boolean onTouchEvent(MotionEvent ev) {
 </li>
 </ol>
 <h3 id="二、window的superDispatchTouchEvent"><a href="#二、window的superDispatchTouchEvent" class="headerlink" title="二、window的superDispatchTouchEvent"></a>二、window的superDispatchTouchEvent</h3><p>Activity的getWindow方法</p>
-<pre><code>public Window getWindow() {
+<pre><code>public Window getWindow() &#123;
     return mWindow;
-}</code></pre><p>mWindow是如何赋值的？<br>是在Activity的attach方法赋值的，其实mWindow是PhoneWindow。</p>
+&#125;
+</code></pre>
+<p>mWindow是如何赋值的？<br>是在Activity的attach方法赋值的，其实mWindow是PhoneWindow。</p>
 <p>Activity的attach方法</p>
 <pre><code>final void attach(Context context, ActivityThread aThread,
         Instrumentation instr, IBinder token, int ident,
@@ -1279,7 +1311,7 @@ public boolean onTouchEvent(MotionEvent ev) {
         CharSequence title, Activity parent, String id,
         NonConfigurationInstances lastNonConfigurationInstances,
         Configuration config, String referrer, IVoiceInteractor voiceInteractor,
-        Window window, ActivityConfigCallback activityConfigCallback) {
+        Window window, ActivityConfigCallback activityConfigCallback) &#123;
     attachBaseContext(context);
 
     mFragments.attachHost(null /*parent*/);
@@ -1290,32 +1322,40 @@ public boolean onTouchEvent(MotionEvent ev) {
     mWindow.setOnWindowDismissedCallback(this);
     mWindow.getLayoutInflater().setPrivateFactory(this);
     ...
-}</code></pre><p>PhoneWindow的superDispatchTouchEvent方法</p>
+&#125;
+</code></pre>
+<p>PhoneWindow的superDispatchTouchEvent方法</p>
 <pre><code>private DecorView mDecor;
 
 @Override
-public boolean superDispatchTouchEvent(MotionEvent event) {
+public boolean superDispatchTouchEvent(MotionEvent event) &#123;
     return mDecor.superDispatchTouchEvent(event);
-}</code></pre><p>DevorView的superDispatchTouchEvent</p>
-<pre><code>public boolean superDispatchTouchEvent(MotionEvent event) {
+&#125;
+</code></pre>
+<p>DevorView的superDispatchTouchEvent</p>
+<pre><code>public boolean superDispatchTouchEvent(MotionEvent event) &#123;
     return super.dispatchTouchEvent(event);
-}</code></pre><p>而mDecor是一个继承FrameLayout的DecorView，就这样把事件分发到ViewGroup上了。</p>
-<h3 id="三、ViewGroup的dispatchTouchEvent"><a href="#三、ViewGroup的dispatchTouchEvent" class="headerlink" title="三、ViewGroup的dispatchTouchEvent"></a>三、ViewGroup的dispatchTouchEvent</h3><h4 id="3-1-ViewGroup拦截事件的情况"><a href="#3-1-ViewGroup拦截事件的情况" class="headerlink" title="3.1 ViewGroup拦截事件的情况"></a>3.1 ViewGroup拦截事件的情况</h4><pre><code>// Check for interception.
-final boolean intercepted;
-if (actionMasked == MotionEvent.ACTION_DOWN
-        || mFirstTouchTarget != null) {
-    final boolean disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != 0;
-    if (!disallowIntercept) {
-        intercepted = onInterceptTouchEvent(ev);
-        ev.setAction(action); // restore action in case it was changed
-    } else {
-        intercepted = false;
-    }
-} else {
-    // There are no touch targets and this action is not an initial down
-    // so this view group continues to intercept touches.
-    intercepted = true;
-}</code></pre><p>这里分为2种情况会判断是否需要拦截，也就是当某一条件成立时，会执行onInterceptTouchEvent判断是否需要拦截事件。</p>
+&#125;
+</code></pre>
+<p>而mDecor是一个继承FrameLayout的DecorView，就这样把事件分发到ViewGroup上了。</p>
+<h3 id="三、ViewGroup的dispatchTouchEvent"><a href="#三、ViewGroup的dispatchTouchEvent" class="headerlink" title="三、ViewGroup的dispatchTouchEvent"></a>三、ViewGroup的dispatchTouchEvent</h3><h4 id="3-1-ViewGroup拦截事件的情况"><a href="#3-1-ViewGroup拦截事件的情况" class="headerlink" title="3.1 ViewGroup拦截事件的情况"></a>3.1 ViewGroup拦截事件的情况</h4><pre><code>        // Check for interception.
+        final boolean intercepted;
+        if (actionMasked == MotionEvent.ACTION_DOWN
+                || mFirstTouchTarget != null) &#123;
+            final boolean disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != 0;
+            if (!disallowIntercept) &#123;
+                intercepted = onInterceptTouchEvent(ev);
+                ev.setAction(action); // restore action in case it was changed
+            &#125; else &#123;
+                intercepted = false;
+            &#125;
+        &#125; else &#123;
+            // There are no touch targets and this action is not an initial down
+            // so this view group continues to intercept touches.
+            intercepted = true;
+        &#125;
+</code></pre>
+<p>这里分为2种情况会判断是否需要拦截，也就是当某一条件成立时，会执行onInterceptTouchEvent判断是否需要拦截事件。</p>
 <ol>
 <li><p>当actionMasked == MotionEvent.ACTION_DOWN时。</p>
 </li>
@@ -1326,23 +1366,25 @@ if (actionMasked == MotionEvent.ACTION_DOWN
 </ol>
 <p>另外还有一种情况是disallowIntercept为true时，intercepted直接赋值false不进行拦截。FLAG_DISALLOW_INTERCEPT是通过requestDisallowInterceptTouchEvent方法来设置的，用于在子View中设置，设置后ViewGroup只能拦截down事件，无法拦截其他move、up、cancel事件。为什么ViewGroup还能拦截down事件呢？因为ViewGroup在down事件时进行了重置，看看以下代码</p>
 <pre><code>// Handle an initial down.
-if (actionMasked == MotionEvent.ACTION_DOWN) {
+if (actionMasked == MotionEvent.ACTION_DOWN) &#123;
     // Throw away all previous state when starting a new touch gesture.
     // The framework may have dropped the up or cancel event for the previous gesture
     // due to an app switch, ANR, or some other state change.
     cancelAndClearTouchTargets(ev);
     resetTouchState();
-}
+&#125;
 
-private void resetTouchState() {
+private void resetTouchState() &#123;
     clearTouchTargets();
     resetCancelNextUpFlag(this);
     mGroupFlags &amp;= ~FLAG_DISALLOW_INTERCEPT;
     mNestedScrollAxes = SCROLL_AXIS_NONE;
-}</code></pre><p>通过源码可以了解到，ViewGroup拦截事件后，不再调用onInterceptTouchEvent，而是直接交给mFirstTouchTarget的onTouchEvent处理,如果该onTouchEvent不处理最终会交给Activity的onTouchEvent。</p>
+&#125;
+</code></pre>
+<p>通过源码可以了解到，ViewGroup拦截事件后，不再调用onInterceptTouchEvent，而是直接交给mFirstTouchTarget的onTouchEvent处理,如果该onTouchEvent不处理最终会交给Activity的onTouchEvent。</p>
 <h4 id="3-2-ViewGroup不拦截事件的情况"><a href="#3-2-ViewGroup不拦截事件的情况" class="headerlink" title="3.2 ViewGroup不拦截事件的情况"></a>3.2 ViewGroup不拦截事件的情况</h4><p>ViewGroup不拦截事件时，会遍历子View，使事件分发到子View进行处理。</p>
 <pre><code>final View[] children = mChildren;
-for (int i = childrenCount - 1; i &gt;= 0; i--) {
+for (int i = childrenCount - 1; i &gt;= 0; i--) &#123;
     final int childIndex = getAndVerifyPreorderedIndex(
             childrenCount, i, customOrder);
     final View child = getAndVerifyPreorderedView(
@@ -1352,296 +1394,319 @@ for (int i = childrenCount - 1; i &gt;= 0; i--) {
     // to get the event first and if not handled we will perform a
     // normal dispatch. We may do a double iteration but this is
     // safer given the timeframe.
-    if (childWithAccessibilityFocus != null) {
-        if (childWithAccessibilityFocus != child) {
+    if (childWithAccessibilityFocus != null) &#123;
+        if (childWithAccessibilityFocus != child) &#123;
             continue;
-        }
+        &#125;
         childWithAccessibilityFocus = null;
         i = childrenCount - 1;
-    }
+    &#125;
 
     if (!canViewReceivePointerEvents(child)
-            || !isTransformedTouchPointInView(x, y, child, null)) {
+            || !isTransformedTouchPointInView(x, y, child, null)) &#123;
         ev.setTargetAccessibilityFocus(false);
         continue;
-    }
+    &#125;
 
     newTouchTarget = getTouchTarget(child);
-    if (newTouchTarget != null) {
+    if (newTouchTarget != null) &#123;
         // Child is already receiving touch within its bounds.
         // Give it the new pointer in addition to the ones it is handling.
         newTouchTarget.pointerIdBits |= idBitsToAssign;
         break;
-    }
+    &#125;
 
     resetCancelNextUpFlag(child);
-    if (dispatchTransformedTouchEvent(ev, false, child, idBitsToAssign)) {
+    if (dispatchTransformedTouchEvent(ev, false, child, idBitsToAssign)) &#123;
         // Child wants to receive touch within its bounds.
         mLastTouchDownTime = ev.getDownTime();
-        if (preorderedList != null) {
+        if (preorderedList != null) &#123;
             // childIndex points into presorted list, find original index
-            for (int j = 0; j &lt; childrenCount; j++) {
-                if (children[childIndex] == mChildren[j]) {
+            for (int j = 0; j &lt; childrenCount; j++) &#123;
+                if (children[childIndex] == mChildren[j]) &#123;
                     mLastTouchDownIndex = j;
                     break;
-                }
-            }
-        } else {
+                &#125;
+            &#125;
+        &#125; else &#123;
             mLastTouchDownIndex = childIndex;
-        }
+        &#125;
         mLastTouchDownX = ev.getX();
         mLastTouchDownY = ev.getY();
         newTouchTarget = addTouchTarget(child, idBitsToAssign);
         alreadyDispatchedToNewTouchTarget = true;
         break;
-    }
-}</code></pre><h5 id="3-2-1-寻找可接收事件的子View"><a href="#3-2-1-寻找可接收事件的子View" class="headerlink" title="3.2.1 寻找可接收事件的子View"></a>3.2.1 寻找可接收事件的子View</h5><p>通过canViewReceivePointerEvents判断子View是否能够接收到点击事件。必须符合2种情况，缺一不可：1、点击事件的坐标落在在子View的区域内；2、子View没有正在播放动画。满足条件后，调用dispatchTransformedTouchEvent，其实也是调用子View的dispatchTouchEvent。</p>
-<pre><code>private static boolean canViewReceivePointerEvents(@NonNull View child) {
+    &#125;
+&#125;
+</code></pre>
+<h5 id="3-2-1-寻找可接收事件的子View"><a href="#3-2-1-寻找可接收事件的子View" class="headerlink" title="3.2.1 寻找可接收事件的子View"></a>3.2.1 寻找可接收事件的子View</h5><p>通过canViewReceivePointerEvents判断子View是否能够接收到点击事件。必须符合2种情况，缺一不可：1、点击事件的坐标落在在子View的区域内；2、子View没有正在播放动画。满足条件后，调用dispatchTransformedTouchEvent，其实也是调用子View的dispatchTouchEvent。</p>
+<pre><code>private static boolean canViewReceivePointerEvents(@NonNull View child) &#123;
     return (child.mViewFlags &amp; VISIBILITY_MASK) == VISIBLE
             || child.getAnimation() != null;
-}
+&#125;
 
 protected boolean isTransformedTouchPointInView(float x, float y, View child,
-        PointF outLocalPoint) {
+        PointF outLocalPoint) &#123;
     final float[] point = getTempPoint();
     point[0] = x;
     point[1] = y;
     transformPointToViewLocal(point, child);
     final boolean isInView = child.pointInView(point[0], point[1]);
-    if (isInView &amp;&amp; outLocalPoint != null) {
+    if (isInView &amp;&amp; outLocalPoint != null) &#123;
         outLocalPoint.set(point[0], point[1]);
-    }
+    &#125;
     return isInView;
-}
+&#125;
 
 private boolean dispatchTransformedTouchEvent(MotionEvent event, boolean cancel,
-        View child, int desiredPointerIdBits) {
+        View child, int desiredPointerIdBits) &#123;
     final boolean handled;
     final int oldAction = event.getAction();
-    if (cancel || oldAction == MotionEvent.ACTION_CANCEL) {
+    if (cancel || oldAction == MotionEvent.ACTION_CANCEL) &#123;
         event.setAction(MotionEvent.ACTION_CANCEL);
-        if (child == null) {
+        if (child == null) &#123;
             handled = super.dispatchTouchEvent(event);
-        } else {
+        &#125; else &#123;
             handled = child.dispatchTouchEvent(event);
-        }
+        &#125;
         event.setAction(oldAction);
         return handled;
-    }
+    &#125;
 
     ...
 
     // Perform any necessary transformations and dispatch.
-    if (child == null) {
+    if (child == null) &#123;
         handled = super.dispatchTouchEvent(transformedEvent);
-    } else {
+    &#125; else &#123;
         final float offsetX = mScrollX - child.mLeft;
         final float offsetY = mScrollY - child.mTop;
         transformedEvent.offsetLocation(offsetX, offsetY);
-        if (! child.hasIdentityMatrix()) {
+        if (! child.hasIdentityMatrix()) &#123;
             transformedEvent.transform(child.getInverseMatrix());
-        }
+        &#125;
 
         handled = child.dispatchTouchEvent(transformedEvent);
-    }
+    &#125;
 
     // Done.
     transformedEvent.recycle();
     return handled;
-}</code></pre><p>当dispatchTransformedTouchEvent返回true时，结束for循环遍历，赋值newTouchTarget，相当于发现了可以接收事件的View，不用再继续找了。</p>
+&#125;
+</code></pre>
+<p>当dispatchTransformedTouchEvent返回true时，结束for循环遍历，赋值newTouchTarget，相当于发现了可以接收事件的View，不用再继续找了。</p>
 <pre><code>newTouchTarget = addTouchTarget(child, idBitsToAssign);
 alreadyDispatchedToNewTouchTarget = true;
-break;</code></pre><p>在addTouchTarget方法赋值mFirstTouchTarget。</p>
-<pre><code>private TouchTarget addTouchTarget(@NonNull View child, int pointerIdBits) {
+break;
+</code></pre>
+<p>在addTouchTarget方法赋值mFirstTouchTarget。</p>
+<pre><code>private TouchTarget addTouchTarget(@NonNull View child, int pointerIdBits) &#123;
     final TouchTarget target = TouchTarget.obtain(child, pointerIdBits);
     target.next = mFirstTouchTarget;
     mFirstTouchTarget = target;
     return target;
-}</code></pre><h5 id="3-2-2-ViewGroup自己处理事件"><a href="#3-2-2-ViewGroup自己处理事件" class="headerlink" title="3.2.2 ViewGroup自己处理事件"></a>3.2.2 ViewGroup自己处理事件</h5><p>另一种情况是mFirstTouchTarget为空时，ViewGroup自己处理事件，这里注意第三个参数为null，ViewGroup的super.dispatchTouchEvent将调用View的dispatchTouchEvent。</p>
-<pre><code>if (mFirstTouchTarget == null) {
+&#125;
+</code></pre>
+<h5 id="3-2-2-ViewGroup自己处理事件"><a href="#3-2-2-ViewGroup自己处理事件" class="headerlink" title="3.2.2 ViewGroup自己处理事件"></a>3.2.2 ViewGroup自己处理事件</h5><p>另一种情况是mFirstTouchTarget为空时，ViewGroup自己处理事件，这里注意第三个参数为null，ViewGroup的super.dispatchTouchEvent将调用View的dispatchTouchEvent。</p>
+<pre><code>if (mFirstTouchTarget == null) &#123;
     // No touch targets so treat this as an ordinary view.
     handled = dispatchTransformedTouchEvent(ev, canceled, null,
             TouchTarget.ALL_POINTER_IDS);
-}</code></pre><h4 id="3-3-View处理点击事件的过程"><a href="#3-3-View处理点击事件的过程" class="headerlink" title="3.3 View处理点击事件的过程"></a>3.3 View处理点击事件的过程</h4><p>View的dispatchTouchEvent是怎么处理事件的呢？</p>
-<pre><code>public boolean dispatchTouchEvent(MotionEvent event) {
+&#125;
+</code></pre>
+<h4 id="3-3-View处理点击事件的过程"><a href="#3-3-View处理点击事件的过程" class="headerlink" title="3.3 View处理点击事件的过程"></a>3.3 View处理点击事件的过程</h4><p>View的dispatchTouchEvent是怎么处理事件的呢？</p>
+<pre><code>public boolean dispatchTouchEvent(MotionEvent event) &#123;
     boolean result = false;
     ...
-    if (onFilterTouchEventForSecurity(event)) {
-        if ((mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; handleScrollBarDragging(event)) {
+    if (onFilterTouchEventForSecurity(event)) &#123;
+        if ((mViewFlags &amp; ENABLED_MASK) == ENABLED &amp;&amp; handleScrollBarDragging(event)) &#123;
             result = true;
-        }
+        &#125;
         //noinspection SimplifiableIfStatement
         ListenerInfo li = mListenerInfo;
         if (li != null &amp;&amp; li.mOnTouchListener != null
                 &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED
-                &amp;&amp; li.mOnTouchListener.onTouch(this, event)) {
+                &amp;&amp; li.mOnTouchListener.onTouch(this, event)) &#123;
             result = true;
-        }
+        &#125;
 
-        if (!result &amp;&amp; onTouchEvent(event)) {
+        if (!result &amp;&amp; onTouchEvent(event)) &#123;
             result = true;
-        }
-    }
+        &#125;
+    &#125;
     ...
     return result;
-}</code></pre><ol>
+&#125;
+</code></pre>
+<ol>
 <li><p>首先使用onFilterTouchEventForSecurity方法过滤不符合应用安全策略的触摸事件。</p>
-<pre><code>public boolean onFilterTouchEventForSecurity(MotionEvent event) {
-    //noinspection RedundantIfStatement
-    if ((mViewFlags &amp; FILTER_TOUCHES_WHEN_OBSCURED) != 0
-            &amp;&amp; (event.getFlags() &amp; MotionEvent.FLAG_WINDOW_IS_OBSCURED) != 0) {
-        // Window is obscured, drop this touch.
-        return false;
-    }
-    return true;
-}</code></pre></li>
+<pre><code> public boolean onFilterTouchEventForSecurity(MotionEvent event) &#123;
+     //noinspection RedundantIfStatement
+     if ((mViewFlags &amp; FILTER_TOUCHES_WHEN_OBSCURED) != 0
+             &amp;&amp; (event.getFlags() &amp; MotionEvent.FLAG_WINDOW_IS_OBSCURED) != 0) &#123;
+         // Window is obscured, drop this touch.
+         return false;
+     &#125;
+     return true;
+ &#125;
+</code></pre>
+</li>
 <li><p>mOnTouchListener != null判断是否设置了OnTouchEvent，设置了就执行mOnTouchListener.onTouch并返回true,不再执行onTouchEvent。这里得出OnTouchEvent的优先级高于OnTouchEvent，便于使用setOnTouchListener设置处理点击事件。</p>
 </li>
 <li><p>另一种情况是进入onTouchEvent进行处理。</p>
-<pre><code>public boolean onTouchEvent(MotionEvent event) {
-    final float x = event.getX();
-    final float y = event.getY();
-    final int viewFlags = mViewFlags;
-    final int action = event.getAction();
-
-    final boolean clickable = ((viewFlags &amp; CLICKABLE) == CLICKABLE
-            || (viewFlags &amp; LONG_CLICKABLE) == LONG_CLICKABLE)
-            || (viewFlags &amp; CONTEXT_CLICKABLE) == CONTEXT_CLICKABLE;
-
-    if ((viewFlags &amp; ENABLED_MASK) == DISABLED) {
-        if (action == MotionEvent.ACTION_UP &amp;&amp; (mPrivateFlags &amp; PFLAG_PRESSED) != 0) {
-            setPressed(false);
-        }
-        mPrivateFlags3 &amp;= ~PFLAG3_FINGER_DOWN;
-        // A disabled view that is clickable still consumes the touch
-        // events, it just doesn&apos;t respond to them.
-        return clickable;
-    }
-    ...
-}</code></pre></li>
+<pre><code> public boolean onTouchEvent(MotionEvent event) &#123;
+     final float x = event.getX();
+     final float y = event.getY();
+     final int viewFlags = mViewFlags;
+     final int action = event.getAction();
+ 
+     final boolean clickable = ((viewFlags &amp; CLICKABLE) == CLICKABLE
+             || (viewFlags &amp; LONG_CLICKABLE) == LONG_CLICKABLE)
+             || (viewFlags &amp; CONTEXT_CLICKABLE) == CONTEXT_CLICKABLE;
+ 
+     if ((viewFlags &amp; ENABLED_MASK) == DISABLED) &#123;
+         if (action == MotionEvent.ACTION_UP &amp;&amp; (mPrivateFlags &amp; PFLAG_PRESSED) != 0) &#123;
+             setPressed(false);
+         &#125;
+         mPrivateFlags3 &amp;= ~PFLAG3_FINGER_DOWN;
+         // A disabled view that is clickable still consumes the touch
+         // events, it just doesn&#39;t respond to them.
+         return clickable;
+     &#125;
+     ...
+ &#125;
+</code></pre>
+</li>
 </ol>
 <p>当View不可用时，依然会处理事件，只是看起来不可用。</p>
 <p>接着执行mTouchDelegate.onTouchEvent</p>
-<pre><code>if (mTouchDelegate != null) {
-    if (mTouchDelegate.onTouchEvent(event)) {
+<pre><code>if (mTouchDelegate != null) &#123;
+    if (mTouchDelegate.onTouchEvent(event)) &#123;
         return true;
-    }
-}</code></pre><p>下面看看up事件是怎么处理的</p>
+    &#125;
+&#125;
+</code></pre>
+<p>下面看看up事件是怎么处理的</p>
 <pre><code>/**
  * &lt;p&gt;Indicates this view can display a tooltip on hover or long press.&lt;/p&gt;
- * {@hide}
+ * &#123;@hide&#125;
  */
 static final int TOOLTIP = 0x40000000;
 
-if (clickable || (viewFlags &amp; TOOLTIP) == TOOLTIP) {
-    switch (action) {
+if (clickable || (viewFlags &amp; TOOLTIP) == TOOLTIP) &#123;
+    switch (action) &#123;
         case MotionEvent.ACTION_UP:
             mPrivateFlags3 &amp;= ~PFLAG3_FINGER_DOWN;
-            if ((viewFlags &amp; TOOLTIP) == TOOLTIP) {
+            if ((viewFlags &amp; TOOLTIP) == TOOLTIP) &#123;
                 handleTooltipUp();
-            }
-            if (!clickable) {
+            &#125;
+            if (!clickable) &#123;
                 removeTapCallback();
                 removeLongPressCallback();
                 mInContextButtonPress = false;
                 mHasPerformedLongPress = false;
                 mIgnoreNextUpEvent = false;
                 break;
-            }
+            &#125;
             boolean prepressed = (mPrivateFlags &amp; PFLAG_PREPRESSED) != 0;
-            if ((mPrivateFlags &amp; PFLAG_PRESSED) != 0 || prepressed) {
-                // take focus if we don&apos;t have it already and we should in
+            if ((mPrivateFlags &amp; PFLAG_PRESSED) != 0 || prepressed) &#123;
+                // take focus if we don&#39;t have it already and we should in
                 // touch mode.
                 boolean focusTaken = false;
-                if (isFocusable() &amp;&amp; isFocusableInTouchMode() &amp;&amp; !isFocused()) {
+                if (isFocusable() &amp;&amp; isFocusableInTouchMode() &amp;&amp; !isFocused()) &#123;
                     focusTaken = requestFocus();
-                }
+                &#125;
 
-                if (prepressed) {
+                if (prepressed) &#123;
                     // The button is being released before we actually
                     // showed it as pressed.  Make it show the pressed
                     // state now (before scheduling the click) to ensure
                     // the user sees it.
                     setPressed(true, x, y);
-                }
+                &#125;
 
-                if (!mHasPerformedLongPress &amp;&amp; !mIgnoreNextUpEvent) {
+                if (!mHasPerformedLongPress &amp;&amp; !mIgnoreNextUpEvent) &#123;
                     // This is a tap, so remove the longpress check
                     removeLongPressCallback();
 
                     // Only perform take click actions if we were in the pressed state
-                    if (!focusTaken) {
+                    if (!focusTaken) &#123;
                         // Use a Runnable and post this rather than calling
                         // performClick directly. This lets other visual state
                         // of the view update before click actions start.
-                        if (mPerformClick == null) {
+                        if (mPerformClick == null) &#123;
                             mPerformClick = new PerformClick();
-                        }
-                        if (!post(mPerformClick)) {
+                        &#125;
+                        if (!post(mPerformClick)) &#123;
                             performClickInternal();
-                        }
-                    }
-                }
+                        &#125;
+                    &#125;
+                &#125;
 
-                if (mUnsetPressedState == null) {
+                if (mUnsetPressedState == null) &#123;
                     mUnsetPressedState = new UnsetPressedState();
-                }
+                &#125;
 
-                if (prepressed) {
+                if (prepressed) &#123;
                     postDelayed(mUnsetPressedState,
                             ViewConfiguration.getPressedStateDuration());
-                } else if (!post(mUnsetPressedState)) {
+                &#125; else if (!post(mUnsetPressedState)) &#123;
                     // If the post failed, unpress right now
                     mUnsetPressedState.run();
-                }
+                &#125;
 
                 removeTapCallback();
-            }
+            &#125;
             mIgnoreNextUpEvent = false;
             break;
             ...
-    }
+    &#125;
 
     return true;
-}</code></pre><p>从上面代码可以了解，clickable、TOOLTIP（长按）有一个为true时，就会消耗事件，使onTouchEvent返回true。其中PerformClick内部调用了performClick方法。</p>
-<pre><code>public boolean performClick() {
+&#125;
+</code></pre>
+<p>从上面代码可以了解，clickable、TOOLTIP（长按）有一个为true时，就会消耗事件，使onTouchEvent返回true。其中PerformClick内部调用了performClick方法。</p>
+<pre><code>public boolean performClick() &#123;
     // We still need to call this method to handle the cases where performClick() was called
     // externally, instead of through performClickInternal()
     notifyAutofillManagerOnClick();
 
     final boolean result;
     final ListenerInfo li = mListenerInfo;
-    if (li != null &amp;&amp; li.mOnClickListener != null) {
+    if (li != null &amp;&amp; li.mOnClickListener != null) &#123;
         playSoundEffect(SoundEffectConstants.CLICK);
         li.mOnClickListener.onClick(this);
         result = true;
-    } else {
+    &#125; else &#123;
         result = false;
-    }
+    &#125;
 
     sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);
 
     notifyEnterOrExitForAutoFillIfNeeded(true);
 
     return result;
-}</code></pre><p>如果View设置了OnClickListener，那performClick会调用内部的onClick方法。</p>
-<pre><code>public void setOnClickListener(@Nullable OnClickListener l) {
-    if (!isClickable()) {
+&#125;
+</code></pre>
+<p>如果View设置了OnClickListener，那performClick会调用内部的onClick方法。</p>
+<pre><code>public void setOnClickListener(@Nullable OnClickListener l) &#123;
+    if (!isClickable()) &#123;
         setClickable(true);
-    }
+    &#125;
     getListenerInfo().mOnClickListener = l;
-}
+&#125;
 
-public void setOnLongClickListener(@Nullable OnLongClickListener l) {
-    if (!isLongClickable()) {
+public void setOnLongClickListener(@Nullable OnLongClickListener l) &#123;
+    if (!isLongClickable()) &#123;
         setLongClickable(true);
-    }
+    &#125;
     getListenerInfo().mOnLongClickListener = l;
-}</code></pre><p>通过setOnClickListener设置clickable，通过setOnLongClickListener设置LONG_CLICKABLE长按事件。设置后使得onTouchEvent返回true。到这里我们已经分析完成点击事件的分发过程了。</p>
+&#125;
+</code></pre>
+<p>通过setOnClickListener设置clickable，通过setOnLongClickListener设置LONG_CLICKABLE长按事件。设置后使得onTouchEvent返回true。到这里我们已经分析完成点击事件的分发过程了。</p>
 <p>本文参考以下内容：</p>
 <p>1、《Android开发艺术探索》</p>
 
-        
       
     </div>
 
@@ -1649,27 +1714,23 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
+      
   
   
-  
-  <div class="post-block home">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/debug-android-framework/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="libill">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1677,29 +1738,26 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/06/debug-android-framework/" class="post-title-link" itemprop="url">如何debug android framework 源代码</a>
           
+            <a href="/2019/08/06/debug-android-framework/" class="post-title-link" itemprop="url">如何debug android framework 源代码</a>
         </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              
-                
-              
-
-              <time title="Created: 2019-08-06 16:27:14 / Modified: 17:14:31" itemprop="dateCreated datePublished" datetime="2019-08-06T16:27:14+08:00">2019-08-06</time>
+              <time title="Created: 2019-08-06 16:27:14" itemprop="dateCreated datePublished" datetime="2019-08-06T16:27:14+08:00">2019-08-06</time>
             </span>
-          
-            
-
-            
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-08 15:45:02" itemprop="dateModified" datetime="2021-10-08T15:45:02+08:00">2021-10-08</time>
+              </span>
 
           
 
@@ -1714,21 +1772,20 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
       
           <p>说明：调试Android Framework的Java部分代码，以调试源码android-28为例，需要一个API 28的模拟器配合使用。</p>
 <h3 id="一、下载源码"><a href="#一、下载源码" class="headerlink" title="一、下载源码"></a>一、下载源码</h3><p>下载源码方式很多，由于调试Framework只需要java代码即可，这里使用Android Studio的SDK Manager下载，以下载android-28为例</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/download_android_28.jpg"></p>
 <p>下载完后，在sdk/sources下看到android-28源码</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/source_android_28.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/source_android_28.jpg"></p>
 <h3 id="二、新建一个项目"><a href="#二、新建一个项目" class="headerlink" title="二、新建一个项目"></a>二、新建一个项目</h3><p>包名cn.test.demo，避免com开头是因为源码有com，等下拷贝源码是避免重复</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/create_new_project.jpg" alt></p>
-<h3 id="三、拷贝源码到项目的java目录下"><a href="#三、拷贝源码到项目的java目录下" class="headerlink" title="三、拷贝源码到项目的java目录下"></a>三、拷贝源码到项目的java目录下</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/copy_sources.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/create_new_project.jpg"></p>
+<h3 id="三、拷贝源码到项目的java目录下"><a href="#三、拷贝源码到项目的java目录下" class="headerlink" title="三、拷贝源码到项目的java目录下"></a>三、拷贝源码到项目的java目录下</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/copy_sources.jpg"></p>
 <p>可以看到项目目录结构</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/project.jpg" alt></p>
-<h3 id="四、新建一个与源码对应的模拟器"><a href="#四、新建一个与源码对应的模拟器" class="headerlink" title="四、新建一个与源码对应的模拟器"></a>四、新建一个与源码对应的模拟器</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/avd_28.jpg" alt></p>
-<h3 id="五、启动模拟器，选择debug的进程"><a href="#五、启动模拟器，选择debug的进程" class="headerlink" title="五、启动模拟器，选择debug的进程"></a>五、启动模拟器，选择debug的进程</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/select_process.jpg" alt></p>
+<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/project.jpg"></p>
+<h3 id="四、新建一个与源码对应的模拟器"><a href="#四、新建一个与源码对应的模拟器" class="headerlink" title="四、新建一个与源码对应的模拟器"></a>四、新建一个与源码对应的模拟器</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/avd_28.jpg"></p>
+<h3 id="五、启动模拟器，选择debug的进程"><a href="#五、启动模拟器，选择debug的进程" class="headerlink" title="五、启动模拟器，选择debug的进程"></a>五、启动模拟器，选择debug的进程</h3><p><img src="http://libill.github.io/2019/08/06/debug-android-framework/select_process.jpg"></p>
 <h3 id="六、选择某一个源码类进行调试"><a href="#六、选择某一个源码类进行调试" class="headerlink" title="六、选择某一个源码类进行调试"></a>六、选择某一个源码类进行调试</h3><p>如选择ActivityManagerService的子类UiHandler，handleMessage方法后，在模拟器随便点击启动应用，如短信，即可调试</p>
-<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/debug_source.jpg" alt></p>
-<p>更多请参考<a href="https://time.geekbang.org/column/article/85425" target="_blank" rel="noopener">极客时间-Android开发高手课</a></p>
+<p><img src="http://libill.github.io/2019/08/06/debug-android-framework/debug_source.jpg"></p>
+<p>更多请参考<a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/85425">极客时间-Android开发高手课</a></p>
 
-        
       
     </div>
 
@@ -1736,33 +1793,50 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
     
     
       <footer class="post-footer">
-          <div class="post-eof"></div>
-        
+        <div class="post-eof"></div>
       </footer>
-  </div>
-  
-  
-  
   </article>
+  
+  
+  
 
-    
-  </div>
 
   
+
 
 
           </div>
           
 
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
   <aside class="sidebar">
@@ -1787,30 +1861,23 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
   <p class="site-author-name" itemprop="name">libill</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
+</div>
 
 
 
@@ -1824,28 +1891,35 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">libill</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.0</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
 
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
     </span>
-    <span class="site-pv" title="Total Views">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
 </div>
 
 
@@ -1855,71 +1929,43 @@ public void setOnLongClickListener(@Nullable OnLongClickListener l) {
 
 
 
-
-
-  <script>
-    var _mtac = {};
-    (function() {
-      var mta = document.createElement("script");
-      mta.src = "https://pingjs.qq.com/h5/stats.js";
-      mta.setAttribute("name", "MTAH5");
-      mta.setAttribute("sid", "500696841");
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(mta, s);
-    })();
-  </script>
-
-
-        
       </div>
     </footer>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/muse.js?v=7.4.0"></script>
-
-<script src="/js/next-boot.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js"></script>
 
 
-
-  
-  <script>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/js/next-boot.js"></script>
 
 
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
 
