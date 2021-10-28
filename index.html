@@ -180,7 +180,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-28 12:48:00 / Modified: 11:05:27" itemprop="dateCreated datePublished" datetime="2021-10-28T12:48:00+08:00">2021-10-28</time>
+              <time title="Created: 2021-10-28 12:48:00 / Modified: 12:48:29" itemprop="dateCreated datePublished" datetime="2021-10-28T12:48:00+08:00">2021-10-28</time>
             </span>
 
           
@@ -195,9 +195,6 @@
 
       
           <h2 id="Kotlin-Native-用KMM写Flutter插件"><a href="#Kotlin-Native-用KMM写Flutter插件" class="headerlink" title="Kotlin/Native 用KMM写Flutter插件"></a>Kotlin/Native 用KMM写Flutter插件</h2><h3 id="一、用KMM写Flutter插件"><a href="#一、用KMM写Flutter插件" class="headerlink" title="一、用KMM写Flutter插件"></a>一、用KMM写Flutter插件</h3><p>Google官方有一个写Flutter例子<a target="_blank" rel="noopener" href="https://codelabs.developers.google.com/codelabs/write-flutter-plugin">How to write a Flutter plugin</a>，这里把Google <a target="_blank" rel="noopener" href="https://github.com/flutter/codelabs/tree/master/plugin_codelab">plugin_codelab</a> 例子改成用KMM写Flutter插件。</p>
-<p>思路：</p>
-<p>1、Android/iOS插件PluginCodelabPlugin只需要实现KMM Module的接口，不写任何逻辑，把逻辑通过接口放在KMM Module中。</p>
-<p>2、</p>
 <h3 id="二、如何运行"><a href="#二、如何运行" class="headerlink" title="二、如何运行"></a>二、如何运行</h3><p>Android: run shared/plugin_codelab/example/android</p>
 <p>iOS: </p>
 <p>1、build shared.framework </p>
@@ -205,7 +202,8 @@
 
 <p>2、run shared/plugin_codelab/example/ios</p>
 <p>Tips: before run，shared/build/cocoapods/framework/shared.framework should be generated. The shared.h header file shared/build/cocoapods/framework/shared.framework/Headers/shared.h is generated.</p>
-<h3 id="三、设计思路"><a href="#三、设计思路" class="headerlink" title="三、设计思路"></a>三、设计思路</h3><h4 id="1、定义接口中间层用于转发数据"><a href="#1、定义接口中间层用于转发数据" class="headerlink" title="1、定义接口中间层用于转发数据"></a>1、定义接口中间层用于转发数据</h4><p>如参考Flutter插件的MethodCall、MethodChannel，定义CommonMethodCall数据类、CommonMethodChannel.Result接口。</p>
+<h3 id="三、设计思路"><a href="#三、设计思路" class="headerlink" title="三、设计思路"></a>三、设计思路</h3><p>Android/iOS插件PluginCodelabPlugin只需要实现KMM Module的接口，不写任何逻辑，把逻辑通过接口放在KMM Module中。</p>
+<h4 id="1、定义接口中间层用于转发数据"><a href="#1、定义接口中间层用于转发数据" class="headerlink" title="1、定义接口中间层用于转发数据"></a>1、定义接口中间层用于转发数据</h4><p>如参考Flutter插件的MethodCall、MethodChannel，定义CommonMethodCall数据类、CommonMethodChannel.Result接口。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">data class CommonMethodCall(</span><br><span class="line">    val method: String,</span><br><span class="line">    val arguments: Any?,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">class CommonMethodChannel &#123;</span><br><span class="line">    interface Result &#123;</span><br><span class="line">        fun success(result: Any?)</span><br><span class="line"></span><br><span class="line">        fun error(errorCode: String?, errorMessage: String?, errorDetails: Any?)</span><br><span class="line"></span><br><span class="line">        fun notImplemented()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="2、在KMM中的commonMain实现CommonCodelabPlugin插件的公共逻辑"><a href="#2、在KMM中的commonMain实现CommonCodelabPlugin插件的公共逻辑" class="headerlink" title="2、在KMM中的commonMain实现CommonCodelabPlugin插件的公共逻辑"></a>2、在KMM中的commonMain实现CommonCodelabPlugin插件的公共逻辑</h4><p>CommonCodelabPlugin需要初始化并启动synth?.start()，处理getPlatformVersion、onKeyDown、onKeyUp逻辑。</p>
